@@ -1,13 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="./src/assets/Icon removed bg.svg"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Truthify - AI Fact Checker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div class="container">
+      <header class="header">
+        <div class="logo-container">
+          <img
+            src="./src/assets/Icon removed bg.svg"
+            alt="Truthify Logo"
+            class="logo"
+          />
+          <img
+            src="./src/assets/Truthify removed bg.svg"
+            alt="Truthify Text"
+            class="logo-text"
+          />
+        </div>
+        <p class="subtitle">AI-Powered Fact Checking</p>
+      </header>
+
+      <main class="main-content">
+        <div class="input-section">
+          <div class="input-tabs">
+            <button class="tab-btn active" data-tab="youtube">
+              <i class="fab fa-youtube"></i> YouTube Link
+            </button>
+            <button class="tab-btn" data-tab="text">
+              <i class="fas fa-keyboard"></i> Text Input
+            </button>
+            <button class="tab-btn" data-tab="file">
+              <i class="fas fa-file-upload"></i> Upload File
+            </button>
+          </div>
+
+          <div class="tab-content">
+            <!-- YouTube Link Tab -->
+            <div class="tab-panel active" id="youtube-panel">
+              <div class="input-group">
+                <label for="youtube-url">Enter YouTube URL:</label>
+                <input
+                  type="url"
+                  id="youtube-url"
+                  placeholder="https://www.youtube.com/watch?v=..."
+                />
+                <button class="btn-primary" onclick="processYouTube()">
+                  <i class="fas fa-search"></i> Analyze Video
+                </button>
+              </div>
+            </div>
+
+            <!-- Text Input Tab -->
+            <div class="tab-panel" id="text-panel">
+              <div class="input-group">
+                <label for="text-input">Enter text to fact-check:</label>
+                <textarea
+                  id="text-input"
+                  rows="6"
+                  placeholder="Paste your text here..."
+                ></textarea>
+                <button class="btn-primary" onclick="processText()">
+                  <i class="fas fa-check"></i> Check Facts
+                </button>
+              </div>
+            </div>
+
+            <!-- File Upload Tab -->
+            <div class="tab-panel" id="file-panel">
+              <div class="input-group">
+                <label for="file-input">Upload a file:</label>
+                <div
+                  class="file-upload-area"
+                  onclick="document.getElementById('file-input').click()"
+                >
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <p>Click to upload or drag and drop</p>
+                  <small>Supports: PDF, DOCX, TXT files</small>
+                </div>
+                <input
+                  type="file"
+                  id="file-input"
+                  accept=".pdf,.docx,.txt"
+                  style="display: none"
+                  onchange="handleFileSelect(event)"
+                />
+                <div id="file-info" class="file-info"></div>
+                <button
+                  class="btn-primary"
+                  id="file-submit"
+                  onclick="processFile()"
+                  disabled
+                >
+                  <i class="fas fa-upload"></i> Upload & Analyze
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-section" id="results-section" style="display: none">
+          <h2>Fact-Check Results</h2>
+          <div class="loading" id="loading">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Analyzing content...</p>
+          </div>
+          <div class="results-container" id="results-container"></div>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

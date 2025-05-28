@@ -136,7 +136,7 @@ function App() {
           {/* Main Content */}
           <MainPaper elevation={3}>
             {/* Input Tabs */}
-            <Box sx={{ borderBottom: 2, borderColor: "#ecf0f1" }}>
+            <Box borderBottom={2} borderColor={"#ecf0f1"} display={"flex"}>
               <Tabs
                 value={tabValue}
                 onChange={handleTabChange}
@@ -146,6 +146,9 @@ function App() {
                     fontSize: "1rem",
                     textTransform: "none",
                     color: "#7f8c8d",
+                    minWidth: "fit-content",
+                    paddingTop: "0px",
+                    paddingBottom: "0px",
                   },
                   "& .Mui-selected": {
                     color: "#3498db !important",
@@ -156,9 +159,24 @@ function App() {
                   },
                 }}
               >
-                <Tab icon={<YouTube />} label="YouTube Link" />
-                <Tab icon={<Keyboard />} label="Text Input" />
-                <Tab icon={<CloudUpload />} label="Upload File" />
+                <Tab
+                  icon={<YouTube />}
+                  label="YouTube Link"
+                  iconPosition="start"
+                  disableRipple
+                />
+                <Tab
+                  icon={<Keyboard />}
+                  label="Text Input"
+                  iconPosition="start"
+                  disableRipple
+                />
+                <Tab
+                  icon={<CloudUpload />}
+                  label="Upload File"
+                  iconPosition="start"
+                  disableRipple
+                />
               </Tabs>
             </Box>
 

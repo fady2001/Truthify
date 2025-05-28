@@ -16,7 +16,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
   },
 });
 

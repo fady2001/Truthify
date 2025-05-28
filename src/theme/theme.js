@@ -45,12 +45,12 @@ export const LogoContainer = styled(Box)(() => ({
 }));
 
 export const LogoImage = styled("img")(() => ({
-  height: "60px",
+  height: "clamp(40px, 8vw, 60px)",
   width: "auto",
 }));
 
 export const LogoText = styled("img")(() => ({
-  height: "50px",
+  height: "clamp(35px, 7vw, 50px)",
   width: "auto",
 }));
 
@@ -64,8 +64,8 @@ export const MainPaper = styled(Paper)(() => ({
 export const StyledButton = styled(Button)(() => ({
   background: "linear-gradient(135deg, #3498db, #2980b9)",
   borderRadius: "50px",
-  padding: "15px 30px",
-  fontSize: "1rem",
+  padding: "clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px)",
+  fontSize: "clamp(0.875rem, 2vw, 1rem)",
   boxShadow: "0 5px 15px rgba(52, 152, 219, 0.3)",
   "&:hover": {
     transform: "translateY(-2px)",

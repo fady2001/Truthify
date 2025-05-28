@@ -140,7 +140,7 @@ function App() {
               <Tabs
                 value={tabValue}
                 onChange={handleTabChange}
-                variant="fullWidth"
+                variant="scrollable"
                 sx={{
                   "& .MuiTab-root": {
                     fontSize: "1rem",

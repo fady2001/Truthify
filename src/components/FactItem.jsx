@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, Typography, CardContent, Chip } from "@mui/material";
-import { CheckCircle, Cancel, Help } from "@mui/icons-material";
+import { Box, Typography, CardContent, Chip, Link } from "@mui/material";
+import { CheckCircle, Cancel, Help, OpenInNew } from "@mui/icons-material";
 import { FactItemCard } from "../theme/theme";
 
 const FactItem = ({ fact, index }) => {
@@ -32,31 +32,83 @@ const FactItem = ({ fact, index }) => {
         <Typography variant="body1" sx={{ mb: 2, color: "#555" }}>
           {fact.explanation || "No explanation provided."}
         </Typography>
-        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 1,
+            alignItems: "center",
+          }}
+        >
           <Chip
             label={`Confidence: ${fact.confidence || "N/A"}%`}
             size="small"
             variant="outlined"
           />
           {fact.sources && fact.sources.length > 0 && (
-            <Chip
-              label={`Sources: ${fact.sources.join(", ")}`}
-              size="small"
-              variant="outlined"
-            />
+            <>
+              <Typography
+                variant="body2"
+                sx={{ color: "#7f8c8d", fontWeight: 600 }}
+              >
+                Sources:
+              </Typography>
+              {fact.sources.map((source, sourceIndex) => (
+                <Link
+                  key={sourceIndex}
+                  href={source.url || source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    textDecoration: "none",
+                    "&:hover": {
+                      textDecoration: "underline",
+                    },
+                  }}
+                >
+                  <Chip
+                    label={source.title || source}
+                    size="small"
+                    variant="outlined"
+                    clickable
+                    icon={<OpenInNew sx={{ fontSize: "0.8rem" }} />}
+                    sx={{
+                      color: "#3498db",
+                      borderColor: "#3498db",
+                      cursor: "pointer",
+                      "&:hover": {
+                        backgroundColor: "rgba(52, 152, 219, 0.1)",
+                        transform: "translateY(-1px)",
+                        boxShadow: "0 2px 8px rgba(52, 152, 219, 0.2)",
+                      },
+                      transition: "all 0.2s ease",
+                    }}
+                  />
+                </Link>
+              ))}
+            </>
           )}
         </Box>
       </CardContent>
     </FactItemCard>
   );
 };
+
 FactItem.propTypes = {
   fact: PropTypes.shape({
     status: PropTypes.string,
     claim: PropTypes.string,
     explanation: PropTypes.string,
     confidence: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    sources: PropTypes.arrayOf(PropTypes.string),
+    sources: PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          url: PropTypes.string.isRequired,
+        }),
+      ])
+    ),
   }),
   index: PropTypes.number.isRequired,
 };

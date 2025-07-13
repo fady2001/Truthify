@@ -10,6 +10,7 @@ import YouTubeTab from "./components/YouTubeTab";
 import TextTab from "./components/TextTab";
 import FileTab from "./components/FileTab";
 import ResultsSection from "./components/ResultsSection";
+import VideoPlayer from "./components/VideoPlayer";
 
 // Import theme and styled components
 import { theme, StyledContainer, MainPaper } from "./theme/theme";
@@ -22,9 +23,14 @@ function App() {
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [showVideoPlayer, setShowVideoPlayer] = useState(false);
+  const [videoId, setVideoId] = useState("");
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
+    // Reset video player when switching tabs
+    setShowVideoPlayer(false);
+    setVideoId("");
   };
 
   const handleFileSelect = (event) => {
@@ -35,6 +41,14 @@ function App() {
   const isValidYouTubeUrl = (url) => {
     const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+/;
     return youtubeRegex.test(url);
+  };
+
+  // Extract video ID from YouTube URL
+  const extractVideoId = (url) => {
+    const regex =
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
   };
 
   const processYouTube = async () => {
@@ -48,74 +62,79 @@ function App() {
       return;
     }
 
+    const extractedVideoId = extractVideoId(youtubeUrl);
+    if (!extractedVideoId) {
+      alert("Could not extract video ID from URL");
+      return;
+    }
+
+    setVideoId(extractedVideoId);
+    setShowVideoPlayer(true);
     setShowResults(true);
     setLoading(true);
 
     // Simulate API delay
     setTimeout(() => {
-      // Dummy data for YouTube analysis
+      // Dummy data for YouTube analysis with timestamps
       const dummyResult = {
         facts: [
           {
+            timestamp: 30, // 0:30
+            duration: 8,
             claim: "Climate change is caused by human activities",
             status: "verified",
             explanation:
-              "This claim is supported by overwhelming scientific evidence. The Intergovernmental Panel on Climate Change (IPCC) and numerous peer-reviewed studies confirm that human activities, particularly greenhouse gas emissions, are the primary driver of recent climate change.",
+              "This claim is supported by overwhelming scientific evidence. The IPCC and numerous peer-reviewed studies confirm that human activities are the primary driver of recent climate change.",
             confidence: 95,
             sources: [
               {
                 title: "IPCC Sixth Assessment Report",
                 url: "https://www.ipcc.ch/report/ar6/wg1/",
               },
-              {
-                title: "NASA Climate Change Evidence",
-                url: "https://climate.nasa.gov/evidence/",
-              },
-              {
-                title: "Scientific American Climate Change",
-                url: "https://www.scientificamerican.com/climate-change/",
-              },
             ],
           },
           {
-            claim: "Vaccines contain microchips for tracking",
+            timestamp: 120, // 2:00
+            duration: 10,
+            claim: "Electric vehicles produce zero emissions",
             status: "false",
             explanation:
-              "This claim is completely false and has been thoroughly debunked. Vaccines do not contain microchips or any tracking devices. This misinformation has been fact-checked by multiple health organizations.",
-            confidence: 99,
+              "While EVs produce no direct emissions, they may have indirect emissions from electricity generation and battery manufacturing. However, they are still significantly cleaner overall.",
+            confidence: 82,
             sources: [
               {
-                title: "WHO Fact Check: Microchips in Vaccines",
-                url: "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters",
-              },
-              {
-                title: "CDC Vaccine Facts",
-                url: "https://www.cdc.gov/coronavirus/2019-ncov/vaccines/facts.html",
-              },
-              {
-                title: "Reuters Fact Check: Vaccine Microchips",
-                url: "https://www.reuters.com/article/uk-factcheck-coronavirus-vaccine-idUSKBN28K2T6",
+                title: "EPA Electric Vehicle Analysis",
+                url: "https://www.epa.gov/greenvehicles/electric-vehicle-myths",
               },
             ],
           },
           {
-            claim: "Renewable energy is becoming more cost-effective",
+            timestamp: 200, // 3:20
+            duration: 12,
+            claim: "Renewable energy costs are decreasing rapidly",
             status: "verified",
             explanation:
-              "Multiple studies show that renewable energy costs have decreased significantly over the past decade. Solar and wind energy are now among the cheapest sources of electricity in many regions.",
-            confidence: 88,
+              "Multiple studies show that renewable energy costs have decreased significantly over the past decade. Solar and wind are now among the cheapest electricity sources.",
+            confidence: 91,
             sources: [
               {
-                title: "IRENA Global Energy Transformation Report",
+                title: "IRENA Global Energy Report",
                 url: "https://www.irena.org/publications/2023/Jun/Global-Energy-Transformation",
               },
+            ],
+          },
+          {
+            timestamp: 300, // 5:00
+            duration: 15,
+            claim: "AI will replace all human jobs",
+            status: "unknown",
+            explanation:
+              "While AI is advancing rapidly, the extent to which it will replace human jobs is debated. Many experts suggest AI will transform rather than completely replace most jobs.",
+            confidence: 45,
+            sources: [
               {
-                title: "Bloomberg New Energy Finance Report",
-                url: "https://about.bnef.com/new-energy-outlook/",
-              },
-              {
-                title: "IEA Renewables Market Report",
-                url: "https://www.iea.org/reports/renewables-2023",
+                title: "MIT Technology Review: AI and Jobs",
+                url: "https://www.technologyreview.com/topic/artificial-intelligence/",
               },
             ],
           },
@@ -377,6 +396,22 @@ function App() {
                 setYoutubeUrl={setYoutubeUrl}
                 onAnalyze={processYouTube}
               />
+
+              {/* Video Player with timestamp-based facts */}
+              {showVideoPlayer && videoId && (
+                <Box sx={{ mt: 4 }}>
+                  <VideoPlayer
+                    videoId={videoId}
+                    facts={results?.facts || []}
+                    onReady={(event) => {
+                      console.log("YouTube player ready:", event);
+                    }}
+                    onStateChange={(event) => {
+                      console.log("YouTube player state changed:", event);
+                    }}
+                  />
+                </Box>
+              )}
             </TabPanel>
 
             <TabPanel value={tabValue} index={1}>
@@ -395,12 +430,14 @@ function App() {
               />
             </TabPanel>
 
-            {/* Results Section */}
-            <ResultsSection
-              showResults={showResults}
-              loading={loading}
-              results={results}
-            />
+            {/* Results Section - Only show for non-YouTube tabs or when no video player */}
+            {(tabValue !== 0 || !showVideoPlayer) && (
+              <ResultsSection
+                showResults={showResults}
+                loading={loading}
+                results={results}
+              />
+            )}
           </MainPaper>
         </StyledContainer>
       </Box>

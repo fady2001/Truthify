@@ -1,9 +1,8 @@
 import React from "react";
-import { Box, Typography, TextField } from "@mui/material";
-import { Search } from "@mui/icons-material";
-import { StyledButton } from "../theme/theme";
-
 import PropTypes from "prop-types";
+import { Box, Typography, TextField } from "@mui/material";
+import { PlayArrow } from "@mui/icons-material";
+import { StyledButton } from "../theme/theme";
 
 const YouTubeTab = ({ youtubeUrl, setYoutubeUrl, onAnalyze }) => {
   return (
@@ -26,8 +25,9 @@ const YouTubeTab = ({ youtubeUrl, setYoutubeUrl, onAnalyze }) => {
       />
       <StyledButton
         variant="contained"
-        startIcon={<Search />}
+        startIcon={<PlayArrow />}
         onClick={onAnalyze}
+        disabled={!youtubeUrl}
         sx={{ alignSelf: "flex-start" }}
       >
         Analyze Video
@@ -35,11 +35,11 @@ const YouTubeTab = ({ youtubeUrl, setYoutubeUrl, onAnalyze }) => {
     </Box>
   );
 };
-  
 
 YouTubeTab.propTypes = {
   youtubeUrl: PropTypes.string.isRequired,
   setYoutubeUrl: PropTypes.func.isRequired,
   onAnalyze: PropTypes.func.isRequired,
 };
+
 export default YouTubeTab;

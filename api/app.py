@@ -34,5 +34,11 @@ def get_subtitles():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/', methods=['GET'])
+def homepage():
+    return jsonify({
+        "homepage":"Truthify"
+    })
+    
 if __name__ == '__main__':
     app.run(debug=True)

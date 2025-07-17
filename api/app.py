@@ -1,87 +1,74 @@
+import os
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api._errors import (
     TranscriptsDisabled,
     NoTranscriptFound,
     VideoUnavailable,
 )
-from http.server import BaseHTTPRequestHandler
-import json
-from urllib.parse import parse_qs, urlparse
+
+app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 
-class handler(BaseHTTPRequestHandler):
-    def do_OPTIONS(self):
-        # Handle CORS preflight requests
-        self.send_response(200)
-        self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization")
-        self.end_headers()
+@app.route("/subtitles", methods=["GET"])
+def get_subtitles():
+    try:
+        video_id = request.args.get("videoId")
+        lang = request.args.get("lang", "en")
 
-    def do_GET(self):
-        try:
-            # Parse query parameters from the URL
-            parsed_url = urlparse(self.path)
-            query_params = {
-                k: v[0] if v else "" for k, v in parse_qs(parsed_url.query).items()
-            }
+        if not video_id:
+            return jsonify({"error": "Missing videoId parameter"}), 400
 
-            video_id = query_params.get("videoId")
-            lang = query_params.get("lang", "en")  # Default to Arabic
+        # Try to fetch transcript with preferred language(s)
+        transcript = YouTubeTranscriptApi.get_transcript(
+            video_id, languages=[lang, "ar", "en"]
+        )
 
-            if not video_id:
-                self.send_error_response(400, {"error": "Missing videoId parameter"})
-                return
-
-            # Try to fetch transcript with preferred language(s)
-            transcript = YouTubeTranscriptApi.get_transcript(
-                video_id, languages=[lang, "ar", "en"]
-            )
-
-            response_data = {
+        return jsonify(
+            {
                 "videoId": video_id,
                 "language": lang,
                 "count": len(transcript),
                 "subtitles": transcript,
             }
+        ), 200
 
-            self.send_success_response(response_data)
+    except TranscriptsDisabled:
+        return jsonify({"error": "Subtitles are disabled for this video"}), 403
 
-        except TranscriptsDisabled:
-            self.send_error_response(
-                403, {"error": "Subtitles are disabled for this video"}
-            )
+    except NoTranscriptFound:
+        return jsonify({"error": f"No subtitles found for language {lang}"}), 404
 
-        except NoTranscriptFound:
-            self.send_error_response(
-                404, {"error": f"No subtitles found for language {lang}"}
-            )
+    except VideoUnavailable:
+        return jsonify({"error": "Video is unavailable"}), 404
 
-        except VideoUnavailable:
-            self.send_error_response(404, {"error": "Video is unavailable"})
+    except Exception as e:
+        return jsonify({"error": f"Server error: {str(e)}"}), 500
 
-        except Exception as e:
-            self.send_error_response(500, {"error": str(e)})
 
-    def send_success_response(self, data):
-        self.send_response(200)
-        self.send_header("Content-Type", "application/json")
-        self.send_header("Access-Control-Allow-Origin", "*")
-        self.end_headers()
-        self.wfile.write(json.dumps(data).encode())
+@app.route("/", methods=["GET"])
+def homepage():
+    return jsonify({"status": "success", "message": "Truthify API is running"}), 200
 
-    def send_error_response(self, status_code, error_data):
-        self.send_response(status_code)
-        self.send_header("Content-Type", "application/json")
-        self.send_header("Access-Control-Allow-Origin", "*")
-        self.end_headers()
-        self.wfile.write(json.dumps(error_data).encode())
 
-# create a main function to run the server
-def main():
-    from http.server import HTTPServer
+@app.route("/health", methods=["GET"])
+def health_check():
+    return jsonify({"status": "healthy", "message": "API is running"}), 200
 
-    server_address = ("", 8000)  # Change port as needed
-    httpd = HTTPServer(server_address, handler)
-    print("Starting server on port 8000...")
-    httpd.serve_forever()
+
+# Error handlers for better debugging
+@app.errorhandler(404)
+def not_found(error):
+    return jsonify({"error": "Endpoint not found"}), 404
+
+
+@app.errorhandler(500)
+def internal_error(error):
+    return jsonify({"error": "Internal server error"}), 500
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)

@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from youtube_transcript_api import YouTubeTranscriptApi
@@ -13,12 +14,13 @@ CORS(app)  # Enable CORS for all routes
 
 @app.route("/subtitles", methods=["GET"])
 def get_subtitles():
-    video_id = request.args.get("videoId")
-    lang = request.args.get("lang", "en")
-    if not video_id:
-        return jsonify({"error": "Missing videoId parameter"}), 400
-
     try:
+        video_id = request.args.get("videoId")
+        lang = request.args.get("lang", "en")
+
+        if not video_id:
+            return jsonify({"error": "Missing videoId parameter"}), 400
+
         # Try to fetch transcript with preferred language(s)
         transcript = YouTubeTranscriptApi.get_transcript(
             video_id, languages=[lang, "ar", "en"]
@@ -31,7 +33,7 @@ def get_subtitles():
                 "count": len(transcript),
                 "subtitles": transcript,
             }
-        )
+        ), 200
 
     except TranscriptsDisabled:
         return jsonify({"error": "Subtitles are disabled for this video"}), 403
@@ -43,19 +45,30 @@ def get_subtitles():
         return jsonify({"error": "Video is unavailable"}), 404
 
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": f"Server error: {str(e)}"}), 500
 
 
 @app.route("/", methods=["GET"])
 def homepage():
-    return jsonify({"homepage": "Truthify"})
+    return jsonify({"status": "success", "message": "Truthify API is running"}), 200
 
 
-# Health check endpoint for deployment
 @app.route("/health", methods=["GET"])
 def health_check():
     return jsonify({"status": "healthy", "message": "API is running"}), 200
 
 
+# Error handlers for better debugging
+@app.errorhandler(404)
+def not_found(error):
+    return jsonify({"error": "Endpoint not found"}), 404
+
+
+@app.errorhandler(500)
+def internal_error(error):
+    return jsonify({"error": "Internal server error"}), 500
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)

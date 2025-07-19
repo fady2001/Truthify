@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
@@ -30,3 +30,34 @@ class SelectedContent(BaseModel):
     original_context_item: ContextualSentence = Field(
         description="Reference to the original contextual sentence"
     )
+
+class DisambiguationOutput(BaseModel):
+    """Response schema for disambiguation LLM calls."""
+
+    disambiguated_sentence: Optional[str] = Field(
+        default=None, description="The sentence with ambiguities resolved"
+    )
+    cannot_be_disambiguated: bool = Field(
+        description="Flag indicating if the sentence cannot be disambiguated",
+    )
+    
+class DisambiguatedContent(BaseModel):
+    """Content with pronoun references and ambiguities resolved."""
+
+    disambiguated_sentence: str = Field(
+        description="Sentence with ambiguities resolved"
+    )
+    original_selected_item: SelectedContent = Field(
+        description="Reference to the original selected content"
+    )
+    
+class DecompositionOutput(BaseModel):
+    """Response schema for decomposition LLM calls."""
+
+    claims: List[str] = Field(
+        default_factory=list, description="List of extracted factual claims"
+    )
+    no_claims: bool = Field(
+        description="Flag indicating if no verifiable claims were found"
+    )
+    

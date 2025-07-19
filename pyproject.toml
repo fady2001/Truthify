@@ -17,10 +17,12 @@ classifiers = [
 ]
 dependencies = [
     "langchain>=0.3.26",
+    "langchain-google-genai>=2.0.10",
     "langgraph>=0.5.3",
     "loguru",
     "mkdocs",
     "nltk>=3.9.1",
+    "ollama>=0.5.1",
     "pip",
     "pydantic>=2.11.7",
     "python-dotenv",

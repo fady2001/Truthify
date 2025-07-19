@@ -1,3 +1,5 @@
+from typing import List
+
 from loguru import logger
 import nltk
 
@@ -15,7 +17,7 @@ def sentence_splitter(
     answer_text: str,
     p_sentences: int = 5,
     f_sentences: int = 5,
-):
+)-> List[ContextualSentence]:
     """
     Splits the answer text into sentences and returns a list of ContextualSentence objects.
 

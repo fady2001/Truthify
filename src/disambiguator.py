@@ -1,12 +1,12 @@
 import asyncio
-from typing import Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.language_models.chat_models import BaseChatModel
 from loguru import logger
 
 from prompts import DISAMBIGUATION_SYSTEM_PROMPT, HUMAN_PROMPT
-from schemas import DisambiguatedContent, DisambiguationOutput, SelectedContent
+from schemas import DisambiguatedContent, DisambiguationOutput, SelectedContent, State
 from utils import get_llm, voting
 
 
@@ -75,29 +75,17 @@ def create_disambiguated_content(
     )
 
 
-async def main():
+async def disambiguator_node(state: State) -> Dict[str, List[DisambiguatedContent]]:
+    """Node function to disambiguate selected content."""
+    # Get the selected contents from the state
+    selected_contents = state.selected_contents
+
+    # Get LLM instance
     llm_instance = get_llm(1)
 
-    sample_text = "Alice and Bob went to the park. She loves to play there. They had a great time."
-
-    from selector import create_selected_content, single_selection_attempt
-    from splitter import sentence_splitter
-
-    contextual_sentences = sentence_splitter(sample_text)
-
-    # Properly run the async voting function
-    selected_items = await voting(
-        items=contextual_sentences,
-        single_attempt_function=single_selection_attempt,
-        llm_instance=llm_instance,
-        num_completions=3,
-        min_successes=2,
-        result_factory=create_selected_content,
-        description="Selecting sentences from a text that are verifiable claims.",
-    )
-
+    # Run the disambiguation process using voting
     disambiguated_results = await voting(
-        items=selected_items,
+        items=selected_contents,
         single_attempt_function=single_disambiguation_attempt,
         llm_instance=llm_instance,
         num_completions=1,
@@ -106,9 +94,4 @@ async def main():
         description="Disambiguating selected sentences.",
     )
 
-    for disambiguated_item in disambiguated_results:
-        print(disambiguated_item)
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
+    return {"disambiguated_contents": disambiguated_results}

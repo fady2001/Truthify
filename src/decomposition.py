@@ -1,10 +1,10 @@
-from typing import List
+from typing import Dict, List
 
 from langchain.prompts import ChatPromptTemplate
 from loguru import logger
 
 from prompts import DECOMPOSITION_SYSTEM_PROMPT, HUMAN_PROMPT
-from schemas import DecompositionOutput, DisambiguatedContent, PotentialClaim
+from schemas import DecompositionOutput, DisambiguatedContent, PotentialClaim, State
 from utils import get_llm
 
 
@@ -75,3 +75,17 @@ async def decomposition_stage(disambiguated_item: DisambiguatedContent) -> List[
         f"Extracted {len(potential_claims)} potential claims from: '{sentence_to_decompose}'"
     )
     return potential_claims
+
+
+async def decomposition_node(state: State) -> Dict[str, List[PotentialClaim]]:
+    """Node function to decompose disambiguated content into potential claims."""
+    # Get the disambiguated contents from the state
+    disambiguated_contents = state.disambiguated_contents
+
+    # Process each disambiguated content to extract claims
+    all_potential_claims = []
+    for disambiguated_item in disambiguated_contents:
+        claims = await decomposition_stage(disambiguated_item)
+        all_potential_claims.extend(claims)
+
+    return {"potential_claims": all_potential_claims}

@@ -1,4 +1,5 @@
-from typing import List, Optional
+from operator import add
+from typing import Annotated, List, Optional
 
 from pydantic import BaseModel, Field
 
@@ -73,4 +74,20 @@ class PotentialClaim(BaseModel):
     )
     original_index: int = Field(
         description="Index of the original sentence in the answer text"
+    )
+    
+class State(BaseModel):
+    """The workflow graph state object."""
+    answer_text: str = Field(description="The answer text being analyzed")
+    contextual_sentences: List[ContextualSentence] = Field(
+        default_factory=list, description="Sentences with their surrounding context"
+    )
+    selected_contents: Annotated[List[SelectedContent], add] = Field(
+        default_factory=list, description="Contents selected as potentially verifiable"
+    )
+    disambiguated_contents: Annotated[List[DisambiguatedContent], add] = Field(
+        default_factory=list, description="Contents with ambiguities resolved"
+    )
+    potential_claims: Annotated[List[PotentialClaim], add] = Field(
+        default_factory=list, description="Potential claims extracted from content"
     )

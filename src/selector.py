@@ -1,11 +1,11 @@
 import asyncio
-from typing import Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.language_models.chat_models import BaseChatModel
 
 from prompts import HUMAN_PROMPT, SELECTION_SYSTEM_PROMPT
-from schemas import ContextualSentence, SelectedContent, SelectionOutput
+from schemas import ContextualSentence, SelectedContent, SelectionOutput, State
 from utils import get_llm, voting
 
 
@@ -52,6 +52,28 @@ def create_selected_content(
     )
 
 
+async def selector_node(state: State) -> Dict[str, List[SelectedContent]]:
+    """Node function to select verifiable sentences from contextual sentences."""
+    # Get the contextual sentences from the state
+    contextual_sentences = state.contextual_sentences
+
+    # Get LLM instance
+    llm_instance = get_llm(1)
+
+    # Run the selection process using voting
+    selected_results = await voting(
+        items=contextual_sentences,
+        single_attempt_function=single_selection_attempt,
+        llm_instance=llm_instance,
+        num_completions=3,
+        min_successes=2,
+        result_factory=create_selected_content,
+        description="Selecting sentences from a text that are verifiable claims.",
+    )
+
+    return {"selected_contents": selected_results}
+
+
 async def main():
     llm_instance = get_llm(1)
 
@@ -63,7 +85,7 @@ async def main():
 
     from splitter import sentence_splitter
 
-    contextual_sentences = sentence_splitter(sample_text)
+    contextual_sentences = await sentence_splitter(sample_text)
     # Properly run the async voting function
     selected_results = await voting(
         items=contextual_sentences,

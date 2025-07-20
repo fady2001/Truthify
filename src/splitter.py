@@ -1,9 +1,9 @@
-from typing import List
+from typing import Dict, List
 
 from loguru import logger
 import nltk
 
-from schemas import ContextualSentence
+from schemas import ContextualSentence, State
 
 
 def get_tokenizer():
@@ -14,7 +14,7 @@ def get_tokenizer():
         logger.info("Downloading NLTK punkt tokenizer data.")
 
 
-def sentence_splitter(
+async def sentence_splitter(
     answer_text: str,
     preceding_sentences: int = 5,
     following_sentences: int = 5,
@@ -85,34 +85,15 @@ def sentence_splitter(
     return contextual_sentences
 
 
-if __name__ == "__main__":
-    # run a simple test to ensure it works
-    sample_text = """
-    Hello world! This is a test. Let's see if the tokenizer works.
-    
-    It should split this text into sentences correctly.
-    
-    And handle multiple sentences in a paragraph.
-    
-    Also, it should ignore empty lines and whitespace.
-    
-    Finally, it should be able to handle short sentences.
-    
-    This is a short one.
-    
-    Times'up.
-    
-    This is a longer sentence that should not be merged with the previous short one.
-    
-    This is the last sentence in the text.
-    
-    """
-    contextual_sentences = sentence_splitter(
-        sample_text, preceding_sentences=2, following_sentences=2
+async def sentence_splitter_node(state: State) -> Dict[str, List[ContextualSentence]]:
+    """Node function to split text into sentences with context."""
+    # Get the answer text from the state
+    answer_text = state.answer_text
+    # Split the text into sentences
+    contextual_sentences = await sentence_splitter(
+        answer_text,
+        preceding_sentences=2,
+        following_sentences=2,
     )
-    for idx, contextual_sentence in enumerate(contextual_sentences):
-        print(f"\n🔸 Sentence {idx + 1}:")
-        print(f"Original: {contextual_sentence.sentence}")
-        print(f"Index: {contextual_sentence.index}")
-        print(f"Context preview: {contextual_sentence.context}")
-        print("-" * 40)
+
+    return {"contextual_sentences": contextual_sentences}

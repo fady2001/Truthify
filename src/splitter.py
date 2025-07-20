@@ -92,8 +92,8 @@ async def sentence_splitter_node(state: State) -> Dict[str, List[ContextualSente
     # Split the text into sentences
     contextual_sentences = await sentence_splitter(
         answer_text,
-        preceding_sentences=2,
-        following_sentences=2,
+        preceding_sentences=5,
+        following_sentences=5,
     )
 
     return {"contextual_sentences": contextual_sentences}

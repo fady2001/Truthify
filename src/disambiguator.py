@@ -6,7 +6,7 @@ from loguru import logger
 
 from prompts import DISAMBIGUATION_SYSTEM_PROMPT, HUMAN_PROMPT
 from schemas import DisambiguatedContent, DisambiguationOutput, SelectedContent, State
-from utils import get_llm, voting
+from utils import get_llm, get_ollama, voting
 
 
 async def single_disambiguation_attempt(
@@ -80,7 +80,8 @@ async def disambiguator_node(state: State) -> Dict[str, List[DisambiguatedConten
     selected_contents = state.selected_contents
 
     # Get LLM instance
-    llm_instance = get_llm(1)
+    # llm_instance = get_llm(1)
+    llm_instance = get_ollama(1)
 
     # Run the disambiguation process using voting
     disambiguated_results = await voting(

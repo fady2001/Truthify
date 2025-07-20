@@ -3,6 +3,7 @@ import os
 from typing import Any, Callable, List, Optional, Tuple, TypeVar
 
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_ollama import ChatOllama
 from loguru import logger
 
 
@@ -19,6 +20,16 @@ def get_llm(num_completions: int = 1):
     )
     return llm_instance
 
+def get_ollama(num_completions: int = 1):
+    temperature = 0
+    if num_completions > 1:
+        temperature = 0.2
+    llm_instance = ChatOllama(
+        model="gemma3:1b",  # or llama3, mistral, etc.
+        base_url="http://localhost:11434",  # optional if default
+        temperature=temperature,
+    )
+    return llm_instance
 
 T = TypeVar("T")
 R = TypeVar("R")
@@ -65,14 +76,13 @@ async def voting(
                 # Add delay between requests (except for the last one)
                 if i < num_completions - 1:
                     await asyncio.sleep(request_delay)
-                    
             except Exception as e:
                 logger.warning(f"Request failed for {description}: {e}")
                 attempts.append((False, None))
                 
                 # If we hit a rate limit, wait longer
                 if "429" in str(e) or "quota" in str(e).lower():
-                    logger.info(f"Rate limit hit, waiting 60 seconds...")
+                    logger.info("Rate limit hit, waiting 60 seconds...")
                     await asyncio.sleep(60)
 
         # Count successes

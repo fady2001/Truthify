@@ -5,7 +5,7 @@ from loguru import logger
 
 from prompts import DECOMPOSITION_SYSTEM_PROMPT, HUMAN_PROMPT
 from schemas import DecompositionOutput, DisambiguatedContent, PotentialClaim, State
-from utils import get_llm
+from utils import get_llm, get_ollama
 
 
 async def decomposition_stage(disambiguated_item: DisambiguatedContent) -> List[PotentialClaim]:
@@ -21,7 +21,8 @@ async def decomposition_stage(disambiguated_item: DisambiguatedContent) -> List[
     logger.debug(f"Processing decomposition for: '{sentence_to_decompose}'")
 
     # Get zero-temp LLM for consistent results
-    llm_instance = get_llm(0)
+    # llm_instance = get_llm(0)
+    llm_instance = get_ollama(0)
 
     # Get context without following sentences
     original_context = disambiguated_item.original_selected_item.original_context_item.context

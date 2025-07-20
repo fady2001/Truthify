@@ -186,13 +186,7 @@ async def run_truthify_pipeline(answer_text: str) -> List[PotentialClaim]:
 async def main():
     """Example usage of the LangGraph Truthify pipeline."""
     sample_text = """
-    Artificial intelligence is transforming healthcare in remarkable ways. Machine learning algorithms can now diagnose certain types of cancer with over 95% accuracy, which is better than many human doctors.
-    
-    Google's DeepMind developed AlphaFold, a revolutionary AI system that solved the decades-old protein folding problem. This breakthrough could accelerate drug discovery by up to 10 years according to experts.
-    
-    However, the implementation of AI in healthcare raises significant privacy concerns. Patient data must be carefully protected while still enabling these important medical breakthroughs.
-    
-    The FDA has approved more than 100 AI-based medical devices since 2020. These innovative tools are helping doctors make faster and more accurate diagnoses across various medical specialties.
+    the radius of the Earth is approximately 6,371 kilometers. This value can vary slightly depending on where you measure it due to the Earth's equatorial bulge.
     """
 
     logger.info("Running LangGraph Truthify Pipeline Demo")

@@ -17,55 +17,61 @@ async def decomposition_stage(disambiguated_item: DisambiguatedContent) -> List[
     Returns:
         List of potential claims
     """
-    sentence = disambiguated_item.disambiguated_sentence
-    logger.debug(f"Processing decomposition for: '{sentence}'")
+    sentence_to_decompose = disambiguated_item.disambiguated_sentence
+    logger.debug(f"Processing decomposition for: '{sentence_to_decompose}'")
 
     # Get zero-temp LLM for consistent results
-    llm = get_llm(0)
+    llm_instance = get_llm(0)
 
     # Get context without following sentences
-    original_context = (
-        disambiguated_item.original_selected_item.original_context_item.context
-    )
-    message = ChatPromptTemplate(
+    original_context = disambiguated_item.original_selected_item.original_context_item.context
+    prompt_template = ChatPromptTemplate(
         [
             ("system", DECOMPOSITION_SYSTEM_PROMPT),
             ("human", HUMAN_PROMPT),
         ]
     )
-    prompt_messages = message.invoke(
+    prompt_messages = prompt_template.invoke(
         {
             "excerpt": original_context,
-            "sentence": sentence,
+            "sentence": sentence_to_decompose,
         }
     )
-    response = llm.with_structured_output(DecompositionOutput).invoke(prompt_messages)
+    decomposition_response = llm_instance.with_structured_output(DecompositionOutput).invoke(
+        prompt_messages
+    )
 
     # If no claims were found
-    if not response or response.no_claims or not response.claims:
-        logger.info(f"No claims found in: '{sentence}'")
+    if (
+        not decomposition_response
+        or decomposition_response.no_claims
+        or not decomposition_response.claims
+    ):
+        logger.info(f"No claims found in: '{sentence_to_decompose}'")
         return []
 
-    logger.debug(f"Decomposition response: {response}")
+    logger.debug(f"Decomposition response: {decomposition_response}")
 
     # Clean up claims and convert to objects
-    claims_texts = [claim.strip() for claim in response.claims if claim.strip()]
+    extracted_claim_texts = [
+        claim.strip() for claim in decomposition_response.claims if claim.strip()
+    ]
 
     # Get original sentence and index
-    original_sentence = disambiguated_item.original_selected_item.original_context_item.original_sentence
-    original_index = disambiguated_item.original_selected_item.original_context_item.original_index
+    original_sentence = disambiguated_item.original_selected_item.original_context_item.sentence
+    original_sentence_index = disambiguated_item.original_selected_item.original_context_item.index
 
     potential_claims = [
         PotentialClaim(
-            claim_text=claim_text, 
-            disambiguated_sentence=sentence,
+            claim_text=claim_text,
+            disambiguated_sentence=sentence_to_decompose,
             original_sentence=original_sentence,
-            original_index=original_index
+            original_index=original_sentence_index,
         )
-        for claim_text in claims_texts
+        for claim_text in extracted_claim_texts
     ]
 
     logger.info(
-        f"Extracted {len(potential_claims)} potential claims from: '{sentence}'"
+        f"Extracted {len(potential_claims)} potential claims from: '{sentence_to_decompose}'"
     )
     return potential_claims

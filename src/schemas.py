@@ -61,3 +61,16 @@ class DecompositionOutput(BaseModel):
         description="Flag indicating if no verifiable claims were found"
     )
     
+class PotentialClaim(BaseModel):
+    """A factual claim extracted from disambiguated content."""
+
+    claim_text: str = Field(description="Text of the potential claim")
+    disambiguated_sentence: str = Field(
+        description="The disambiguated sentence the claim was extracted from"
+    )
+    original_sentence: str = Field(
+        description="The original sentence from the answer text"
+    )
+    original_index: int = Field(
+        description="Index of the original sentence in the answer text"
+    )

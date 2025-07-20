@@ -32,22 +32,20 @@ class TruthifyLangGraphPipeline:
 
         # Add edges to connect the nodes sequentially
         workflow.add_edge(START, "sentence_splitter")
-        
+
         # Add conditional edges to handle empty results at each stage
         workflow.add_conditional_edges(
             "sentence_splitter",
             self._check_contextual_sentences,
-            {"continue": "selector", "end": END}
+            {"continue": "selector", "end": END},
         )
         workflow.add_conditional_edges(
-            "selector",
-            self._check_selected_contents,
-            {"continue": "disambiguator", "end": END}
+            "selector", self._check_selected_contents, {"continue": "disambiguator", "end": END}
         )
         workflow.add_conditional_edges(
             "disambiguator",
             self._check_disambiguated_contents,
-            {"continue": "decomposition", "end": END}
+            {"continue": "decomposition", "end": END},
         )
         workflow.add_edge("decomposition", END)
 
@@ -55,30 +53,32 @@ class TruthifyLangGraphPipeline:
 
     def _wrap_node(self, node_func):
         """Wrap node functions with error handling and timing."""
-        async def wrapped_node(state: State) -> State:
+
+        async def wrapped_node(state: dict) -> dict:
             start_time = time.time()
-            node_name = node_func.__name__.replace('_node', '')
-            
+            node_name = node_func.__name__.replace("_node", "")
+
             logger.info(f"Starting {node_name} stage")
-            
+
             try:
+                # Convert dict to State object for the node function
+                # Use model_validate for slightly better performance
+                state_obj = State.model_validate(state)
+
                 # Call the node function
-                result = await node_func(state)
-                
-                # Update the state with the results
-                for key, value in result.items():
-                    setattr(state, key, value)
-                
+                result = await node_func(state_obj)
+
+                # Return the result dict directly (no need to update original state)
                 processing_time = time.time() - start_time
                 logger.info(f"Completed {node_name} stage in {processing_time:.2f}s")
-                
-                return state
-                
+
+                return result
+
             except Exception as e:
                 error_msg = f"Error in {node_name} stage: {str(e)}"
                 logger.error(error_msg)
                 raise RuntimeError(error_msg) from e
-        
+
         return wrapped_node
 
     def _check_contextual_sentences(self, state: State) -> str:
@@ -116,16 +116,16 @@ class TruthifyLangGraphPipeline:
         """
         # Create initial state
         initial_state = State(answer_text=answer_text)
-        
+
         logger.info(f"Starting LangGraph pipeline with text length: {len(answer_text)} characters")
         start_time = time.time()
-        
+
         # Run the graph
         final_state = await self.graph.ainvoke(initial_state)
-        
+
         total_time = time.time() - start_time
         logger.info(f"Pipeline completed in {total_time:.2f} seconds")
-        
+
         return final_state
 
     def print_pipeline_summary(self, final_state: State):
@@ -136,18 +136,18 @@ class TruthifyLangGraphPipeline:
 
         # Stage-by-stage summary
         logger.info("Processing Results:")
-        logger.info(f"  Contextual Sentences: {len(final_state.contextual_sentences)}")
-        logger.info(f"  Selected Contents: {len(final_state.selected_contents)}")
-        logger.info(f"  Disambiguated Contents: {len(final_state.disambiguated_contents)}")
-        logger.info(f"  Potential Claims: {len(final_state.potential_claims)}")
+        logger.info(f"  Contextual Sentences: {len(final_state['contextual_sentences'])}")
+        logger.info(f"  Selected Contents: {len(final_state['selected_contents'])}")
+        logger.info(f"  Disambiguated Contents: {len(final_state['disambiguated_contents'])}")
+        logger.info(f"  Potential Claims: {len(final_state['potential_claims'])}")
 
-        if not final_state.potential_claims:
+        if not final_state['potential_claims']:
             logger.info("No claims were extracted from the input text")
             return
 
         # Group claims by original sentence
         claims_by_sentence = {}
-        for claim in final_state.potential_claims:
+        for claim in final_state['potential_claims']:
             original_idx = claim.original_index
             if original_idx not in claims_by_sentence:
                 claims_by_sentence[original_idx] = {
@@ -161,7 +161,7 @@ class TruthifyLangGraphPipeline:
         for idx, sentence_data in claims_by_sentence.items():
             logger.info(f"\nSentence {idx + 1}:")
             logger.info(f"  Original: {sentence_data['original_sentence']}")
-            if sentence_data['disambiguated_sentence'] != sentence_data['original_sentence']:
+            if sentence_data["disambiguated_sentence"] != sentence_data["original_sentence"]:
                 logger.info(f"  Disambiguated: {sentence_data['disambiguated_sentence']}")
             logger.info(f"  Claims ({len(sentence_data['claims'])}):")
             for i, claim in enumerate(sentence_data["claims"], 1):
@@ -180,7 +180,7 @@ async def run_truthify_pipeline(answer_text: str) -> List[PotentialClaim]:
     pipeline = TruthifyLangGraphPipeline()
     final_state = await pipeline.run_pipeline(answer_text)
     pipeline.print_pipeline_summary(final_state)
-    return final_state.potential_claims
+    return final_state['potential_claims']
 
 
 async def main():
@@ -196,21 +196,22 @@ async def main():
     """
 
     logger.info("Running LangGraph Truthify Pipeline Demo")
-    
+
     try:
         potential_claims = await run_truthify_pipeline(sample_text)
-        
+
         if potential_claims:
             logger.info(f"\n✅ Successfully extracted {len(potential_claims)} potential claims!")
             logger.info("These claims are now ready for fact-checking verification.")
         else:
             logger.warning("❌ No claims were extracted from the input text")
-            
+
     except Exception as e:
         logger.error(f"Pipeline failed with error: {e}")
 
 
 if __name__ == "__main__":
     from dotenv import load_dotenv
+
     load_dotenv()  # Load environment variables from .env file
     asyncio.run(main())

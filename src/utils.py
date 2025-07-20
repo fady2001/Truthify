@@ -15,7 +15,7 @@ def get_llm(num_completions: int = 1):
     if num_completions > 1:
         temperature = 0.2
     llm_instance = ChatGoogleGenerativeAI(
-        model="gemini-2.0-flash", temperature=temperature, google_api_key=GEMINI_API_KEY
+        model="gemini-1.5-flash", temperature=temperature, google_api_key=GEMINI_API_KEY
     )
     return llm_instance
 
@@ -51,9 +51,29 @@ async def voting(
 
     for item in items:
         # Make multiple attempts
-        attempts = await asyncio.gather(
-            *[single_attempt_function(item, llm_instance) for _ in range(num_completions)]
-        )
+        # attempts = await asyncio.gather(
+        #     *[single_attempt_function(item, llm_instance) for _ in range(num_completions)]
+        # )
+        request_delay = 5  # seconds
+        # Make attempts sequentially with delay to respect rate limits
+        attempts = []
+        for i in range(num_completions):
+            try:
+                attempt = await single_attempt_function(item, llm_instance)
+                attempts.append(attempt)
+                
+                # Add delay between requests (except for the last one)
+                if i < num_completions - 1:
+                    await asyncio.sleep(request_delay)
+                    
+            except Exception as e:
+                logger.warning(f"Request failed for {description}: {e}")
+                attempts.append((False, None))
+                
+                # If we hit a rate limit, wait longer
+                if "429" in str(e) or "quota" in str(e).lower():
+                    logger.info(f"Rate limit hit, waiting 60 seconds...")
+                    await asyncio.sleep(60)
 
         # Count successes
         success_count = sum(1 for success, _ in attempts if success)

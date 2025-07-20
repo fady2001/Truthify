@@ -60,13 +60,13 @@ async def selector_node(state: State) -> Dict[str, List[SelectedContent]]:
     # Get LLM instance
     llm_instance = get_llm(1)
 
-    # Run the selection process using voting
+    # Run the selection process using voting (reduced to single completion for rate limiting)
     selected_results = await voting(
         items=contextual_sentences,
         single_attempt_function=single_selection_attempt,
         llm_instance=llm_instance,
-        num_completions=3,
-        min_successes=2,
+        num_completions=1,
+        min_successes=1,
         result_factory=create_selected_content,
         description="Selecting sentences from a text that are verifiable claims.",
     )

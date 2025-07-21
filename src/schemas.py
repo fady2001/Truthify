@@ -64,7 +64,7 @@ class DecompositionOutput(BaseModel):
     
 class PotentialClaim(BaseModel):
     """A factual claim extracted from disambiguated content."""
-
+    
     claim_text: str = Field(description="Text of the potential claim")
     disambiguated_sentence: str = Field(
         description="The disambiguated sentence the claim was extracted from"

@@ -8,7 +8,12 @@ class ContextualSentence(BaseModel):
     sentence: str = Field(description="The sentence to be processed.")
     context: str = Field(description="The context in which the sentence is used.")
     index: int = Field(default=None, description="The index of the sentence in the original text.")
-    
+
+class BatchContextualSentence(BaseModel):
+    """Batch of contextual sentences for processing."""
+    sentences: List[ContextualSentence] = Field(
+        default_factory=list, description="List of contextual sentences to be processed."
+    )
     
 class SelectionOutput(BaseModel):
     """Response schema for selection LLM calls. used for voting operation"""
@@ -22,6 +27,12 @@ class SelectionOutput(BaseModel):
         description="Flag indicating if the sentence remains unchanged"
     )
     
+class BatchSelectionOutput(BaseModel):
+    """Batch response schema for selection LLM calls."""
+    selected_contents: List[SelectionOutput] = Field(
+        default_factory=list, description="List of processed sentences with verifiable content"
+    )
+    
 class SelectedContent(BaseModel):
     """Content selected as potentially verifiable."""
 
@@ -30,6 +41,12 @@ class SelectedContent(BaseModel):
     )
     original_context_item: ContextualSentence = Field(
         description="Reference to the original contextual sentence"
+    )
+
+class BatchSelectedContent(BaseModel):
+    """Batch of selected contents for processing."""
+    selected_contents: List[SelectedContent] = Field(
+        default_factory=list, description="List of selected contents to be processed."
     )
 
 class DisambiguationOutput(BaseModel):
@@ -42,6 +59,12 @@ class DisambiguationOutput(BaseModel):
         description="Flag indicating if the sentence cannot be disambiguated",
     )
     
+class BatchDisambiguationOutput(BaseModel):
+    """Batch response schema for disambiguation LLM calls."""
+    disambiguated_contents: List[DisambiguationOutput] = Field(
+        default_factory=list, description="List of disambiguated sentences"
+    )
+    
 class DisambiguatedContent(BaseModel):
     """Content with pronoun references and ambiguities resolved."""
 
@@ -52,6 +75,12 @@ class DisambiguatedContent(BaseModel):
         description="Reference to the original selected content"
     )
     
+class BatchDisambiguatedContent(BaseModel):
+    """Batch of disambiguated contents for processing."""
+    disambiguated_contents: List[DisambiguatedContent] = Field(
+        default_factory=list, description="List of disambiguated contents to be processed."
+    )
+    
 class DecompositionOutput(BaseModel):
     """Response schema for decomposition LLM calls."""
 
@@ -60,6 +89,12 @@ class DecompositionOutput(BaseModel):
     )
     no_claims: bool = Field(
         description="Flag indicating if no verifiable claims were found"
+    )
+
+class BatchDecompositionOutput(BaseModel):
+    """Batch response schema for decomposition LLM calls."""
+    decomposition_outputs: List[DecompositionOutput] = Field(
+        default_factory=list, description="List of decomposition outputs"
     )
     
 class PotentialClaim(BaseModel):
@@ -75,7 +110,13 @@ class PotentialClaim(BaseModel):
     original_index: int = Field(
         description="Index of the original sentence in the answer text"
     )
-    
+
+class BatchPotentialClaim(BaseModel):
+    """Batch of potential claims for processing."""
+    potential_claims: List[PotentialClaim] = Field(
+        default_factory=list, description="List of potential claims to be processed."
+    )    
+
 class State(BaseModel):
     """The workflow graph state object."""
     answer_text: str = Field(description="The answer text being analyzed")

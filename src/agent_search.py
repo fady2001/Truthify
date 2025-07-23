@@ -46,7 +46,7 @@ agent = initialize_agent(
     agent="zero-shot-react-description",
     verbose=True ,
     handle_parsing_errors=True ,
-    max_iterations=3 
+    max_iterations=2
 )
 
 

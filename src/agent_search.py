@@ -143,6 +143,9 @@ def verify_claim_with_variants(original_claim: str, language: str, variants: Lis
     explanation = ""
     final_sources = [] 
 
+    final_response = final_response.content if hasattr(final_response, 'content') else str(final_response)
+
+
     for line in final_response.strip().split("\n"):
         if line.startswith("Final Answer:"):
             status = line.replace("Final Answer:", "").strip()

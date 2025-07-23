@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-07-23T22:46:32.565706",
+  "stage": "decomposition",
+  "input_summary": {
+    "type": "State",
+    "answer_text_length": 279,
+    "answer_text_preview": "The researcher conducted experiments on neural networks. She found that deep learning \n        models performed better than traditional algorithms. The results were published in a \n        top-tier jo...",
+    "contextual_sentences_count": 4,
+    "selected_contents_count": 4,
+    "disambiguated_contents_count": 4,
+    "potential_claims_count": 0
+  },
+  "output": {
+    "potential_claims": [
+      {
+        "claim_text": "The researcher conducted experiments on neural networks"
+      },
+      {
+        "claim_text": "The researcher found that deep learning models performed better than traditional algorithms"
+      },
+      {
+        "claim_text": "The researcher's experiments results were published in a top-tier journal"
+      },
+      {
+        "claim_text": "The researcher's work has implications for autonomous vehicles"
+      },
+      {
+        "claim_text": "The researcher's work has implications for medical diagnosis"
+      }
+    ]
+  },
+  "output_summary": {
+    "type": "dict",
+    "keys": [
+      "potential_claims"
+    ],
+    "potential_claims_count": 5,
+    "sample_claim": "The researcher conducted experiments on neural networks..."
+  }
+}

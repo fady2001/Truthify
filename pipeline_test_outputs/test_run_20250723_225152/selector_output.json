@@ -1,0 +1,49 @@
+{
+  "timestamp": "2025-07-23T22:51:57.401764",
+  "stage": "selector",
+  "input_summary": {
+    "type": "State",
+    "answer_text_length": 297,
+    "answer_text_preview": "The radius of the Earth is approximately 6,371 kilometers. This value can vary slightly \n        depending on where you measure it due to the Earth's equatorial bulge. The Earth rotates \n        once ...",
+    "contextual_sentences_count": 4,
+    "selected_contents_count": 0,
+    "disambiguated_contents_count": 0,
+    "potential_claims_count": 0
+  },
+  "output": {
+    "selected_contents": [
+      {
+        "processed_sentence": "The radius of the Earth is approximately 6,371 kilometers.",
+        "original_context_item": {
+          "sentence": "The radius of the Earth is approximately 6,371 kilometers.",
+          "context": "\n[Sentence of Interest for current task:]\nThe radius of the Earth is approximately 6,371 kilometers.\n\n[Following Sentences:]\nThis value can vary slightly depending on where you measure it, due to the Earth's equatorial bulge.\nThe Earth rotates once every 24 hours, causing day and night cycles.\nIn my opinion, this is very important information.",
+          "index": 0
+        }
+      },
+      {
+        "processed_sentence": "This value can vary slightly depending on where you measure it, due to the Earth's equatorial bulge.",
+        "original_context_item": {
+          "sentence": "This value can vary slightly depending on where you measure it, due to the Earth's equatorial bulge.",
+          "context": "\n[Preceding Sentences:]\nThe radius of the Earth is approximately 6,371 kilometers.\n\n[Sentence of Interest for current task:]\nThis value can vary slightly depending on where you measure it, due to the Earth's equatorial bulge.\n\n[Following Sentences:]\nThe Earth rotates once every 24 hours, causing day and night cycles.\nIn my opinion, this is very important information.",
+          "index": 1
+        }
+      },
+      {
+        "processed_sentence": "The Earth rotates once every 24 hours, causing day and night cycles.",
+        "original_context_item": {
+          "sentence": "The Earth rotates once every 24 hours, causing day and night cycles.",
+          "context": "\n[Preceding Sentences:]\nThe radius of the Earth is approximately 6,371 kilometers.\nThis value can vary slightly depending on where you measure it, due to the Earth's equatorial bulge.\n\n[Sentence of Interest for current task:]\nThe Earth rotates once every 24 hours, causing day and night cycles.\n\n[Following Sentences:]\nIn my opinion, this is very important information.",
+          "index": 2
+        }
+      }
+    ]
+  },
+  "output_summary": {
+    "type": "dict",
+    "keys": [
+      "selected_contents"
+    ],
+    "selected_contents_count": 3,
+    "sample_processed_sentence": "The radius of the Earth is approximately 6,371 kilometers...."
+  }
+}

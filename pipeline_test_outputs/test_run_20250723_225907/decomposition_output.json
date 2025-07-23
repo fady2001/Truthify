@@ -1,0 +1,250 @@
+{
+  "timestamp": "2025-07-23T23:03:12.164657",
+  "stage": "decomposition",
+  "input_summary": {
+    "type": "State",
+    "answer_text_length": 12211,
+    "answer_text_preview": "Picture this You walk outside and watch as the moon gets bigger and bigger\ntumbling towards the earth at an astonishing speed Heres what would really happen if the\nmoon hit the earth As the moon gets ...",
+    "contextual_sentences_count": 122,
+    "selected_contents_count": 75,
+    "disambiguated_contents_count": 75,
+    "potential_claims_count": 0
+  },
+  "output": {
+    "potential_claims": [
+      {
+        "claim_text": "As the moon approaches Earth, the first noticeable effect will be a shift in tides."
+      },
+      {
+        "claim_text": "Coastal cities will be consumed by the oceans."
+      },
+      {
+        "claim_text": "Earth's gravity will cause satellites to be thrown out of orbit, rendering them useless."
+      },
+      {
+        "claim_text": "Earthquakes and volcanic eruptions will occur daily."
+      },
+      {
+        "claim_text": "When the moon is 11,000 miles from Earth's surface, it will be torn apart by Earth's gravity, forming a ring system."
+      },
+      {
+        "claim_text": "A meteor shower of moon dust will occur nightly."
+      },
+      {
+        "claim_text": "In 1977, NASA launched the Voyager 1 and 2 space probes."
+      },
+      {
+        "claim_text": "The launch of the Voyager 1 and 2 space probes took advantage of a rare alignment of Jupiter, Saturn, Uranus, and Neptune."
+      },
+      {
+        "claim_text": "The Voyager probes visited the outer planets, taking images and investigating moons."
+      },
+      {
+        "claim_text": "The Voyager probes are farther from Earth than any other human-made object."
+      },
+      {
+        "claim_text": "NASA included a message on the Voyager probes: The Golden Record."
+      },
+      {
+        "claim_text": "The Golden Record contains sounds, images, and scientific information about Earth."
+      },
+      {
+        "claim_text": "The Golden Record includes greetings in multiple languages."
+      },
+      {
+        "claim_text": "More than 100 images were chosen by Carl Sagan and his team to tell a story about Earth."
+      },
+      {
+        "claim_text": "This is a real photo of astronaut Bruce McCandless floating 100 meters away from the space shuttle with no rope connecting him back to the ship."
+      },
+      {
+        "claim_text": "In 1984, Bruce McCandless was on a mission to test the space jetpack system, and he left the ship."
+      },
+      {
+        "claim_text": "Bruce McCandless said that the only thing that terrified him was how cold he got as soon as he was away from the shuttle."
+      },
+      {
+        "claim_text": "When black holes collide with one another, they send literal ripples throughout the fabric of spacetime at the speed of light."
+      },
+      {
+        "claim_text": "These ripples squeeze and stretch everything in their path, similar to the ripples on a lake."
+      },
+      {
+        "claim_text": "Einstein predicted that these ripples must exist if his theory of general relativity were to be correct, and they were detected in 2015."
+      },
+      {
+        "claim_text": "Scientists use the laser interferometer gravitational-wave observatory (LIGO)."
+      },
+      {
+        "claim_text": "In the LIGO instrument, a laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth."
+      },
+      {
+        "claim_text": "As a gravitational wave passes through the Earth, the length of each arm in the LIGO instrument is changed ever so slightly, which scientists were able to detect using this method."
+      },
+      {
+        "claim_text": "NASA's Mars rover Opportunity was one of the most successful rovers ever launched into space, and its last words are some of the saddest ever heard."
+      },
+      {
+        "claim_text": "NASA's Mars rover Opportunity was initially supposed to survive on Mars for 90 days, but it was resilient."
+      },
+      {
+        "claim_text": "Using its solar panels, NASA's Mars rover Opportunity traveled over 28 miles across the Martian surface over 14 years."
+      },
+      {
+        "claim_text": "One fateful day, as a Martian storm descended on the rover and the skies were choked with sunlight, the solar-powered Opportunity messaged home saying, \"My battery is low and it's getting dark.\""
+      },
+      {
+        "claim_text": "People who use traditional razors are expected to buy thousands of disposable razors in their lifetime."
+      },
+      {
+        "claim_text": "Henson Shaving is a sponsor of this video."
+      },
+      {
+        "claim_text": "Henson was created by aerospace machinists who worked on the International Space Station (ISS) and Curiosity rover."
+      },
+      {
+        "claim_text": "The designers of Henson razors believed that traditional razors allow for too much blade movement."
+      },
+      {
+        "claim_text": "Blade flex and exposure in most razors cause razor burn and irritation."
+      },
+      {
+        "claim_text": "Henson partnered with a medical imaging startup to compare redness and razor burn from its razor versus a leading multiblade brand."
+      },
+      {
+        "claim_text": "The code AstroKobe at hensonshaving.com/AstroKobe includes 100 free blades."
+      },
+      {
+        "claim_text": "Sunsets on Earth are red or pink."
+      },
+      {
+        "claim_text": "Rovers on Mars have taken pictures of sunsets, which appear blue."
+      },
+      {
+        "claim_text": "Due to fine dust, blue light penetrates the Martian atmosphere more efficiently than other colors."
+      },
+      {
+        "claim_text": "The sun appears small in pictures taken from Mars because of its distance."
+      },
+      {
+        "claim_text": "Betelgeuse is a red giant star."
+      },
+      {
+        "claim_text": "New research showed that Betelgeuse is in the end stages of its life and is fusing carbon in its core."
+      },
+      {
+        "claim_text": "If Betelgeuse explodes, it will be bright enough to be seen during the day and will cast a shadow at night."
+      },
+      {
+        "claim_text": "Betelgeuse is 500 light-years away."
+      },
+      {
+        "claim_text": "We are outside the danger zone from Betelgeuse, but if we were 450 light-years closer, it could be dangerous."
+      },
+      {
+        "claim_text": "Black holes are extremely dense, massive objects that have such a strong gravitational attraction that not even light can escape their pull."
+      },
+      {
+        "claim_text": "Our galaxy could contain over 100 million individual black holes, and they are hard to find unless they are actively consuming matter."
+      },
+      {
+        "claim_text": "Supermassive black holes at the center of most galaxies consume a large amount of matter, forming accretion disks."
+      },
+      {
+        "claim_text": "You cannot see a black hole itself, but you can see the event horizon."
+      },
+      {
+        "claim_text": "Scientists took pictures of two black holes using a telescope the size of the Earth."
+      },
+      {
+        "claim_text": "To take a detailed picture of a black hole, you need a telescope the size of the Earth."
+      },
+      {
+        "claim_text": "Using telescopes around the globe, you can create an array to image black holes."
+      },
+      {
+        "claim_text": "Scientists targeted Sagittarius A* and the supermassive black hole in galaxy M87."
+      },
+      {
+        "claim_text": "Sagittarius A star is the black hole at the center of the Milky Way galaxy."
+      },
+      {
+        "claim_text": "M87, on the other hand, is located 53 million light-years away."
+      },
+      {
+        "claim_text": "These are real images of black holes, not animations or drawings, real photographs."
+      },
+      {
+        "claim_text": "Now, back in the year 1990, the Voyager 1 spacecraft was leaving the solar system out past Neptune."
+      },
+      {
+        "claim_text": "Carl Sagan convinced NASA to have Voyager 1 take one last image of Earth."
+      },
+      {
+        "claim_text": "Voyager 1 was 4 billion miles away from home when it snapped this picture."
+      },
+      {
+        "claim_text": "That's the Earth caught in a scattered ray of light."
+      },
+      {
+        "claim_text": "In his book, Sagan wrote about an image of Earth."
+      },
+      {
+        "claim_text": "Back in 1957, the Soviet Union was willing to do whatever it would take to win the space race."
+      },
+      {
+        "claim_text": "In 1957, no one knew if the human body could withstand the lack of gravity, so scientists turned to dogs for testing."
+      },
+      {
+        "claim_text": "Against her will, scientists implanted sensors in Laika to measure her breathing and pulse, then strapped her into the rocket, knowing they were sending her to her death."
+      },
+      {
+        "claim_text": "The cabin Laika was in was the size of a washing machine."
+      },
+      {
+        "claim_text": "Laika's heart rate tripled."
+      },
+      {
+        "claim_text": "The temperature inside Laika's cabin rose to 40 degrees Celsius, or 105 degrees Fahrenheit."
+      },
+      {
+        "claim_text": "After just six hours, Laika's heart stopped."
+      },
+      {
+        "claim_text": "Each year, the moon moves 15 inches away from Earth."
+      },
+      {
+        "claim_text": "As a result of the moon moving away from Earth, the Earth rotates slightly slower every single year, making our days longer."
+      },
+      {
+        "claim_text": "14 billion years ago, a day on Earth was just 18 hours long."
+      },
+      {
+        "claim_text": "In 1 billion years, a day on Earth will be 28 hours long."
+      },
+      {
+        "claim_text": "In the heart of a galaxy 85 billion light-years away lies the largest black hole ever discovered, Phoenix A, which is 100 billion times larger than our sun."
+      },
+      {
+        "claim_text": "The diameter of the event horizon for the black hole Phoenix A is 100 times the distance between the sun and Pluto."
+      },
+      {
+        "claim_text": "It would take 71 days to complete one full loop of the black hole Phoenix A while traveling at the speed of light."
+      },
+      {
+        "claim_text": "Every glass of water you drink can be traced straight back to the Big Bang."
+      },
+      {
+        "claim_text": "The atoms in your body are deeply connected to the cosmos."
+      }
+    ]
+  },
+  "output_summary": {
+    "type": "dict",
+    "keys": [
+      "potential_claims"
+    ],
+    "potential_claims_count": 75,
+    "sample_claim": "As the moon approaches Earth, the first noticeable effect will be a shift in tides...."
+  }
+}

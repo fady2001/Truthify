@@ -1,0 +1,27 @@
+TRUTHIFY PIPELINE STAGE-BY-STAGE TEST SUMMARY
+============================================================
+
+Test Run Directory: pipeline_test_outputs\test_run_20250723_225152
+Timestamp: 2025-07-23T22:52:07.669676
+
+INPUT TEXT:
+--------------------
+Length: 297 characters
+Preview: The radius of the Earth is approximately 6,371 kilometers. This value can vary slightly 
+        depending on where you measure it due to the Earth's equatorial bulge. The Earth rotates 
+        once every 24 hours, causing day and night cycles. in my opinion this is a very important information....
+
+STAGE RESULTS:
+--------------------
+1. Sentence Splitter: 4 contextual sentences
+2. Selector: 3 selected contents
+3. Disambiguator: 3 disambiguated contents
+4. Decomposition: 5 potential claims
+
+FINAL CLAIMS:
+--------------------
+1. The radius of the Earth is approximately 6,371 kilometers.
+2. The Earth's radius can vary slightly depending on where you measure it.
+3. The Earth has an equatorial bulge.
+4. The Earth rotates once every 24 hours.
+5. The Earth's rotation causes day and night cycles.

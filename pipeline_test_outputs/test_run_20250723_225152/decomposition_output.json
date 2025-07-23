@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-07-23T22:52:07.660180",
+  "stage": "decomposition",
+  "input_summary": {
+    "type": "State",
+    "answer_text_length": 297,
+    "answer_text_preview": "The radius of the Earth is approximately 6,371 kilometers. This value can vary slightly \n        depending on where you measure it due to the Earth's equatorial bulge. The Earth rotates \n        once ...",
+    "contextual_sentences_count": 4,
+    "selected_contents_count": 3,
+    "disambiguated_contents_count": 3,
+    "potential_claims_count": 0
+  },
+  "output": {
+    "potential_claims": [
+      {
+        "claim_text": "The radius of the Earth is approximately 6,371 kilometers."
+      },
+      {
+        "claim_text": "The Earth's radius can vary slightly depending on where you measure it."
+      },
+      {
+        "claim_text": "The Earth has an equatorial bulge."
+      },
+      {
+        "claim_text": "The Earth rotates once every 24 hours."
+      },
+      {
+        "claim_text": "The Earth's rotation causes day and night cycles."
+      }
+    ]
+  },
+  "output_summary": {
+    "type": "dict",
+    "keys": [
+      "potential_claims"
+    ],
+    "potential_claims_count": 5,
+    "sample_claim": "The radius of the Earth is approximately 6,371 kilometers...."
+  }
+}

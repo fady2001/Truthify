@@ -63,6 +63,13 @@ async def decomposition_stage(disambiguated_items: List[DisambiguatedContent]) -
 async def decomposition_node(state: State) -> Dict[str, List[PotentialClaim]]:
     """Node function to decompose disambiguated content into potential claims."""
     # Get the disambiguated contents from the state
+    batch_size = 100
     disambiguated_contents = state.disambiguated_contents
-    all_potential_claims = await decomposition_stage(disambiguated_contents)
+    all_potential_claims = []
+    for batch_start in range(0, len(disambiguated_contents), batch_size):
+        batch_end = min(batch_start + batch_size, len(disambiguated_contents))
+        batch = disambiguated_contents[batch_start:batch_end]
+        if not batch:
+            continue
+        all_potential_claims = await decomposition_stage(batch)
     return {"potential_claims": all_potential_claims}

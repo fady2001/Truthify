@@ -24,7 +24,7 @@ filtered_results = filter_rephrasings_by_similarity(
 )
 
 
-facts = []  
+facts = []
 for entry in filtered_results:
     original = entry["original"]
     variants = entry["selected_variants"]

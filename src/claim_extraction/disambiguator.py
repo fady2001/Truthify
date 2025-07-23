@@ -3,14 +3,14 @@ from typing import Dict, List, Optional, Tuple
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.language_models.chat_models import BaseChatModel
 from loguru import logger
-from prompts import DISAMBIGUATION_SYSTEM_PROMPT, HUMAN_PROMPT
-from schemas import (
+from .prompts import DISAMBIGUATION_SYSTEM_PROMPT, HUMAN_PROMPT
+from .schemas import (
     BatchDisambiguationOutput,
     DisambiguatedContent,
     SelectedContent,
     State,
 )
-from utils import batch_voting, format_excerpt_sentence_pairs, get_llm
+from .utils import batch_voting, format_excerpt_sentence_pairs, get_llm
 
 
 async def single_disambiguation_attempt(

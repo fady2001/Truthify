@@ -3,7 +3,7 @@ import os
 from typing import Any, Callable, List, Optional, Tuple, TypeVar
 
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_ollama import ChatOllama
+#from langchain_ollama import ChatOllama
 from loguru import logger
 
 
@@ -50,7 +50,7 @@ def get_llm(num_completions: int = 1):
     )
     return llm_instance
 
-
+""" 
 def get_ollama(num_completions: int = 1):
     temperature = 0
     if num_completions > 1:
@@ -61,7 +61,7 @@ def get_ollama(num_completions: int = 1):
         temperature=temperature,
     )
     return llm_instance
-
+""" 
 
 T = TypeVar("T")
 R = TypeVar("R")

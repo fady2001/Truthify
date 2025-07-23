@@ -1,14 +1,14 @@
 from typing import Dict, List
 
 from langchain.prompts import ChatPromptTemplate
-from prompts import DECOMPOSITION_SYSTEM_PROMPT, HUMAN_PROMPT
-from schemas import (
+from .prompts import DECOMPOSITION_SYSTEM_PROMPT, HUMAN_PROMPT
+from .schemas import (
     BatchDecompositionOutput,
     DisambiguatedContent,
     PotentialClaim,
     State,
 )
-from utils import format_excerpt_sentence_pairs, get_llm
+from .utils import format_excerpt_sentence_pairs, get_llm
 
 
 async def decomposition_stage(disambiguated_items: List[DisambiguatedContent]) -> List[PotentialClaim]:

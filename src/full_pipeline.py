@@ -13,10 +13,12 @@ async def main():
     input_text = (
         "The Earth is flat. The moon landing was staged. "
         "COVID-19 is caused by 5G technology."
+        "in my opinion, the sky is blue and the grass is green."
     )
     claims:List[PotentialClaim] = await run_truthify_pipeline(input_text)
     claims = [claim.claim_text for claim in claims]
-    rephrased_outputs = rephrase_claim_v2(claims, language="Arabic", n_variants=5)
+    print(f"Extracted Claims: {claims}")
+    rephrased_outputs = rephrase_claim_v2(claims, language="English", n_variants=5)
     rephrased_lists = [entry["rephrased"] for entry in rephrased_outputs]
     filtered_results = filter_rephrasings_by_similarity(
         claims=[entry["original"] for entry in rephrased_outputs],
@@ -34,10 +36,22 @@ async def main():
         #     (item["time_stamp"] for item in claims if item["claim"] == original),
         #     None
         # )
-        final_decision = verify_claim_with_variants(original, "Arabic", variants)
+        final_decision = verify_claim_with_variants(original, "English", variants)
         facts.append(final_decision) 
         # final_decision["time_stamp"] = timestamp
         time.sleep(30) 
+    for fact in facts:
+        print(f"\n🔹 Original Claim: {fact['claim']}")
+        print(f"Final Answer: {fact['status']}")
+        print(f"Explanation: {fact['explanation']}")
+        if fact['sources']:
+            print("Sources:")
+            for idx, source in enumerate(fact['sources'], 1):
+                print(f"  {idx}. {source['title']} - {source['url']}")
+        else:
+            print("No sources available.")
+        print("-" * 60)
+        
 
 if __name__ == "__main__":
     import asyncio

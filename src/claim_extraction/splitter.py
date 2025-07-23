@@ -4,9 +4,9 @@ from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.prompts import ChatPromptTemplate
 from loguru import logger
 import nltk
-from prompts import PUNCTUATION_HUMAN_PROMPT, PUNCTUATION_SYSTEM_PROMPT
-from schemas import ContextualSentence, PunctuadedText, State
-from utils import get_llm
+from .prompts import PUNCTUATION_HUMAN_PROMPT, PUNCTUATION_SYSTEM_PROMPT
+from .schemas import ContextualSentence, PunctuadedText, State
+from .utils import get_llm
 
 
 def get_tokenizer():

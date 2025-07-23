@@ -1,0 +1,22 @@
+TRUTHIFY PIPELINE STAGE-BY-STAGE TEST SUMMARY
+============================================================
+
+Test Run Directory: pipeline_test_outputs\test_run_20250723_234818
+Timestamp: 2025-07-23T23:49:00.321031
+
+INPUT TEXT:
+--------------------
+Length: 677 characters
+Preview: اكتشف العلماء أن الأرض مسطحة بشكل جزئي، وهذا ما يفسر سبب ظهور الأفق مستويًا عند النظر إليه من الأماكن المرتفعة. ويُعتقد أن هذا الشكل المسطح يجعل الجاذبية تتوزع بشكل غير متساوٍ في مناطق مختلفة من الكوكب. كما أن الإنسان لا يمكنه العيش أكثر من 100 سنة، فالجسم البشري يتوقف تمامًا عن تجديد الخلايا بعد سن...
+
+STAGE RESULTS:
+--------------------
+1. Sentence Splitter: 6 contextual sentences
+2. Selector: 1 selected contents
+3. Disambiguator: 1 disambiguated contents
+4. Decomposition: 2 potential claims
+
+FINAL CLAIMS:
+--------------------
+1. Water is a compound consisting of two hydrogen atoms and one oxygen atom
+2. Water covers approximately 71% of the Earth's surface

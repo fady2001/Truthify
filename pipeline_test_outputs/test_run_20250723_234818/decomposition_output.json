@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-07-23T23:49:00.313318",
+  "stage": "decomposition",
+  "input_summary": {
+    "type": "State",
+    "answer_text_length": 677,
+    "answer_text_preview": "اكتشف العلماء أن الأرض مسطحة بشكل جزئي، وهذا ما يفسر سبب ظهور الأفق مستويًا عند النظر إليه من الأماكن المرتفعة. ويُعتقد أن هذا الشكل المسطح يجعل الجاذبية تتوزع بشكل غير متساوٍ في مناطق مختلفة من الكوك...",
+    "contextual_sentences_count": 6,
+    "selected_contents_count": 1,
+    "disambiguated_contents_count": 1,
+    "potential_claims_count": 0
+  },
+  "output": {
+    "potential_claims": [
+      {
+        "claim_text": "Water is a compound consisting of two hydrogen atoms and one oxygen atom"
+      },
+      {
+        "claim_text": "Water covers approximately 71% of the Earth's surface"
+      }
+    ]
+  },
+  "output_summary": {
+    "type": "dict",
+    "keys": [
+      "potential_claims"
+    ],
+    "potential_claims_count": 2,
+    "sample_claim": "Water is a compound consisting of two hydrogen atoms and one oxygen atom..."
+  }
+}

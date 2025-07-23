@@ -4,6 +4,10 @@ from typing import Annotated, List, Optional
 from pydantic import BaseModel, Field
 
 
+class PunctuadedText(BaseModel):
+    """Text with punctuation and sentence boundaries."""
+    text: str = Field(description="The punctuated text")
+
 class ContextualSentence(BaseModel):
     sentence: str = Field(description="The sentence to be processed.")
     context: str = Field(description="The context in which the sentence is used.")

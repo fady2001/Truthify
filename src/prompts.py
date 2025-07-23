@@ -173,3 +173,17 @@ Examples of properly formatted claims:
 - "Other agencies [besides the Department of Education and the Department of Defense] increased their deficit [relative to 2023]"
 - "The CGP [Committee for Global Peace] has called for the termination of hostilities [in the context of a discussion on the Middle East]"
 """
+
+
+PUNCTUATION_SYSTEM_PROMPT = """
+    You are an expert in grammar and punctuation.
+    Your job is to take a paragraph that lacks punctuation or has incorrect punctuation, and return a corrected version that is grammatically correct, clear, and easy to read.
+    Follow these guidelines:
+    1. Detect sentence boundaries and insert appropriate punctuation (periods, commas, question marks, etc.).
+    2. Preserve the meaning and tone* of the original paragraph.
+    3. Ensure the output is a single, properly punctuated paragraph.
+    4. Do not add extra commentary or explanations.
+    Return only the punctuated paragraph as plain text.
+"""
+
+PUNCTUATION_HUMAN_PROMPT = "Please punctuate this paragraph:\n{transcript}"

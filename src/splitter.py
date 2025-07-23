@@ -1,9 +1,13 @@
 from typing import Dict, List
 
+from langchain_core.language_models.chat_models import BaseChatModel
+from langchain_core.prompts import ChatPromptTemplate
 from loguru import logger
 import nltk
 
-from schemas import ContextualSentence, State
+from prompts import PUNCTUATION_HUMAN_PROMPT, PUNCTUATION_SYSTEM_PROMPT
+from schemas import ContextualSentence, PunctuadedText, State
+from utils import get_llm, get_ollama
 
 
 def get_tokenizer():
@@ -13,8 +17,32 @@ def get_tokenizer():
         nltk.download("punkt_tab", quiet=True)
         logger.info("Downloading NLTK punkt tokenizer data.")
 
+def Punctuation_LLM(transcript: str, llm_instance:BaseChatModel) -> PunctuadedText:
+    """Use LLM to punctuate and split transcript into sentences."""
+    prompt_template = ChatPromptTemplate(
+        [
+            ("system", PUNCTUATION_SYSTEM_PROMPT),
+            ("human", PUNCTUATION_HUMAN_PROMPT),
+        ]
+    )
+
+    try:
+        response = llm_instance.with_structured_output(PunctuadedText).invoke(prompt_template.invoke({"transcript": transcript}))
+        # print response in a file
+        with open("punctuated_text.txt", "w", encoding="utf-8") as f:
+            f.write(response.text)
+        # Clean triple backticks if present
+        # if raw_output.startswith("") and raw_output.endswith(""):
+        #     raw_output = "\n".join(raw_output.split("\n")[1:-1]).strip()
+
+        return response
+
+    except Exception as e:
+        logger.error(" Error communicating with LLM: {}", str(e))
+        return [transcript]
 
 async def sentence_splitter(
+    llm_instance: BaseChatModel,
     answer_text: str,
     preceding_sentences: int = 5,
     following_sentences: int = 5,
@@ -30,13 +58,16 @@ async def sentence_splitter(
     Returns:
         List[ContextualSentence]: A list of ContextualSentence objects.
     """
+    # punctuation
+    punctuaded_answer_text = Punctuation_LLM(answer_text,llm_instance).text
+    
     from nltk.tokenize import sent_tokenize
 
     # Ensure the tokenizer is downloaded
     get_tokenizer()
 
     # split by paragraphs and strip whitespace
-    paragraphs = [paragraph.strip() for paragraph in answer_text.split("\n") if paragraph.strip()]
+    paragraphs = [paragraph.strip() for paragraph in punctuaded_answer_text.split("\n") if paragraph.strip()]
     tokenized_sentences = [sent_tokenize(paragraph) for paragraph in paragraphs]
     # Flatten the list of lists into a single list of sentences
     flattened_sentences = [sentence for sublist in tokenized_sentences for sentence in sublist]
@@ -87,11 +118,16 @@ async def sentence_splitter(
 
 async def sentence_splitter_node(state: State) -> Dict[str, List[ContextualSentence]]:
     """Node function to split text into sentences with context."""
+    # get the model
+    # llm_instance = get_ollama(0)
+    llm_instance = get_llm(0)
+    
     # Get the answer text from the state
     answer_text = state.answer_text
     # Split the text into sentences
     contextual_sentences = await sentence_splitter(
-        answer_text,
+        llm_instance = llm_instance,
+        answer_text= answer_text,
         preceding_sentences=5,
         following_sentences=5,
     )

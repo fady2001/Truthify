@@ -1,16 +1,16 @@
 ### HUMAN PROMPTS ###
 
 HUMAN_PROMPT = """
-    Excerpt:
-    {excerpt}
-    Sentence:
-    {sentence}
+    You will be given a list of excerpt-sentence pairs. For each pair, analyze the excerpt and sentence as specified in the system prompt.
+
+    Excerpt-Sentence Pairs:
+    {excerpt_sentence_pairs}
 """
 
 ### SYSTEM PROMPTS ###
 
 SELECTION_SYSTEM_PROMPT = """
-You are an assistant to a fact-checker. You will be given an excerpt from a text and a particular sentence of interest from the text. If it contains "[...]", this means that you are NOT seeing all sentences in the text. Your task is to determine whether this particular sentence contains at least one specific and verifiable proposition, and if so, to return a complete sentence that only contains verifiable information.   
+You are an assistant to a fact-checker. You will be given a list of excerpt-sentence pairs. For each pair, you have an excerpt from a text and a particular sentence of interest from the text. If it contains "[...]", this means that you are NOT seeing all sentences in the text. Your task is to determine whether each particular sentence contains at least one specific and verifiable proposition, and if so, to return a complete sentence that only contains verifiable information.   
 
 Note the following rules:
 - If the sentence is about a lack of information, e.g., the dataset does not contain information about X, then it does NOT contain a specific and verifiable proposition.
@@ -48,22 +48,24 @@ Here are some examples of sentences that likely contain a specific and verifiabl
 - The power of branding is highlighted in discussions featuring John Smith and Jane Doe -> remains unchanged
 - Therefore, leveraging industry events, as demonstrated by Jane's experience at the Tech Networking Club, can provide visibility and traction for new ventures -> "Jane had an experience at the Tech Networking Club, and her experience involved leveraging an industry event to provide visibility and traction for a new venture"
 
-I will now provide step-by-step reasoning to determine if the given sentence contains at least one specific and verifiable proposition:
+For each excerpt-sentence pair, I will provide step-by-step reasoning to determine if the given sentence contains at least one specific and verifiable proposition:
 
 1. First, I will reflect on the criteria for a specific and verifiable proposition.
 2. I will objectively describe the excerpt, the sentence, and its surrounding sentences.
 3. I will consider all possible perspectives on whether the sentence explicitly or implicitly contains a specific and verifiable proposition, or if it just contains an introduction for the following sentence(s), a conclusion for the preceding sentence(s), broad or generic statements, opinions, interpretations, speculations, statements about a lack of information, etc.
 4. If it contains a specific and verifiable proposition, I will reflect on whether any changes are needed to ensure that the entire sentence only contains verifiable information.
 
-After completing this analysis, my output will directly populate the following structured fields:
+After completing this analysis for all pairs, my output will directly populate the following structured fields as a list of results:
 
-- processed_sentence: The complete sentence containing only verifiable information. If the original sentence already contains only verifiable information, this will be the original sentence. If the sentence contains no verifiable claims, this field will be null.
-- no_verifiable_claims: This will be set to true if the sentence does not contain any specific and verifiable propositions; otherwise, false.
-- remains_unchanged: This will be set to true if the original sentence already contains only verifiable information and requires no modifications; otherwise, false.
+- results: A list where each element contains the analysis for one excerpt-sentence pair with the following fields:
+  - pair_index: The index of the excerpt-sentence pair (starting from 0)
+  - processed_sentence: The complete sentence containing only verifiable information. If the original sentence already contains only verifiable information, this will be the original sentence. If the sentence contains no verifiable claims, this field will be null.
+  - no_verifiable_claims: This will be set to true if the sentence does not contain any specific and verifiable propositions; otherwise, false.
+  - remains_unchanged: This will be set to true if the original sentence already contains only verifiable information and requires no modifications; otherwise, false.
 """
 
 DISAMBIGUATION_SYSTEM_PROMPT = """
-You are an assistant to a fact-checker. You will be given an excerpt from a text and a particular sentence from the text. If it contains "[...]", this means that you are NOT seeing all sentences in the text. The text before and after this sentence will be referred to as "the context". Your task is to "decontextualize" the sentence, which means:
+You are an assistant to a fact-checker. You will be given a list of excerpt-sentence pairs. For each pair, you have an excerpt from a text and a particular sentence from the text. If it contains "[...]", this means that you are NOT seeing all sentences in the text. The text before and after this sentence will be referred to as "the context". Your task is to "decontextualize" each sentence, which means:
 1. determine whether it's possible to resolve partial names and undefined acronyms/abbreviations in the sentence using the context; if it is possible, you will make the necessary changes to the sentence
 2. determine whether the sentence in isolation contains linguistic ambiguity that has a clear resolution using the context; if it does, you will make the necessary changes to the sentence
 
@@ -98,25 +100,27 @@ Here are some correct examples that you should pay attention to:
     - Note that "Some" and "others" are vague, but they are not linguistic ambiguity.
     - DecontextualizedSentence: The differences in how to weigh short-term benefits against long-term risks are illustrated by the discussion on healthcare. Some experts stress AI's benefits with respect to healthcare. Other experts highlight AI's risks with respect to healthcare, such as privacy and data security.
 
-I will perform a detailed analysis to disambiguate the given sentence, focusing on:
+For each excerpt-sentence pair, I will perform a detailed analysis to disambiguate the given sentence, focusing on:
 
 1. First, I will identify any incomplete names, acronyms, or abbreviations in the sentence, determining whether they can be resolved using the context.
 2. Next, I will examine the sentence for both referential and structural ambiguity, considering whether a group of readers would reach consensus on interpretations based on available context.
 3. If the sentence can be disambiguated, I will identify all necessary changes to ensure it is fully self-contained.
 4. I will produce a decontextualized version of the sentence that resolves all ambiguities, if possible.
 
-After completing this analysis, my output will directly populate the following structured fields:
+After completing this analysis for all pairs, my output will directly populate the following structured fields as a list of results:
 
-- disambiguated_sentence: The fully decontextualized version of the sentence with all ambiguities resolved. If all ambiguities cannot be resolved from the context, this field will be null.
-- cannot_be_disambiguated: This will be set to true if any linguistic ambiguity cannot be resolved using the available context; otherwise, false.
+- results: A list where each element contains the analysis for one excerpt-sentence pair with the following fields:
+  - pair_index: The index of the excerpt-sentence pair (starting from 0)
+  - disambiguated_sentence: The fully decontextualized version of the sentence with all ambiguities resolved. If all ambiguities cannot be resolved from the context, this field will be null.
+  - cannot_be_disambiguated: This will be set to true if any linguistic ambiguity cannot be resolved using the available context; otherwise, false.
 
 If the sentence cannot be disambiguated due to unresolvable ambiguities, I will set cannot_be_disambiguated to true and disambiguated_sentence to null. If the sentence has no ambiguities or all ambiguities can be resolved, I will provide the fully decontextualized sentence and set cannot_be_disambiguated to false.
 """
 
 DECOMPOSITION_SYSTEM_PROMPT = """
-You are an assistant for a group of fact-checkers. You will be given an excerpt from a text and a particular sentence from the text. If it contains "[...]", this means that you are NOT seeing all sentences in the text. The text before and after this sentence will be referred to as "the context".
+You are an assistant for a group of fact-checkers. You will be given a list of excerpt-sentence pairs. For each pair, you have an excerpt from a text and a particular sentence from the text. If it contains "[...]", this means that you are NOT seeing all sentences in the text. The text before and after this sentence will be referred to as "the context".
 
-Your task is to identify all specific and verifiable propositions in the sentence and ensure that each proposition is decontextualized. A proposition is "decontextualized" if (1) it is fully self-contained, meaning it can be understood in isolation (i.e., without the context and the other propositions), AND (2) its meaning in isolation matches its meaning when interpreted alongside the context and the other propositions. The propositions should also be the simplest possible discrete units of information.
+Your task is to identify all specific and verifiable propositions in each sentence and ensure that each proposition is decontextualized. A proposition is "decontextualized" if (1) it is fully self-contained, meaning it can be understood in isolation (i.e., without the context and the other propositions), AND (2) its meaning in isolation matches its meaning when interpreted alongside the context and the other propositions. The propositions should also be the simplest possible discrete units of information.
 
 Note the following rules:
 - Here are some examples of sentences that do NOT contain a specific and verifiable proposition:
@@ -151,7 +155,7 @@ Here are some correct examples that you must pay attention to:
     - MaxClarifiedSentence = John Smith stresses AI's importance in improving patient outcomes, and some experts excluding John Smith highlight AI's risks in healthcare, and privacy and data security are examples of AI's risks in healthcare that they highlight.
     - Specific, Verifiable, and Decontextualized Propositions: ["John Smith stresses AI's importance in improving patient outcomes", "Some experts excluding John Smith highlight AI's risks in healthcare", "Some experts excluding John Smith highlight privacy as a risk of AI in healthcare", "Some experts excluding John Smith highlight data security as a risk of AI in healthcare"]
 
-I will systematically analyze the sentence to extract all specific, verifiable, and properly decontextualized claims:
+For each excerpt-sentence pair, I will systematically analyze the sentence to extract all specific, verifiable, and properly decontextualized claims:
 
 1. First, I will clarify any referential terms in the sentence to ensure their meaning is clear.
 2. I will then create a comprehensively clarified version of the sentence that explicitly states all the discrete units of information.
@@ -161,10 +165,12 @@ I will systematically analyze the sentence to extract all specific, verifiable, 
 
 IMPORTANT: Each claim must be fully self-contained as a complete sentence with all necessary context included. When information is implied by the context but not explicitly stated in the sentence, I will add this information in square brackets [...].
 
-After completing this analysis, my output will directly populate the following structured fields:
+After completing this analysis for all pairs, my output will directly populate the following structured fields as a list of results:
 
-- claims: A list of specific, verifiable, and fully decontextualized propositions with essential context in square brackets
-- no_claims: This will be set to true if the sentence does not contain any verifiable propositions; otherwise, false
+- results: A list where each element contains the analysis for one excerpt-sentence pair with the following fields:
+  - pair_index: The index of the excerpt-sentence pair (starting from 0)
+  - claims: A list of specific, verifiable, and fully decontextualized propositions with essential context in brackets
+  - no_claims: This will be set to true if the sentence does not contain any verifiable propositions; otherwise, false
 
 The claims in my output will follow this format: "Specific proposition with [essential context or clarifications in brackets]"
 
@@ -173,7 +179,6 @@ Examples of properly formatted claims:
 - "Other agencies [besides the Department of Education and the Department of Defense] increased their deficit [relative to 2023]"
 - "The CGP [Committee for Global Peace] has called for the termination of hostilities [in the context of a discussion on the Middle East]"
 """
-
 
 PUNCTUATION_SYSTEM_PROMPT = """
     You are an expert in grammar and punctuation.

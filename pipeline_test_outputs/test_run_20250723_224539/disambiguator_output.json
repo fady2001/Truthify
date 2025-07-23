@@ -1,0 +1,69 @@
+{
+  "timestamp": "2025-07-23T22:46:30.099344",
+  "stage": "disambiguator",
+  "input_summary": {
+    "type": "State",
+    "answer_text_length": 279,
+    "answer_text_preview": "The researcher conducted experiments on neural networks. She found that deep learning \n        models performed better than traditional algorithms. The results were published in a \n        top-tier jo...",
+    "contextual_sentences_count": 4,
+    "selected_contents_count": 4,
+    "disambiguated_contents_count": 0,
+    "potential_claims_count": 0
+  },
+  "output": {
+    "disambiguated_contents": [
+      {
+        "disambiguated_sentence": "The researcher conducted experiments on neural networks.",
+        "original_selected_item": {
+          "processed_sentence": "The researcher conducted experiments on neural networks.",
+          "original_context_item": {
+            "sentence": "The researcher conducted experiments on neural networks.",
+            "context": "\n[Sentence of Interest for current task:]\nThe researcher conducted experiments on neural networks.\n\n[Following Sentences:]\nShe found that deep learning models performed better than traditional algorithms.\nThe results were published in a top-tier journal.\nHer work has implications for autonomous vehicles and medical diagnosis.",
+            "index": 0
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The researcher found that deep learning models performed better than traditional algorithms.",
+        "original_selected_item": {
+          "processed_sentence": "She found that deep learning models performed better than traditional algorithms.",
+          "original_context_item": {
+            "sentence": "She found that deep learning models performed better than traditional algorithms.",
+            "context": "\n[Preceding Sentences:]\nThe researcher conducted experiments on neural networks.\n\n[Sentence of Interest for current task:]\nShe found that deep learning models performed better than traditional algorithms.\n\n[Following Sentences:]\nThe results were published in a top-tier journal.\nHer work has implications for autonomous vehicles and medical diagnosis.",
+            "index": 1
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The results of the researcher's experiments were published in a top-tier journal.",
+        "original_selected_item": {
+          "processed_sentence": "The results were published in a top-tier journal.",
+          "original_context_item": {
+            "sentence": "The results were published in a top-tier journal.",
+            "context": "\n[Preceding Sentences:]\nThe researcher conducted experiments on neural networks.\nShe found that deep learning models performed better than traditional algorithms.\n\n[Sentence of Interest for current task:]\nThe results were published in a top-tier journal.\n\n[Following Sentences:]\nHer work has implications for autonomous vehicles and medical diagnosis.",
+            "index": 2
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The researcher's work has implications for autonomous vehicles and medical diagnosis.",
+        "original_selected_item": {
+          "processed_sentence": "Her work has implications for autonomous vehicles and medical diagnosis.",
+          "original_context_item": {
+            "sentence": "Her work has implications for autonomous vehicles and medical diagnosis.",
+            "context": "\n[Preceding Sentences:]\nThe researcher conducted experiments on neural networks.\nShe found that deep learning models performed better than traditional algorithms.\nThe results were published in a top-tier journal.\n\n[Sentence of Interest for current task:]\nHer work has implications for autonomous vehicles and medical diagnosis.",
+            "index": 3
+          }
+        }
+      }
+    ]
+  },
+  "output_summary": {
+    "type": "dict",
+    "keys": [
+      "disambiguated_contents"
+    ],
+    "disambiguated_contents_count": 4,
+    "sample_disambiguated_sentence": "The researcher conducted experiments on neural networks...."
+  }
+}

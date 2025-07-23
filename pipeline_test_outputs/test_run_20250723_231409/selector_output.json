@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-07-23T23:14:40.222813",
+  "stage": "selector",
+  "input_summary": {
+    "type": "State",
+    "answer_text_length": 9581,
+    "answer_text_preview": "[موسيقى]\nيا ساتر يا رب يا ساتر يا رب ربها معانا\nيا رب\nيا الله\nاهلا وسهلا اقدر اساعدك ازاي\nايه انت مين\nانا التيار الالي المخصص للمساعده اثناء\nالسكوط المحقق\nطب استني ايه اعمل حاجه انا مش عارف اسيطر\nعلى ...",
+    "contextual_sentences_count": 1,
+    "selected_contents_count": 0,
+    "disambiguated_contents_count": 0,
+    "potential_claims_count": 0
+  },
+  "output": {
+    "selected_contents": []
+  },
+  "output_summary": {
+    "type": "dict",
+    "keys": [
+      "selected_contents"
+    ],
+    "selected_contents_count": 0
+  }
+}

@@ -27,7 +27,7 @@ async def single_selection_attempt(
         {
             "excerpt_sentence_pairs": format_excerpt_sentence_pairs(
                 [cs.context for cs in contextual_sentences],
-                [cs.sentence for cs in contextual_sentences]
+                [cs.sentence for cs in contextual_sentences],
             )
         }
     )
@@ -35,14 +35,11 @@ async def single_selection_attempt(
     batch_selection_response: BatchSelectionOutput = llm_instance.with_structured_output(
         BatchSelectionOutput
     ).invoke(prompt_messages)
-    if (
-        not batch_selection_response 
-        or not batch_selection_response.selected_contents
-    ):
+    if not batch_selection_response or not batch_selection_response.selected_contents:
         return [False], [None]
-    
-    flags:List[bool] = []
-    extracted_sentences:List[Optional[str]] = []
+
+    flags: List[bool] = []
+    extracted_sentences: List[Optional[str]] = []
     selected_contents = batch_selection_response.selected_contents
     for i in range(len(selected_contents)):
         if (
@@ -68,12 +65,19 @@ def create_selected_content(
         processed_sentence=processed_sentence,
         original_context_item=contextual_sentence,
     )
-    
+
+
 def create_batch_selected_content(
-    processed_sentences: List[str],
-    contextual_sentences: List[ContextualSentence]
+    processed_sentences: List[str], contextual_sentences: List[ContextualSentence]
 ) -> List[SelectedContent]:
-    return [SelectedContent(i, cs) for i, cs in zip(processed_sentences, contextual_sentences)]
+    return [
+        SelectedContent(
+            processed_sentence=processed_sentence, original_context_item=contextual_sentence
+        )
+        for processed_sentence, contextual_sentence in zip(
+            processed_sentences, contextual_sentences
+        )
+    ]
 
 
 async def selector_node(state: State) -> Dict[str, List[SelectedContent]]:
@@ -94,7 +98,7 @@ async def selector_node(state: State) -> Dict[str, List[SelectedContent]]:
         min_successes=1,
         result_factory=create_batch_selected_content,
         description="contextual sentence",
-        batch_size=10,
+        batch_size=100,
     )
 
     return {"selected_contents": selected_results}

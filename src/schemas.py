@@ -99,12 +99,6 @@ class PotentialClaim(BaseModel):
     """A factual claim extracted from disambiguated content."""
     claim_text: str = Field(description="Text of the potential claim")
 
-class BatchPotentialClaim(BaseModel):
-    """Batch of potential claims for processing."""
-    potential_claims: List[PotentialClaim] = Field(
-        default_factory=list, description="List of potential claims to be processed."
-    )    
-
 class State(BaseModel):
     """The workflow graph state object."""
     answer_text: str = Field(description="The answer text being analyzed")

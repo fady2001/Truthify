@@ -25,16 +25,11 @@ def Punctuation_LLM(transcript: str, llm_instance:BaseChatModel) -> PunctuadedTe
             ("human", PUNCTUATION_HUMAN_PROMPT),
         ]
     )
-
     try:
         response = llm_instance.with_structured_output(PunctuadedText).invoke(prompt_template.invoke({"transcript": transcript}))
-        # print response in a file
-        with open("punctuated_text.txt", "w", encoding="utf-8") as f:
-            f.write(response.text)
         # Clean triple backticks if present
         # if raw_output.startswith("") and raw_output.endswith(""):
         #     raw_output = "\n".join(raw_output.split("\n")[1:-1]).strip()
-
         return response
 
     except Exception as e:

@@ -1,0 +1,27 @@
+TRUTHIFY PIPELINE STAGE-BY-STAGE TEST SUMMARY
+============================================================
+
+Test Run Directory: pipeline_test_outputs\test_run_20250723_224539
+Timestamp: 2025-07-23T22:46:32.571904
+
+INPUT TEXT:
+--------------------
+Length: 279 characters
+Preview: The researcher conducted experiments on neural networks. She found that deep learning 
+        models performed better than traditional algorithms. The results were published in a 
+        top-tier journal. Her work has implications for autonomous vehicles and medical diagnosis....
+
+STAGE RESULTS:
+--------------------
+1. Sentence Splitter: 4 contextual sentences
+2. Selector: 4 selected contents
+3. Disambiguator: 4 disambiguated contents
+4. Decomposition: 5 potential claims
+
+FINAL CLAIMS:
+--------------------
+1. The researcher conducted experiments on neural networks
+2. The researcher found that deep learning models performed better than traditional algorithms
+3. The researcher's experiments results were published in a top-tier journal
+4. The researcher's work has implications for autonomous vehicles
+5. The researcher's work has implications for medical diagnosis

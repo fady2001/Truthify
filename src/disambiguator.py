@@ -32,16 +32,16 @@ async def single_disambiguation_attempt(
             ("human", HUMAN_PROMPT),
         ]
     )
-    
+
     prompt_messages = prompt_template.invoke(
         {
             "excerpt_sentence_pairs": format_excerpt_sentence_pairs(
                 [selected_item.original_context_item.context for selected_item in selected_items],
-                [selected_item.processed_sentence for selected_item in selected_items]
+                [selected_item.processed_sentence for selected_item in selected_items],
             )
         }
     )
-    
+
     # Call the LLM
     batch_disambiguation_response: BatchDisambiguationOutput = llm_instance.with_structured_output(
         BatchDisambiguationOutput
@@ -90,10 +90,10 @@ def create_disambiguated_content(
         disambiguated_sentence=disambiguated_sentence,
         original_selected_item=selected_item,
     )
-    
+
+
 def create_batch_disambiguated_content(
-    disambiguated_sentences: List[str],
-    selected_items: List[SelectedContent]
+    disambiguated_sentences: List[str], selected_items: List[SelectedContent]
 ) -> List[DisambiguatedContent]:
     """Create a batch of disambiguated content.
 
@@ -105,7 +105,10 @@ def create_batch_disambiguated_content(
         List of DisambiguatedContent objects
     """
     return [
-        DisambiguatedContent(i, si) for i, si in zip(disambiguated_sentences, selected_items)
+        DisambiguatedContent(
+            disambiguated_sentence=disambiguated_sentence, original_selected_item=selected_item
+        )
+        for disambiguated_sentence, selected_item in zip(disambiguated_sentences, selected_items)
     ]
 
 
@@ -126,7 +129,7 @@ async def disambiguator_node(state: State) -> Dict[str, List[DisambiguatedConten
         min_successes=1,
         result_factory=create_batch_disambiguated_content,
         description="Disambiguating selected sentences.",
-        batch_size=10,  # Process in batches of 10
+        batch_size=100,
     )
 
     return {"disambiguated_contents": disambiguated_results}

@@ -1,0 +1,850 @@
+{
+  "timestamp": "2025-07-23T23:02:28.181558",
+  "stage": "disambiguator",
+  "input_summary": {
+    "type": "State",
+    "answer_text_length": 12211,
+    "answer_text_preview": "Picture this You walk outside and watch as the moon gets bigger and bigger\ntumbling towards the earth at an astonishing speed Heres what would really happen if the\nmoon hit the earth As the moon gets ...",
+    "contextual_sentences_count": 122,
+    "selected_contents_count": 75,
+    "disambiguated_contents_count": 0,
+    "potential_claims_count": 0
+  },
+  "output": {
+    "disambiguated_contents": [
+      {
+        "disambiguated_sentence": "As the moon approaches Earth, a shift in tides will be the first noticeable effect.",
+        "original_selected_item": {
+          "processed_sentence": "A shift in tides will be the first noticeable effect as the moon approaches Earth.",
+          "original_context_item": {
+            "sentence": "As the moon gets closer, the first thing we will notice is a dramatic shift in the tides.",
+            "context": "\n[Preceding Sentences:]\nPicture this: You walk outside and watch as the moon gets bigger and bigger, tumbling towards the Earth at an astonishing speed.\nHere's what would really happen if the moon hit the Earth.\n\n[Sentence of Interest for current task:]\nAs the moon gets closer, the first thing we will notice is a dramatic shift in the tides.\n\n[Following Sentences:]\nCoastal cities will be consumed by the oceans.\nIts gravity will cause our satellites to be thrown out of their orbits, rendering them completely useless.\nThere will be earthquakes and volcanic eruptions every single day.\nAnd when the moon is just 11,000 miles away from the Earth's surface, it will be completely torn apart by Earth's gravity, creating a beautiful ring system similar to Saturn's.\nAny survivors will be treated to a breathtaking view of these gorgeous rings shimmering in the sunlight.",
+            "index": 2
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Coastal cities will be consumed by the oceans.",
+        "original_selected_item": {
+          "processed_sentence": "Coastal cities will be consumed by the oceans.",
+          "original_context_item": {
+            "sentence": "Coastal cities will be consumed by the oceans.",
+            "context": "\n[Preceding Sentences:]\nPicture this: You walk outside and watch as the moon gets bigger and bigger, tumbling towards the Earth at an astonishing speed.\nHere's what would really happen if the moon hit the Earth.\nAs the moon gets closer, the first thing we will notice is a dramatic shift in the tides.\n\n[Sentence of Interest for current task:]\nCoastal cities will be consumed by the oceans.\n\n[Following Sentences:]\nIts gravity will cause our satellites to be thrown out of their orbits, rendering them completely useless.\nThere will be earthquakes and volcanic eruptions every single day.\nAnd when the moon is just 11,000 miles away from the Earth's surface, it will be completely torn apart by Earth's gravity, creating a beautiful ring system similar to Saturn's.\nAny survivors will be treated to a breathtaking view of these gorgeous rings shimmering in the sunlight.\nEvery night will feature a bright meteor shower made of moon dust.",
+            "index": 3
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Earth's gravity will cause satellites to be thrown out of orbit, rendering them useless.",
+        "original_selected_item": {
+          "processed_sentence": "Earth's gravity will cause satellites to be thrown out of orbit.",
+          "original_context_item": {
+            "sentence": "Its gravity will cause our satellites to be thrown out of their orbits, rendering them completely useless.",
+            "context": "\n[Preceding Sentences:]\nPicture this: You walk outside and watch as the moon gets bigger and bigger, tumbling towards the Earth at an astonishing speed.\nHere's what would really happen if the moon hit the Earth.\nAs the moon gets closer, the first thing we will notice is a dramatic shift in the tides.\nCoastal cities will be consumed by the oceans.\n\n[Sentence of Interest for current task:]\nIts gravity will cause our satellites to be thrown out of their orbits, rendering them completely useless.\n\n[Following Sentences:]\nThere will be earthquakes and volcanic eruptions every single day.\nAnd when the moon is just 11,000 miles away from the Earth's surface, it will be completely torn apart by Earth's gravity, creating a beautiful ring system similar to Saturn's.\nAny survivors will be treated to a breathtaking view of these gorgeous rings shimmering in the sunlight.\nEvery night will feature a bright meteor shower made of moon dust.\nNow, I know this sounds bad, because obviously this would cause so much destruction, but I kind of wish it would happen, just so we could see the ring in the sky.",
+            "index": 4
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Earthquakes and volcanic eruptions will occur daily.",
+        "original_selected_item": {
+          "processed_sentence": "Earthquakes and volcanic eruptions will occur daily.",
+          "original_context_item": {
+            "sentence": "There will be earthquakes and volcanic eruptions every single day.",
+            "context": "\n[Preceding Sentences:]\nPicture this: You walk outside and watch as the moon gets bigger and bigger, tumbling towards the Earth at an astonishing speed.\nHere's what would really happen if the moon hit the Earth.\nAs the moon gets closer, the first thing we will notice is a dramatic shift in the tides.\nCoastal cities will be consumed by the oceans.\nIts gravity will cause our satellites to be thrown out of their orbits, rendering them completely useless.\n\n[Sentence of Interest for current task:]\nThere will be earthquakes and volcanic eruptions every single day.\n\n[Following Sentences:]\nAnd when the moon is just 11,000 miles away from the Earth's surface, it will be completely torn apart by Earth's gravity, creating a beautiful ring system similar to Saturn's.\nAny survivors will be treated to a breathtaking view of these gorgeous rings shimmering in the sunlight.\nEvery night will feature a bright meteor shower made of moon dust.\nNow, I know this sounds bad, because obviously this would cause so much destruction, but I kind of wish it would happen, just so we could see the ring in the sky.\nNow, onto the next fact.",
+            "index": 5
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "When the moon is 11,000 miles from Earth's surface, it will be torn apart by Earth's gravity, forming a ring system.",
+        "original_selected_item": {
+          "processed_sentence": "At 11,000 miles from Earth's surface, the moon will be torn apart by Earth's gravity, forming a ring system.",
+          "original_context_item": {
+            "sentence": "And when the moon is just 11,000 miles away from the Earth's surface, it will be completely torn apart by Earth's gravity, creating a beautiful ring system similar to Saturn's.",
+            "context": "\n[Preceding Sentences:]\nHere's what would really happen if the moon hit the Earth.\nAs the moon gets closer, the first thing we will notice is a dramatic shift in the tides.\nCoastal cities will be consumed by the oceans.\nIts gravity will cause our satellites to be thrown out of their orbits, rendering them completely useless.\nThere will be earthquakes and volcanic eruptions every single day.\n\n[Sentence of Interest for current task:]\nAnd when the moon is just 11,000 miles away from the Earth's surface, it will be completely torn apart by Earth's gravity, creating a beautiful ring system similar to Saturn's.\n\n[Following Sentences:]\nAny survivors will be treated to a breathtaking view of these gorgeous rings shimmering in the sunlight.\nEvery night will feature a bright meteor shower made of moon dust.\nNow, I know this sounds bad, because obviously this would cause so much destruction, but I kind of wish it would happen, just so we could see the ring in the sky.\nNow, onto the next fact.\nBack in the year 1977, NASA launched the twin Voyager space probes, Voyager 1 and 2, into space.",
+            "index": 6
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "A meteor shower of moon dust will occur nightly.",
+        "original_selected_item": {
+          "processed_sentence": "A meteor shower of moon dust will occur nightly.",
+          "original_context_item": {
+            "sentence": "Every night will feature a bright meteor shower made of moon dust.",
+            "context": "\n[Preceding Sentences:]\nCoastal cities will be consumed by the oceans.\nIts gravity will cause our satellites to be thrown out of their orbits, rendering them completely useless.\nThere will be earthquakes and volcanic eruptions every single day.\nAnd when the moon is just 11,000 miles away from the Earth's surface, it will be completely torn apart by Earth's gravity, creating a beautiful ring system similar to Saturn's.\nAny survivors will be treated to a breathtaking view of these gorgeous rings shimmering in the sunlight.\n\n[Sentence of Interest for current task:]\nEvery night will feature a bright meteor shower made of moon dust.\n\n[Following Sentences:]\nNow, I know this sounds bad, because obviously this would cause so much destruction, but I kind of wish it would happen, just so we could see the ring in the sky.\nNow, onto the next fact.\nBack in the year 1977, NASA launched the twin Voyager space probes, Voyager 1 and 2, into space.\nThey were originally launched to take advantage of a rare alignment of Jupiter, Saturn, Uranus, and Neptune that wouldn't happen again for another 175 years.\nNow, on their way out of our solar system, they visited all of the outer planets, taking all of these jaw-dropping images of them and investigating their moons for the first time ever.",
+            "index": 8
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "In 1977, NASA launched the Voyager 1 and 2 space probes.",
+        "original_selected_item": {
+          "processed_sentence": "In 1977, NASA launched the Voyager 1 and 2 space probes.",
+          "original_context_item": {
+            "sentence": "Back in the year 1977, NASA launched the twin Voyager space probes, Voyager 1 and 2, into space.",
+            "context": "\n[Preceding Sentences:]\nAnd when the moon is just 11,000 miles away from the Earth's surface, it will be completely torn apart by Earth's gravity, creating a beautiful ring system similar to Saturn's.\nAny survivors will be treated to a breathtaking view of these gorgeous rings shimmering in the sunlight.\nEvery night will feature a bright meteor shower made of moon dust.\nNow, I know this sounds bad, because obviously this would cause so much destruction, but I kind of wish it would happen, just so we could see the ring in the sky.\nNow, onto the next fact.\n\n[Sentence of Interest for current task:]\nBack in the year 1977, NASA launched the twin Voyager space probes, Voyager 1 and 2, into space.\n\n[Following Sentences:]\nThey were originally launched to take advantage of a rare alignment of Jupiter, Saturn, Uranus, and Neptune that wouldn't happen again for another 175 years.\nNow, on their way out of our solar system, they visited all of the outer planets, taking all of these jaw-dropping images of them and investigating their moons for the first time ever.\nBut you see, these are actually special spacecraft.\nThey are further away from us than anything ever produced by a human.\nAnd NASA thought about what would happen if an alien civilization found one of these spacecraft, and so they included a very special message on board: The Golden Record, or as I like to think of it, Earth's time capsule.",
+            "index": 11
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The launch of the Voyager 1 and 2 space probes took advantage of a rare alignment of Jupiter, Saturn, Uranus, and Neptune.",
+        "original_selected_item": {
+          "processed_sentence": "The launch took advantage of a rare alignment of Jupiter, Saturn, Uranus, and Neptune.",
+          "original_context_item": {
+            "sentence": "They were originally launched to take advantage of a rare alignment of Jupiter, Saturn, Uranus, and Neptune that wouldn't happen again for another 175 years.",
+            "context": "\n[Preceding Sentences:]\nAny survivors will be treated to a breathtaking view of these gorgeous rings shimmering in the sunlight.\nEvery night will feature a bright meteor shower made of moon dust.\nNow, I know this sounds bad, because obviously this would cause so much destruction, but I kind of wish it would happen, just so we could see the ring in the sky.\nNow, onto the next fact.\nBack in the year 1977, NASA launched the twin Voyager space probes, Voyager 1 and 2, into space.\n\n[Sentence of Interest for current task:]\nThey were originally launched to take advantage of a rare alignment of Jupiter, Saturn, Uranus, and Neptune that wouldn't happen again for another 175 years.\n\n[Following Sentences:]\nNow, on their way out of our solar system, they visited all of the outer planets, taking all of these jaw-dropping images of them and investigating their moons for the first time ever.\nBut you see, these are actually special spacecraft.\nThey are further away from us than anything ever produced by a human.\nAnd NASA thought about what would happen if an alien civilization found one of these spacecraft, and so they included a very special message on board: The Golden Record, or as I like to think of it, Earth's time capsule.\nOne day, when humanity has been extinguished like the flame of a candle, this record might be the last evidence of our existence anywhere in the universe.",
+            "index": 12
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The Voyager probes visited the outer planets, taking images and investigating moons.",
+        "original_selected_item": {
+          "processed_sentence": "The Voyager probes visited the outer planets, taking images and investigating moons.",
+          "original_context_item": {
+            "sentence": "Now, on their way out of our solar system, they visited all of the outer planets, taking all of these jaw-dropping images of them and investigating their moons for the first time ever.",
+            "context": "\n[Preceding Sentences:]\nEvery night will feature a bright meteor shower made of moon dust.\nNow, I know this sounds bad, because obviously this would cause so much destruction, but I kind of wish it would happen, just so we could see the ring in the sky.\nNow, onto the next fact.\nBack in the year 1977, NASA launched the twin Voyager space probes, Voyager 1 and 2, into space.\nThey were originally launched to take advantage of a rare alignment of Jupiter, Saturn, Uranus, and Neptune that wouldn't happen again for another 175 years.\n\n[Sentence of Interest for current task:]\nNow, on their way out of our solar system, they visited all of the outer planets, taking all of these jaw-dropping images of them and investigating their moons for the first time ever.\n\n[Following Sentences:]\nBut you see, these are actually special spacecraft.\nThey are further away from us than anything ever produced by a human.\nAnd NASA thought about what would happen if an alien civilization found one of these spacecraft, and so they included a very special message on board: The Golden Record, or as I like to think of it, Earth's time capsule.\nOne day, when humanity has been extinguished like the flame of a candle, this record might be the last evidence of our existence anywhere in the universe.\nIt tells the story of our world through sound, images, and science: Earth's greatest music through time, the sounds of nature, spoken greetings in dozens of languages—Greetings to the friends of the stars, may the time unite us.",
+            "index": 13
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The Voyager probes are farther from Earth than any other human-made object.",
+        "original_selected_item": {
+          "processed_sentence": "The Voyager probes are farther from Earth than any other human-made object.",
+          "original_context_item": {
+            "sentence": "They are further away from us than anything ever produced by a human.",
+            "context": "\n[Preceding Sentences:]\nNow, onto the next fact.\nBack in the year 1977, NASA launched the twin Voyager space probes, Voyager 1 and 2, into space.\nThey were originally launched to take advantage of a rare alignment of Jupiter, Saturn, Uranus, and Neptune that wouldn't happen again for another 175 years.\nNow, on their way out of our solar system, they visited all of the outer planets, taking all of these jaw-dropping images of them and investigating their moons for the first time ever.\nBut you see, these are actually special spacecraft.\n\n[Sentence of Interest for current task:]\nThey are further away from us than anything ever produced by a human.\n\n[Following Sentences:]\nAnd NASA thought about what would happen if an alien civilization found one of these spacecraft, and so they included a very special message on board: The Golden Record, or as I like to think of it, Earth's time capsule.\nOne day, when humanity has been extinguished like the flame of a candle, this record might be the last evidence of our existence anywhere in the universe.\nIt tells the story of our world through sound, images, and science: Earth's greatest music through time, the sounds of nature, spoken greetings in dozens of languages—Greetings to the friends of the stars, may the time unite us.\nShalom. Assalamu alaykum.\nWe welcome you on behalf of the inhabitants of the Earth.",
+            "index": 15
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "NASA included a message on the Voyager probes: The Golden Record.",
+        "original_selected_item": {
+          "processed_sentence": "NASA included a message on the Voyager probes: The Golden Record.",
+          "original_context_item": {
+            "sentence": "And NASA thought about what would happen if an alien civilization found one of these spacecraft, and so they included a very special message on board: The Golden Record, or as I like to think of it, Earth's time capsule.",
+            "context": "\n[Preceding Sentences:]\nBack in the year 1977, NASA launched the twin Voyager space probes, Voyager 1 and 2, into space.\nThey were originally launched to take advantage of a rare alignment of Jupiter, Saturn, Uranus, and Neptune that wouldn't happen again for another 175 years.\nNow, on their way out of our solar system, they visited all of the outer planets, taking all of these jaw-dropping images of them and investigating their moons for the first time ever.\nBut you see, these are actually special spacecraft.\nThey are further away from us than anything ever produced by a human.\n\n[Sentence of Interest for current task:]\nAnd NASA thought about what would happen if an alien civilization found one of these spacecraft, and so they included a very special message on board: The Golden Record, or as I like to think of it, Earth's time capsule.\n\n[Following Sentences:]\nOne day, when humanity has been extinguished like the flame of a candle, this record might be the last evidence of our existence anywhere in the universe.\nIt tells the story of our world through sound, images, and science: Earth's greatest music through time, the sounds of nature, spoken greetings in dozens of languages—Greetings to the friends of the stars, may the time unite us.\nShalom. Assalamu alaykum.\nWe welcome you on behalf of the inhabitants of the Earth.\nHello from the children of planet Earth—and more than 100 images expertly chosen by Carl Sagan and his team to tell our story, the human story, Earth's story.",
+            "index": 16
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The Golden Record contains sounds, images, and scientific information about Earth.",
+        "original_selected_item": {
+          "processed_sentence": "The Golden Record contains sounds, images, and scientific information about Earth.",
+          "original_context_item": {
+            "sentence": "It tells the story of our world through sound, images, and science: Earth's greatest music through time, the sounds of nature, spoken greetings in dozens of languages—Greetings to the friends of the stars, may the time unite us.",
+            "context": "\n[Preceding Sentences:]\nNow, on their way out of our solar system, they visited all of the outer planets, taking all of these jaw-dropping images of them and investigating their moons for the first time ever.\nBut you see, these are actually special spacecraft.\nThey are further away from us than anything ever produced by a human.\nAnd NASA thought about what would happen if an alien civilization found one of these spacecraft, and so they included a very special message on board: The Golden Record, or as I like to think of it, Earth's time capsule.\nOne day, when humanity has been extinguished like the flame of a candle, this record might be the last evidence of our existence anywhere in the universe.\n\n[Sentence of Interest for current task:]\nIt tells the story of our world through sound, images, and science: Earth's greatest music through time, the sounds of nature, spoken greetings in dozens of languages—Greetings to the friends of the stars, may the time unite us.\n\n[Following Sentences:]\nShalom. Assalamu alaykum.\nWe welcome you on behalf of the inhabitants of the Earth.\nHello from the children of planet Earth—and more than 100 images expertly chosen by Carl Sagan and his team to tell our story, the human story, Earth's story.\nOkay. Now, before I show you this picture, I want you to take a deep breath, because it's honestly pretty terrifying.\nThis is a real photo of the astronaut Bruce McCandless floating 100 meters away from the space shuttle with no rope connecting him back to the ship.",
+            "index": 18
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The Golden Record includes greetings in multiple languages.",
+        "original_selected_item": {
+          "processed_sentence": "The Golden Record includes greetings in multiple languages.",
+          "original_context_item": {
+            "sentence": "Shalom. Assalamu alaykum.",
+            "context": "\n[Preceding Sentences:]\nBut you see, these are actually special spacecraft.\nThey are further away from us than anything ever produced by a human.\nAnd NASA thought about what would happen if an alien civilization found one of these spacecraft, and so they included a very special message on board: The Golden Record, or as I like to think of it, Earth's time capsule.\nOne day, when humanity has been extinguished like the flame of a candle, this record might be the last evidence of our existence anywhere in the universe.\nIt tells the story of our world through sound, images, and science: Earth's greatest music through time, the sounds of nature, spoken greetings in dozens of languages—Greetings to the friends of the stars, may the time unite us.\n\n[Sentence of Interest for current task:]\nShalom. Assalamu alaykum.\n\n[Following Sentences:]\nWe welcome you on behalf of the inhabitants of the Earth.\nHello from the children of planet Earth—and more than 100 images expertly chosen by Carl Sagan and his team to tell our story, the human story, Earth's story.\nOkay. Now, before I show you this picture, I want you to take a deep breath, because it's honestly pretty terrifying.\nThis is a real photo of the astronaut Bruce McCandless floating 100 meters away from the space shuttle with no rope connecting him back to the ship.\nIn 1984, he was on a mission to test the space jetpack system, so he left the ship and simply flew away into the abyss of space.",
+            "index": 19
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "More than 100 images were chosen by Carl Sagan and his team to tell a story about Earth.",
+        "original_selected_item": {
+          "processed_sentence": "More than 100 images were chosen by Carl Sagan and his team to tell a story.",
+          "original_context_item": {
+            "sentence": "Hello from the children of planet Earth—and more than 100 images expertly chosen by Carl Sagan and his team to tell our story, the human story, Earth's story.",
+            "context": "\n[Preceding Sentences:]\nAnd NASA thought about what would happen if an alien civilization found one of these spacecraft, and so they included a very special message on board: The Golden Record, or as I like to think of it, Earth's time capsule.\nOne day, when humanity has been extinguished like the flame of a candle, this record might be the last evidence of our existence anywhere in the universe.\nIt tells the story of our world through sound, images, and science: Earth's greatest music through time, the sounds of nature, spoken greetings in dozens of languages—Greetings to the friends of the stars, may the time unite us.\nShalom. Assalamu alaykum.\nWe welcome you on behalf of the inhabitants of the Earth.\n\n[Sentence of Interest for current task:]\nHello from the children of planet Earth—and more than 100 images expertly chosen by Carl Sagan and his team to tell our story, the human story, Earth's story.\n\n[Following Sentences:]\nOkay. Now, before I show you this picture, I want you to take a deep breath, because it's honestly pretty terrifying.\nThis is a real photo of the astronaut Bruce McCandless floating 100 meters away from the space shuttle with no rope connecting him back to the ship.\nIn 1984, he was on a mission to test the space jetpack system, so he left the ship and simply flew away into the abyss of space.\nNow, when he was asked about this mission, he said that the only thing that really terrified him was how cold he got as soon as he was away from the shuttle.\nI mean, imagine the silence, just you alone in space.",
+            "index": 21
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "This is a real photo of astronaut Bruce McCandless floating 100 meters away from the space shuttle with no rope connecting him back to the ship.",
+        "original_selected_item": {
+          "processed_sentence": "This is a real photo of the astronaut Bruce McCandless floating 100 meters away from the space shuttle with no rope connecting him back to the ship.",
+          "original_context_item": {
+            "sentence": "This is a real photo of the astronaut Bruce McCandless floating 100 meters away from the space shuttle with no rope connecting him back to the ship.",
+            "context": "\n[Preceding Sentences:]\nIt tells the story of our world through sound, images, and science: Earth's greatest music through time, the sounds of nature, spoken greetings in dozens of languages—Greetings to the friends of the stars, may the time unite us.\nShalom. Assalamu alaykum.\nWe welcome you on behalf of the inhabitants of the Earth.\nHello from the children of planet Earth—and more than 100 images expertly chosen by Carl Sagan and his team to tell our story, the human story, Earth's story.\nOkay. Now, before I show you this picture, I want you to take a deep breath, because it's honestly pretty terrifying.\n\n[Sentence of Interest for current task:]\nThis is a real photo of the astronaut Bruce McCandless floating 100 meters away from the space shuttle with no rope connecting him back to the ship.\n\n[Following Sentences:]\nIn 1984, he was on a mission to test the space jetpack system, so he left the ship and simply flew away into the abyss of space.\nNow, when he was asked about this mission, he said that the only thing that really terrified him was how cold he got as soon as he was away from the shuttle.\nI mean, imagine the silence, just you alone in space.\nAnd what if he just drifted away?\nFreaky stuff.",
+            "index": 23
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "In 1984, Bruce McCandless was on a mission to test the space jetpack system, and he left the ship.",
+        "original_selected_item": {
+          "processed_sentence": "In 1984, Bruce McCandless was on a mission to test the space jetpack system, and he left the ship.",
+          "original_context_item": {
+            "sentence": "In 1984, he was on a mission to test the space jetpack system, so he left the ship and simply flew away into the abyss of space.",
+            "context": "\n[Preceding Sentences:]\nShalom. Assalamu alaykum.\nWe welcome you on behalf of the inhabitants of the Earth.\nHello from the children of planet Earth—and more than 100 images expertly chosen by Carl Sagan and his team to tell our story, the human story, Earth's story.\nOkay. Now, before I show you this picture, I want you to take a deep breath, because it's honestly pretty terrifying.\nThis is a real photo of the astronaut Bruce McCandless floating 100 meters away from the space shuttle with no rope connecting him back to the ship.\n\n[Sentence of Interest for current task:]\nIn 1984, he was on a mission to test the space jetpack system, so he left the ship and simply flew away into the abyss of space.\n\n[Following Sentences:]\nNow, when he was asked about this mission, he said that the only thing that really terrified him was how cold he got as soon as he was away from the shuttle.\nI mean, imagine the silence, just you alone in space.\nAnd what if he just drifted away?\nFreaky stuff.\nWhen black holes collide with one another, they send literal ripples throughout the fabric of spacetime at the speed of light.",
+            "index": 24
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Bruce McCandless said that the only thing that terrified him was how cold he got as soon as he was away from the shuttle.",
+        "original_selected_item": {
+          "processed_sentence": "Bruce McCandless said that the only thing that terrified him was how cold he got as soon as he was away from the shuttle.",
+          "original_context_item": {
+            "sentence": "Now, when he was asked about this mission, he said that the only thing that really terrified him was how cold he got as soon as he was away from the shuttle.",
+            "context": "\n[Preceding Sentences:]\nWe welcome you on behalf of the inhabitants of the Earth.\nHello from the children of planet Earth—and more than 100 images expertly chosen by Carl Sagan and his team to tell our story, the human story, Earth's story.\nOkay. Now, before I show you this picture, I want you to take a deep breath, because it's honestly pretty terrifying.\nThis is a real photo of the astronaut Bruce McCandless floating 100 meters away from the space shuttle with no rope connecting him back to the ship.\nIn 1984, he was on a mission to test the space jetpack system, so he left the ship and simply flew away into the abyss of space.\n\n[Sentence of Interest for current task:]\nNow, when he was asked about this mission, he said that the only thing that really terrified him was how cold he got as soon as he was away from the shuttle.\n\n[Following Sentences:]\nI mean, imagine the silence, just you alone in space.\nAnd what if he just drifted away?\nFreaky stuff.\nWhen black holes collide with one another, they send literal ripples throughout the fabric of spacetime at the speed of light.\nThese ripples squeeze and stretch everything in their path, similar to the ripples on a lake.",
+            "index": 25
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "When black holes collide with one another, they send literal ripples throughout the fabric of spacetime at the speed of light.",
+        "original_selected_item": {
+          "processed_sentence": "When black holes collide with one another, they send literal ripples throughout the fabric of spacetime at the speed of light.",
+          "original_context_item": {
+            "sentence": "When black holes collide with one another, they send literal ripples throughout the fabric of spacetime at the speed of light.",
+            "context": "\n[Preceding Sentences:]\nIn 1984, he was on a mission to test the space jetpack system, so he left the ship and simply flew away into the abyss of space.\nNow, when he was asked about this mission, he said that the only thing that really terrified him was how cold he got as soon as he was away from the shuttle.\nI mean, imagine the silence, just you alone in space.\nAnd what if he just drifted away?\nFreaky stuff.\n\n[Sentence of Interest for current task:]\nWhen black holes collide with one another, they send literal ripples throughout the fabric of spacetime at the speed of light.\n\n[Following Sentences:]\nThese ripples squeeze and stretch everything in their path, similar to the ripples on a lake.\nNow, Einstein predicted that these ripples must exist if his theory of general relativity were to be correct, but it wasn't actually until 2015 that we finally detected one for the first time.\nScientists use an instrument called the laser interferometer gravitational-wave observatory, or LIGO.\nA laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth.\nNow, as the gravitational wave passes through the Earth, the length of each arm is changed ever so slightly, which they were able to detect using this method.",
+            "index": 29
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "These ripples squeeze and stretch everything in their path, similar to the ripples on a lake.",
+        "original_selected_item": {
+          "processed_sentence": "These ripples squeeze and stretch everything in their path, similar to the ripples on a lake.",
+          "original_context_item": {
+            "sentence": "These ripples squeeze and stretch everything in their path, similar to the ripples on a lake.",
+            "context": "\n[Preceding Sentences:]\nNow, when he was asked about this mission, he said that the only thing that really terrified him was how cold he got as soon as he was away from the shuttle.\nI mean, imagine the silence, just you alone in space.\nAnd what if he just drifted away?\nFreaky stuff.\nWhen black holes collide with one another, they send literal ripples throughout the fabric of spacetime at the speed of light.\n\n[Sentence of Interest for current task:]\nThese ripples squeeze and stretch everything in their path, similar to the ripples on a lake.\n\n[Following Sentences:]\nNow, Einstein predicted that these ripples must exist if his theory of general relativity were to be correct, but it wasn't actually until 2015 that we finally detected one for the first time.\nScientists use an instrument called the laser interferometer gravitational-wave observatory, or LIGO.\nA laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth.\nNow, as the gravitational wave passes through the Earth, the length of each arm is changed ever so slightly, which they were able to detect using this method.\nNASA's Mars rover Opportunity was one of the most successful rovers we have ever launched into space, and her last words are some of the saddest you will ever hear.",
+            "index": 30
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Einstein predicted that these ripples must exist if his theory of general relativity were to be correct, and they were detected in 2015.",
+        "original_selected_item": {
+          "processed_sentence": "Einstein predicted that these ripples must exist if his theory of general relativity were to be correct, and they were detected in 2015.",
+          "original_context_item": {
+            "sentence": "Now, Einstein predicted that these ripples must exist if his theory of general relativity were to be correct, but it wasn't actually until 2015 that we finally detected one for the first time.",
+            "context": "\n[Preceding Sentences:]\nI mean, imagine the silence, just you alone in space.\nAnd what if he just drifted away?\nFreaky stuff.\nWhen black holes collide with one another, they send literal ripples throughout the fabric of spacetime at the speed of light.\nThese ripples squeeze and stretch everything in their path, similar to the ripples on a lake.\n\n[Sentence of Interest for current task:]\nNow, Einstein predicted that these ripples must exist if his theory of general relativity were to be correct, but it wasn't actually until 2015 that we finally detected one for the first time.\n\n[Following Sentences:]\nScientists use an instrument called the laser interferometer gravitational-wave observatory, or LIGO.\nA laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth.\nNow, as the gravitational wave passes through the Earth, the length of each arm is changed ever so slightly, which they were able to detect using this method.\nNASA's Mars rover Opportunity was one of the most successful rovers we have ever launched into space, and her last words are some of the saddest you will ever hear.\nYou see, Opportunity was initially only supposed to survive on the red planet for 90 days, but she was resilient.",
+            "index": 31
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Scientists use the laser interferometer gravitational-wave observatory (LIGO).",
+        "original_selected_item": {
+          "processed_sentence": "Scientists use an instrument called the laser interferometer gravitational-wave observatory, or LIGO.",
+          "original_context_item": {
+            "sentence": "Scientists use an instrument called the laser interferometer gravitational-wave observatory, or LIGO.",
+            "context": "\n[Preceding Sentences:]\nAnd what if he just drifted away?\nFreaky stuff.\nWhen black holes collide with one another, they send literal ripples throughout the fabric of spacetime at the speed of light.\nThese ripples squeeze and stretch everything in their path, similar to the ripples on a lake.\nNow, Einstein predicted that these ripples must exist if his theory of general relativity were to be correct, but it wasn't actually until 2015 that we finally detected one for the first time.\n\n[Sentence of Interest for current task:]\nScientists use an instrument called the laser interferometer gravitational-wave observatory, or LIGO.\n\n[Following Sentences:]\nA laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth.\nNow, as the gravitational wave passes through the Earth, the length of each arm is changed ever so slightly, which they were able to detect using this method.\nNASA's Mars rover Opportunity was one of the most successful rovers we have ever launched into space, and her last words are some of the saddest you will ever hear.\nYou see, Opportunity was initially only supposed to survive on the red planet for 90 days, but she was resilient.\nUsing her solar panels, she was able to travel over 28 miles across the Martian surface over 14 years.",
+            "index": 32
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "In the LIGO instrument, a laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth.",
+        "original_selected_item": {
+          "processed_sentence": "A laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth.",
+          "original_context_item": {
+            "sentence": "A laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth.",
+            "context": "\n[Preceding Sentences:]\nFreaky stuff.\nWhen black holes collide with one another, they send literal ripples throughout the fabric of spacetime at the speed of light.\nThese ripples squeeze and stretch everything in their path, similar to the ripples on a lake.\nNow, Einstein predicted that these ripples must exist if his theory of general relativity were to be correct, but it wasn't actually until 2015 that we finally detected one for the first time.\nScientists use an instrument called the laser interferometer gravitational-wave observatory, or LIGO.\n\n[Sentence of Interest for current task:]\nA laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth.\n\n[Following Sentences:]\nNow, as the gravitational wave passes through the Earth, the length of each arm is changed ever so slightly, which they were able to detect using this method.\nNASA's Mars rover Opportunity was one of the most successful rovers we have ever launched into space, and her last words are some of the saddest you will ever hear.\nYou see, Opportunity was initially only supposed to survive on the red planet for 90 days, but she was resilient.\nUsing her solar panels, she was able to travel over 28 miles across the Martian surface over 14 years.\nThen, one fateful day, as a Martian storm descended on the rover and the skies were choked of all sunlight, the solar-powered Opportunity messaged home saying, \"My battery is low and it's getting dark.\"",
+            "index": 33
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "As a gravitational wave passes through the Earth, the length of each arm in the LIGO instrument is changed ever so slightly, which scientists were able to detect using this method.",
+        "original_selected_item": {
+          "processed_sentence": "Now, as the gravitational wave passes through the Earth, the length of each arm is changed ever so slightly, which they were able to detect using this method.",
+          "original_context_item": {
+            "sentence": "Now, as the gravitational wave passes through the Earth, the length of each arm is changed ever so slightly, which they were able to detect using this method.",
+            "context": "\n[Preceding Sentences:]\nWhen black holes collide with one another, they send literal ripples throughout the fabric of spacetime at the speed of light.\nThese ripples squeeze and stretch everything in their path, similar to the ripples on a lake.\nNow, Einstein predicted that these ripples must exist if his theory of general relativity were to be correct, but it wasn't actually until 2015 that we finally detected one for the first time.\nScientists use an instrument called the laser interferometer gravitational-wave observatory, or LIGO.\nA laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth.\n\n[Sentence of Interest for current task:]\nNow, as the gravitational wave passes through the Earth, the length of each arm is changed ever so slightly, which they were able to detect using this method.\n\n[Following Sentences:]\nNASA's Mars rover Opportunity was one of the most successful rovers we have ever launched into space, and her last words are some of the saddest you will ever hear.\nYou see, Opportunity was initially only supposed to survive on the red planet for 90 days, but she was resilient.\nUsing her solar panels, she was able to travel over 28 miles across the Martian surface over 14 years.\nThen, one fateful day, as a Martian storm descended on the rover and the skies were choked of all sunlight, the solar-powered Opportunity messaged home saying, \"My battery is low and it's getting dark.\"\nNow, while these facts are truly unbelievable, something I find unbelievable is the shaving industry here on Earth.",
+            "index": 34
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "NASA's Mars rover Opportunity was one of the most successful rovers ever launched into space, and its last words are some of the saddest ever heard.",
+        "original_selected_item": {
+          "processed_sentence": "NASA's Mars rover Opportunity was one of the most successful rovers we have ever launched into space.",
+          "original_context_item": {
+            "sentence": "NASA's Mars rover Opportunity was one of the most successful rovers we have ever launched into space, and her last words are some of the saddest you will ever hear.",
+            "context": "\n[Preceding Sentences:]\nThese ripples squeeze and stretch everything in their path, similar to the ripples on a lake.\nNow, Einstein predicted that these ripples must exist if his theory of general relativity were to be correct, but it wasn't actually until 2015 that we finally detected one for the first time.\nScientists use an instrument called the laser interferometer gravitational-wave observatory, or LIGO.\nA laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth.\nNow, as the gravitational wave passes through the Earth, the length of each arm is changed ever so slightly, which they were able to detect using this method.\n\n[Sentence of Interest for current task:]\nNASA's Mars rover Opportunity was one of the most successful rovers we have ever launched into space, and her last words are some of the saddest you will ever hear.\n\n[Following Sentences:]\nYou see, Opportunity was initially only supposed to survive on the red planet for 90 days, but she was resilient.\nUsing her solar panels, she was able to travel over 28 miles across the Martian surface over 14 years.\nThen, one fateful day, as a Martian storm descended on the rover and the skies were choked of all sunlight, the solar-powered Opportunity messaged home saying, \"My battery is low and it's getting dark.\"\nNow, while these facts are truly unbelievable, something I find unbelievable is the shaving industry here on Earth.\nI mean, think about it: If you have sensitive skin, your options are to either use an electric razor or simply stop shaving.",
+            "index": 35
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "NASA's Mars rover Opportunity was initially supposed to survive on Mars for 90 days, but it was resilient.",
+        "original_selected_item": {
+          "processed_sentence": "Opportunity was initially supposed to survive on Mars for 90 days.",
+          "original_context_item": {
+            "sentence": "You see, Opportunity was initially only supposed to survive on the red planet for 90 days, but she was resilient.",
+            "context": "\n[Preceding Sentences:]\nNow, Einstein predicted that these ripples must exist if his theory of general relativity were to be correct, but it wasn't actually until 2015 that we finally detected one for the first time.\nScientists use an instrument called the laser interferometer gravitational-wave observatory, or LIGO.\nA laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth.\nNow, as the gravitational wave passes through the Earth, the length of each arm is changed ever so slightly, which they were able to detect using this method.\nNASA's Mars rover Opportunity was one of the most successful rovers we have ever launched into space, and her last words are some of the saddest you will ever hear.\n\n[Sentence of Interest for current task:]\nYou see, Opportunity was initially only supposed to survive on the red planet for 90 days, but she was resilient.\n\n[Following Sentences:]\nUsing her solar panels, she was able to travel over 28 miles across the Martian surface over 14 years.\nThen, one fateful day, as a Martian storm descended on the rover and the skies were choked of all sunlight, the solar-powered Opportunity messaged home saying, \"My battery is low and it's getting dark.\"\nNow, while these facts are truly unbelievable, something I find unbelievable is the shaving industry here on Earth.\nI mean, think about it: If you have sensitive skin, your options are to either use an electric razor or simply stop shaving.\nAnd if you can use traditional razors, you are expected to buy thousands of those disposable razors throughout your lifetime.",
+            "index": 36
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Using its solar panels, NASA's Mars rover Opportunity traveled over 28 miles across the Martian surface over 14 years.",
+        "original_selected_item": {
+          "processed_sentence": "Opportunity traveled over 28 miles across the Martian surface over 14 years using solar panels.",
+          "original_context_item": {
+            "sentence": "Using her solar panels, she was able to travel over 28 miles across the Martian surface over 14 years.",
+            "context": "\n[Preceding Sentences:]\nScientists use an instrument called the laser interferometer gravitational-wave observatory, or LIGO.\nA laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth.\nNow, as the gravitational wave passes through the Earth, the length of each arm is changed ever so slightly, which they were able to detect using this method.\nNASA's Mars rover Opportunity was one of the most successful rovers we have ever launched into space, and her last words are some of the saddest you will ever hear.\nYou see, Opportunity was initially only supposed to survive on the red planet for 90 days, but she was resilient.\n\n[Sentence of Interest for current task:]\nUsing her solar panels, she was able to travel over 28 miles across the Martian surface over 14 years.\n\n[Following Sentences:]\nThen, one fateful day, as a Martian storm descended on the rover and the skies were choked of all sunlight, the solar-powered Opportunity messaged home saying, \"My battery is low and it's getting dark.\"\nNow, while these facts are truly unbelievable, something I find unbelievable is the shaving industry here on Earth.\nI mean, think about it: If you have sensitive skin, your options are to either use an electric razor or simply stop shaving.\nAnd if you can use traditional razors, you are expected to buy thousands of those disposable razors throughout your lifetime.\nThis is terrible for the planet, your wallet, and frankly, your shave.",
+            "index": 37
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "One fateful day, as a Martian storm descended on the rover and the skies were choked with sunlight, the solar-powered Opportunity messaged home saying, \"My battery is low and it's getting dark.\"",
+        "original_selected_item": {
+          "processed_sentence": "Then, one fateful day, as a Martian storm descended on the rover and the skies were choked of all sunlight, the solar-powered Opportunity messaged home saying, \"My battery is low and it's getting dark.\"",
+          "original_context_item": {
+            "sentence": "Then, one fateful day, as a Martian storm descended on the rover and the skies were choked of all sunlight, the solar-powered Opportunity messaged home saying, \"My battery is low and it's getting dark.\"",
+            "context": "\n[Preceding Sentences:]\nA laser beam is split down two four-kilometer-long arms with mirrors at the end that reflect the lasers back and forth.\nNow, as the gravitational wave passes through the Earth, the length of each arm is changed ever so slightly, which they were able to detect using this method.\nNASA's Mars rover Opportunity was one of the most successful rovers we have ever launched into space, and her last words are some of the saddest you will ever hear.\nYou see, Opportunity was initially only supposed to survive on the red planet for 90 days, but she was resilient.\nUsing her solar panels, she was able to travel over 28 miles across the Martian surface over 14 years.\n\n[Sentence of Interest for current task:]\nThen, one fateful day, as a Martian storm descended on the rover and the skies were choked of all sunlight, the solar-powered Opportunity messaged home saying, \"My battery is low and it's getting dark.\"\n\n[Following Sentences:]\nNow, while these facts are truly unbelievable, something I find unbelievable is the shaving industry here on Earth.\nI mean, think about it: If you have sensitive skin, your options are to either use an electric razor or simply stop shaving.\nAnd if you can use traditional razors, you are expected to buy thousands of those disposable razors throughout your lifetime.\nThis is terrible for the planet, your wallet, and frankly, your shave.\nBut what if I told you you could buy just one razor for the entire rest of your life?",
+            "index": 38
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "People who use traditional razors are expected to buy thousands of disposable razors in their lifetime.",
+        "original_selected_item": {
+          "processed_sentence": "People who use traditional razors are expected to buy thousands of disposable razors in their lifetime.",
+          "original_context_item": {
+            "sentence": "And if you can use traditional razors, you are expected to buy thousands of those disposable razors throughout your lifetime.",
+            "context": "\n[Preceding Sentences:]\nYou see, Opportunity was initially only supposed to survive on the red planet for 90 days, but she was resilient.\nUsing her solar panels, she was able to travel over 28 miles across the Martian surface over 14 years.\nThen, one fateful day, as a Martian storm descended on the rover and the skies were choked of all sunlight, the solar-powered Opportunity messaged home saying, \"My battery is low and it's getting dark.\"\nNow, while these facts are truly unbelievable, something I find unbelievable is the shaving industry here on Earth.\nI mean, think about it: If you have sensitive skin, your options are to either use an electric razor or simply stop shaving.\n\n[Sentence of Interest for current task:]\nAnd if you can use traditional razors, you are expected to buy thousands of those disposable razors throughout your lifetime.\n\n[Following Sentences:]\nThis is terrible for the planet, your wallet, and frankly, your shave.\nBut what if I told you you could buy just one razor for the entire rest of your life?\nWell, thanks to the sponsor of today's video, Henson Shaving, you can.\nHenson was created by aerospace machinists who previously had worked on the ISS and Curiosity rover.\nNow, they thought that the way traditional razors support the blade allows for too much movement.",
+            "index": 41
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Henson Shaving is a sponsor of this video.",
+        "original_selected_item": {
+          "processed_sentence": "Henson Shaving is a sponsor of this video.",
+          "original_context_item": {
+            "sentence": "Well, thanks to the sponsor of today's video, Henson Shaving, you can.",
+            "context": "\n[Preceding Sentences:]\nNow, while these facts are truly unbelievable, something I find unbelievable is the shaving industry here on Earth.\nI mean, think about it: If you have sensitive skin, your options are to either use an electric razor or simply stop shaving.\nAnd if you can use traditional razors, you are expected to buy thousands of those disposable razors throughout your lifetime.\nThis is terrible for the planet, your wallet, and frankly, your shave.\nBut what if I told you you could buy just one razor for the entire rest of your life?\n\n[Sentence of Interest for current task:]\nWell, thanks to the sponsor of today's video, Henson Shaving, you can.\n\n[Following Sentences:]\nHenson was created by aerospace machinists who previously had worked on the ISS and Curiosity rover.\nNow, they thought that the way traditional razors support the blade allows for too much movement.\nThe blade flex and exposure means that most razors have too much room for error, leading to razor burn and irritation.\nAnd Henson even partnered with a medical imaging startup to measure the redness and razor burn when using the Henson razor versus a leading multiblade brand, and I mean the results speak for themselves.\nNow, I have used safety razors like this for the last few years now, and I can be honest and say that this is genuinely the best one I've used.",
+            "index": 44
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Henson was created by aerospace machinists who worked on the International Space Station (ISS) and Curiosity rover.",
+        "original_selected_item": {
+          "processed_sentence": "Henson was created by aerospace machinists who worked on the ISS and Curiosity rover.",
+          "original_context_item": {
+            "sentence": "Henson was created by aerospace machinists who previously had worked on the ISS and Curiosity rover.",
+            "context": "\n[Preceding Sentences:]\nI mean, think about it: If you have sensitive skin, your options are to either use an electric razor or simply stop shaving.\nAnd if you can use traditional razors, you are expected to buy thousands of those disposable razors throughout your lifetime.\nThis is terrible for the planet, your wallet, and frankly, your shave.\nBut what if I told you you could buy just one razor for the entire rest of your life?\nWell, thanks to the sponsor of today's video, Henson Shaving, you can.\n\n[Sentence of Interest for current task:]\nHenson was created by aerospace machinists who previously had worked on the ISS and Curiosity rover.\n\n[Following Sentences:]\nNow, they thought that the way traditional razors support the blade allows for too much movement.\nThe blade flex and exposure means that most razors have too much room for error, leading to razor burn and irritation.\nAnd Henson even partnered with a medical imaging startup to measure the redness and razor burn when using the Henson razor versus a leading multiblade brand, and I mean the results speak for themselves.\nNow, I have used safety razors like this for the last few years now, and I can be honest and say that this is genuinely the best one I've used.\nSo if you get razor burn every time you shave, or you just care about the planet, head to hensonshaving.com/AstroKobe and use code AstroKobe for 100 free blades.",
+            "index": 45
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The designers of Henson razors believed that traditional razors allow for too much blade movement.",
+        "original_selected_item": {
+          "processed_sentence": "The designers of Henson razors believed that traditional razors allow for too much blade movement.",
+          "original_context_item": {
+            "sentence": "Now, they thought that the way traditional razors support the blade allows for too much movement.",
+            "context": "\n[Preceding Sentences:]\nAnd if you can use traditional razors, you are expected to buy thousands of those disposable razors throughout your lifetime.\nThis is terrible for the planet, your wallet, and frankly, your shave.\nBut what if I told you you could buy just one razor for the entire rest of your life?\nWell, thanks to the sponsor of today's video, Henson Shaving, you can.\nHenson was created by aerospace machinists who previously had worked on the ISS and Curiosity rover.\n\n[Sentence of Interest for current task:]\nNow, they thought that the way traditional razors support the blade allows for too much movement.\n\n[Following Sentences:]\nThe blade flex and exposure means that most razors have too much room for error, leading to razor burn and irritation.\nAnd Henson even partnered with a medical imaging startup to measure the redness and razor burn when using the Henson razor versus a leading multiblade brand, and I mean the results speak for themselves.\nNow, I have used safety razors like this for the last few years now, and I can be honest and say that this is genuinely the best one I've used.\nSo if you get razor burn every time you shave, or you just care about the planet, head to hensonshaving.com/AstroKobe and use code AstroKobe for 100 free blades.\nThat is around three years of shaving completely for free.",
+            "index": 46
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Blade flex and exposure in most razors cause razor burn and irritation.",
+        "original_selected_item": {
+          "processed_sentence": "Blade flex and exposure in most razors cause razor burn and irritation.",
+          "original_context_item": {
+            "sentence": "The blade flex and exposure means that most razors have too much room for error, leading to razor burn and irritation.",
+            "context": "\n[Preceding Sentences:]\nThis is terrible for the planet, your wallet, and frankly, your shave.\nBut what if I told you you could buy just one razor for the entire rest of your life?\nWell, thanks to the sponsor of today's video, Henson Shaving, you can.\nHenson was created by aerospace machinists who previously had worked on the ISS and Curiosity rover.\nNow, they thought that the way traditional razors support the blade allows for too much movement.\n\n[Sentence of Interest for current task:]\nThe blade flex and exposure means that most razors have too much room for error, leading to razor burn and irritation.\n\n[Following Sentences:]\nAnd Henson even partnered with a medical imaging startup to measure the redness and razor burn when using the Henson razor versus a leading multiblade brand, and I mean the results speak for themselves.\nNow, I have used safety razors like this for the last few years now, and I can be honest and say that this is genuinely the best one I've used.\nSo if you get razor burn every time you shave, or you just care about the planet, head to hensonshaving.com/AstroKobe and use code AstroKobe for 100 free blades.\nThat is around three years of shaving completely for free.\nIt's better for you and better for the environment.",
+            "index": 47
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Henson partnered with a medical imaging startup to compare redness and razor burn from its razor versus a leading multiblade brand.",
+        "original_selected_item": {
+          "processed_sentence": "Henson partnered with a medical imaging startup to compare redness and razor burn from its razor versus a leading multiblade brand.",
+          "original_context_item": {
+            "sentence": "And Henson even partnered with a medical imaging startup to measure the redness and razor burn when using the Henson razor versus a leading multiblade brand, and I mean the results speak for themselves.",
+            "context": "\n[Preceding Sentences:]\nBut what if I told you you could buy just one razor for the entire rest of your life?\nWell, thanks to the sponsor of today's video, Henson Shaving, you can.\nHenson was created by aerospace machinists who previously had worked on the ISS and Curiosity rover.\nNow, they thought that the way traditional razors support the blade allows for too much movement.\nThe blade flex and exposure means that most razors have too much room for error, leading to razor burn and irritation.\n\n[Sentence of Interest for current task:]\nAnd Henson even partnered with a medical imaging startup to measure the redness and razor burn when using the Henson razor versus a leading multiblade brand, and I mean the results speak for themselves.\n\n[Following Sentences:]\nNow, I have used safety razors like this for the last few years now, and I can be honest and say that this is genuinely the best one I've used.\nSo if you get razor burn every time you shave, or you just care about the planet, head to hensonshaving.com/AstroKobe and use code AstroKobe for 100 free blades.\nThat is around three years of shaving completely for free.\nIt's better for you and better for the environment.\nNow, back to those unbelievable space facts.",
+            "index": 48
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The code AstroKobe at hensonshaving.com/AstroKobe includes 100 free blades.",
+        "original_selected_item": {
+          "processed_sentence": "100 free blades are included with the code AstroKobe at hensonshaving.com/AstroKobe.",
+          "original_context_item": {
+            "sentence": "That is around three years of shaving completely for free.",
+            "context": "\n[Preceding Sentences:]\nNow, they thought that the way traditional razors support the blade allows for too much movement.\nThe blade flex and exposure means that most razors have too much room for error, leading to razor burn and irritation.\nAnd Henson even partnered with a medical imaging startup to measure the redness and razor burn when using the Henson razor versus a leading multiblade brand, and I mean the results speak for themselves.\nNow, I have used safety razors like this for the last few years now, and I can be honest and say that this is genuinely the best one I've used.\nSo if you get razor burn every time you shave, or you just care about the planet, head to hensonshaving.com/AstroKobe and use code AstroKobe for 100 free blades.\n\n[Sentence of Interest for current task:]\nThat is around three years of shaving completely for free.\n\n[Following Sentences:]\nIt's better for you and better for the environment.\nNow, back to those unbelievable space facts.\nNow, of course, we all know that sunsets here on Earth have that beautiful red or pink hue, but what about on other planets, like Mars, for example?\nWell, luckily we have rovers there that can take some pictures and send them home, and this is what we see: You see, sunsets on Mars have this beautiful blue tinge to them.\nThis happens because the fine dust on Mars' surface allows the blue light to penetrate the atmosphere slightly more efficiently than the other colors.",
+            "index": 51
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Sunsets on Earth are red or pink.",
+        "original_selected_item": {
+          "processed_sentence": "Sunsets on Earth are red or pink.",
+          "original_context_item": {
+            "sentence": "Well, luckily we have rovers there that can take some pictures and send them home, and this is what we see: You see, sunsets on Mars have this beautiful blue tinge to them.",
+            "context": "\n[Preceding Sentences:]\nSo if you get razor burn every time you shave, or you just care about the planet, head to hensonshaving.com/AstroKobe and use code AstroKobe for 100 free blades.\nThat is around three years of shaving completely for free.\nIt's better for you and better for the environment.\nNow, back to those unbelievable space facts.\nNow, of course, we all know that sunsets here on Earth have that beautiful red or pink hue, but what about on other planets, like Mars, for example?\n\n[Sentence of Interest for current task:]\nWell, luckily we have rovers there that can take some pictures and send them home, and this is what we see: You see, sunsets on Mars have this beautiful blue tinge to them.\n\n[Following Sentences:]\nThis happens because the fine dust on Mars' surface allows the blue light to penetrate the atmosphere slightly more efficiently than the other colors.\nOh, also, you might notice that the sun looks quite small in these pictures, and that's of course because Mars is just further away from the sun when compared to the Earth.\nOne day, potentially sometime soon, one of the brightest stars in our night sky will explode, and when it does, your night sky will look like this.\nI am, of course, talking about the red giant star Betelgeuse.\nBetelgeuse is just a silly little star who often acts weird, getting brighter and dimmer, shooting off huge amounts of its surface in the process.",
+            "index": 55
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Rovers on Mars have taken pictures of sunsets, which appear blue.",
+        "original_selected_item": {
+          "processed_sentence": "Rovers on Mars have taken pictures of sunsets, which appear blue.",
+          "original_context_item": {
+            "sentence": "This happens because the fine dust on Mars' surface allows the blue light to penetrate the atmosphere slightly more efficiently than the other colors.",
+            "context": "\n[Preceding Sentences:]\nThat is around three years of shaving completely for free.\nIt's better for you and better for the environment.\nNow, back to those unbelievable space facts.\nNow, of course, we all know that sunsets here on Earth have that beautiful red or pink hue, but what about on other planets, like Mars, for example?\nWell, luckily we have rovers there that can take some pictures and send them home, and this is what we see: You see, sunsets on Mars have this beautiful blue tinge to them.\n\n[Sentence of Interest for current task:]\nThis happens because the fine dust on Mars' surface allows the blue light to penetrate the atmosphere slightly more efficiently than the other colors.\n\n[Following Sentences:]\nOh, also, you might notice that the sun looks quite small in these pictures, and that's of course because Mars is just further away from the sun when compared to the Earth.\nOne day, potentially sometime soon, one of the brightest stars in our night sky will explode, and when it does, your night sky will look like this.\nI am, of course, talking about the red giant star Betelgeuse.\nBetelgeuse is just a silly little star who often acts weird, getting brighter and dimmer, shooting off huge amounts of its surface in the process.\nAnd new research came out just a few months ago showing that Betelgeuse is in the end stages of its life, fusing carbon in its core.",
+            "index": 56
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Due to fine dust, blue light penetrates the Martian atmosphere more efficiently than other colors.",
+        "original_selected_item": {
+          "processed_sentence": "Blue light penetrates the Martian atmosphere more efficiently than other colors due to fine dust.",
+          "original_context_item": {
+            "sentence": "Oh, also, you might notice that the sun looks quite small in these pictures, and that's of course because Mars is just further away from the sun when compared to the Earth.",
+            "context": "\n[Preceding Sentences:]\nIt's better for you and better for the environment.\nNow, back to those unbelievable space facts.\nNow, of course, we all know that sunsets here on Earth have that beautiful red or pink hue, but what about on other planets, like Mars, for example?\nWell, luckily we have rovers there that can take some pictures and send them home, and this is what we see: You see, sunsets on Mars have this beautiful blue tinge to them.\nThis happens because the fine dust on Mars' surface allows the blue light to penetrate the atmosphere slightly more efficiently than the other colors.\n\n[Sentence of Interest for current task:]\nOh, also, you might notice that the sun looks quite small in these pictures, and that's of course because Mars is just further away from the sun when compared to the Earth.\n\n[Following Sentences:]\nOne day, potentially sometime soon, one of the brightest stars in our night sky will explode, and when it does, your night sky will look like this.\nI am, of course, talking about the red giant star Betelgeuse.\nBetelgeuse is just a silly little star who often acts weird, getting brighter and dimmer, shooting off huge amounts of its surface in the process.\nAnd new research came out just a few months ago showing that Betelgeuse is in the end stages of its life, fusing carbon in its core.\nIf this is true, Betelgeuse will go boom in your lifetime.",
+            "index": 57
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The sun appears small in pictures taken from Mars because of its distance.",
+        "original_selected_item": {
+          "processed_sentence": "The sun appears small in pictures taken from Mars because of its distance.",
+          "original_context_item": {
+            "sentence": "One day, potentially sometime soon, one of the brightest stars in our night sky will explode, and when it does, your night sky will look like this.",
+            "context": "\n[Preceding Sentences:]\nNow, back to those unbelievable space facts.\nNow, of course, we all know that sunsets here on Earth have that beautiful red or pink hue, but what about on other planets, like Mars, for example?\nWell, luckily we have rovers there that can take some pictures and send them home, and this is what we see: You see, sunsets on Mars have this beautiful blue tinge to them.\nThis happens because the fine dust on Mars' surface allows the blue light to penetrate the atmosphere slightly more efficiently than the other colors.\nOh, also, you might notice that the sun looks quite small in these pictures, and that's of course because Mars is just further away from the sun when compared to the Earth.\n\n[Sentence of Interest for current task:]\nOne day, potentially sometime soon, one of the brightest stars in our night sky will explode, and when it does, your night sky will look like this.\n\n[Following Sentences:]\nI am, of course, talking about the red giant star Betelgeuse.\nBetelgeuse is just a silly little star who often acts weird, getting brighter and dimmer, shooting off huge amounts of its surface in the process.\nAnd new research came out just a few months ago showing that Betelgeuse is in the end stages of its life, fusing carbon in its core.\nIf this is true, Betelgeuse will go boom in your lifetime.\nI mean, are you kidding me?",
+            "index": 58
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Betelgeuse is a red giant star.",
+        "original_selected_item": {
+          "processed_sentence": "Betelgeuse is a red giant star.",
+          "original_context_item": {
+            "sentence": "I am, of course, talking about the red giant star Betelgeuse.",
+            "context": "\n[Preceding Sentences:]\nNow, of course, we all know that sunsets here on Earth have that beautiful red or pink hue, but what about on other planets, like Mars, for example?\nWell, luckily we have rovers there that can take some pictures and send them home, and this is what we see: You see, sunsets on Mars have this beautiful blue tinge to them.\nThis happens because the fine dust on Mars' surface allows the blue light to penetrate the atmosphere slightly more efficiently than the other colors.\nOh, also, you might notice that the sun looks quite small in these pictures, and that's of course because Mars is just further away from the sun when compared to the Earth.\nOne day, potentially sometime soon, one of the brightest stars in our night sky will explode, and when it does, your night sky will look like this.\n\n[Sentence of Interest for current task:]\nI am, of course, talking about the red giant star Betelgeuse.\n\n[Following Sentences:]\nBetelgeuse is just a silly little star who often acts weird, getting brighter and dimmer, shooting off huge amounts of its surface in the process.\nAnd new research came out just a few months ago showing that Betelgeuse is in the end stages of its life, fusing carbon in its core.\nIf this is true, Betelgeuse will go boom in your lifetime.\nI mean, are you kidding me?\nIt will be so bright that you can even see it during the day, and it will cast a shadow at night.",
+            "index": 59
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "New research showed that Betelgeuse is in the end stages of its life and is fusing carbon in its core.",
+        "original_selected_item": {
+          "processed_sentence": "New research showed that Betelgeuse is in the end stages of its life and is fusing carbon in its core.",
+          "original_context_item": {
+            "sentence": "And new research came out just a few months ago showing that Betelgeuse is in the end stages of its life, fusing carbon in its core.",
+            "context": "\n[Preceding Sentences:]\nThis happens because the fine dust on Mars' surface allows the blue light to penetrate the atmosphere slightly more efficiently than the other colors.\nOh, also, you might notice that the sun looks quite small in these pictures, and that's of course because Mars is just further away from the sun when compared to the Earth.\nOne day, potentially sometime soon, one of the brightest stars in our night sky will explode, and when it does, your night sky will look like this.\nI am, of course, talking about the red giant star Betelgeuse.\nBetelgeuse is just a silly little star who often acts weird, getting brighter and dimmer, shooting off huge amounts of its surface in the process.\n\n[Sentence of Interest for current task:]\nAnd new research came out just a few months ago showing that Betelgeuse is in the end stages of its life, fusing carbon in its core.\n\n[Following Sentences:]\nIf this is true, Betelgeuse will go boom in your lifetime.\nI mean, are you kidding me?\nIt will be so bright that you can even see it during the day, and it will cast a shadow at night.\nAnd yes, before you comment, Betelgeuse is actually 500 light-years away, so technically it could have already exploded.\nThis is true, though, but don't freak out or anything.",
+            "index": 61
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "If Betelgeuse explodes, it will be bright enough to be seen during the day and will cast a shadow at night.",
+        "original_selected_item": {
+          "processed_sentence": "If Betelgeuse explodes, it will be bright enough to be seen during the day and will cast a shadow at night.",
+          "original_context_item": {
+            "sentence": "It will be so bright that you can even see it during the day, and it will cast a shadow at night.",
+            "context": "\n[Preceding Sentences:]\nI am, of course, talking about the red giant star Betelgeuse.\nBetelgeuse is just a silly little star who often acts weird, getting brighter and dimmer, shooting off huge amounts of its surface in the process.\nAnd new research came out just a few months ago showing that Betelgeuse is in the end stages of its life, fusing carbon in its core.\nIf this is true, Betelgeuse will go boom in your lifetime.\nI mean, are you kidding me?\n\n[Sentence of Interest for current task:]\nIt will be so bright that you can even see it during the day, and it will cast a shadow at night.\n\n[Following Sentences:]\nAnd yes, before you comment, Betelgeuse is actually 500 light-years away, so technically it could have already exploded.\nThis is true, though, but don't freak out or anything.\nWe are actually outside of the danger zone, but if we were 450 light-years closer to Betelgeuse, it could all be over.\nBlack holes are maybe the most elusive objects in the entire universe.\nThey are extremely dense, massive objects that have such a strong gravitational attraction that not even light can escape their pull.",
+            "index": 64
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Betelgeuse is 500 light-years away.",
+        "original_selected_item": {
+          "processed_sentence": "Betelgeuse is 500 light-years away.",
+          "original_context_item": {
+            "sentence": "And yes, before you comment, Betelgeuse is actually 500 light-years away, so technically it could have already exploded.",
+            "context": "\n[Preceding Sentences:]\nBetelgeuse is just a silly little star who often acts weird, getting brighter and dimmer, shooting off huge amounts of its surface in the process.\nAnd new research came out just a few months ago showing that Betelgeuse is in the end stages of its life, fusing carbon in its core.\nIf this is true, Betelgeuse will go boom in your lifetime.\nI mean, are you kidding me?\nIt will be so bright that you can even see it during the day, and it will cast a shadow at night.\n\n[Sentence of Interest for current task:]\nAnd yes, before you comment, Betelgeuse is actually 500 light-years away, so technically it could have already exploded.\n\n[Following Sentences:]\nThis is true, though, but don't freak out or anything.\nWe are actually outside of the danger zone, but if we were 450 light-years closer to Betelgeuse, it could all be over.\nBlack holes are maybe the most elusive objects in the entire universe.\nThey are extremely dense, massive objects that have such a strong gravitational attraction that not even light can escape their pull.\nNow, our galaxy alone could contain over 100 million individual black holes, but since they emit no light, they are extremely hard to find unless they are eating.",
+            "index": 65
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "We are outside the danger zone from Betelgeuse, but if we were 450 light-years closer, it could be dangerous.",
+        "original_selected_item": {
+          "processed_sentence": "We are outside the danger zone from Betelgeuse, but if we were 450 light-years closer, it could be dangerous.",
+          "original_context_item": {
+            "sentence": "We are actually outside of the danger zone, but if we were 450 light-years closer to Betelgeuse, it could all be over.",
+            "context": "\n[Preceding Sentences:]\nIf this is true, Betelgeuse will go boom in your lifetime.\nI mean, are you kidding me?\nIt will be so bright that you can even see it during the day, and it will cast a shadow at night.\nAnd yes, before you comment, Betelgeuse is actually 500 light-years away, so technically it could have already exploded.\nThis is true, though, but don't freak out or anything.\n\n[Sentence of Interest for current task:]\nWe are actually outside of the danger zone, but if we were 450 light-years closer to Betelgeuse, it could all be over.\n\n[Following Sentences:]\nBlack holes are maybe the most elusive objects in the entire universe.\nThey are extremely dense, massive objects that have such a strong gravitational attraction that not even light can escape their pull.\nNow, our galaxy alone could contain over 100 million individual black holes, but since they emit no light, they are extremely hard to find unless they are eating.\nSupermassive black holes that live in the center of most, if not all, galaxies consume an unbelievable amount of matter, forming the brightly glowing accretion disks you would have seen in movies like Interstellar.\nNow, while you can't see the actual black hole itself, you can see the event horizon, the point of no return where light is sucked inside the black hole.",
+            "index": 67
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Black holes are extremely dense, massive objects that have such a strong gravitational attraction that not even light can escape their pull.",
+        "original_selected_item": {
+          "processed_sentence": "They are extremely dense, massive objects that have such a strong gravitational attraction that not even light can escape their pull.",
+          "original_context_item": {
+            "sentence": "They are extremely dense, massive objects that have such a strong gravitational attraction that not even light can escape their pull.",
+            "context": "\n[Preceding Sentences:]\nIt will be so bright that you can even see it during the day, and it will cast a shadow at night.\nAnd yes, before you comment, Betelgeuse is actually 500 light-years away, so technically it could have already exploded.\nThis is true, though, but don't freak out or anything.\nWe are actually outside of the danger zone, but if we were 450 light-years closer to Betelgeuse, it could all be over.\nBlack holes are maybe the most elusive objects in the entire universe.\n\n[Sentence of Interest for current task:]\nThey are extremely dense, massive objects that have such a strong gravitational attraction that not even light can escape their pull.\n\n[Following Sentences:]\nNow, our galaxy alone could contain over 100 million individual black holes, but since they emit no light, they are extremely hard to find unless they are eating.\nSupermassive black holes that live in the center of most, if not all, galaxies consume an unbelievable amount of matter, forming the brightly glowing accretion disks you would have seen in movies like Interstellar.\nNow, while you can't see the actual black hole itself, you can see the event horizon, the point of no return where light is sucked inside the black hole.\nNow, despite how far away they are and how impossibly hard they are to find, scientists were actually able to take pictures of two using a telescope the size of the Earth.\nYou heard that correct.",
+            "index": 69
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Our galaxy could contain over 100 million individual black holes, and they are hard to find unless they are actively consuming matter.",
+        "original_selected_item": {
+          "processed_sentence": "Our galaxy could contain over 100 million individual black holes, and they are hard to find unless they are actively consuming matter.",
+          "original_context_item": {
+            "sentence": "Now, our galaxy alone could contain over 100 million individual black holes, but since they emit no light, they are extremely hard to find unless they are eating.",
+            "context": "\n[Preceding Sentences:]\nAnd yes, before you comment, Betelgeuse is actually 500 light-years away, so technically it could have already exploded.\nThis is true, though, but don't freak out or anything.\nWe are actually outside of the danger zone, but if we were 450 light-years closer to Betelgeuse, it could all be over.\nBlack holes are maybe the most elusive objects in the entire universe.\nThey are extremely dense, massive objects that have such a strong gravitational attraction that not even light can escape their pull.\n\n[Sentence of Interest for current task:]\nNow, our galaxy alone could contain over 100 million individual black holes, but since they emit no light, they are extremely hard to find unless they are eating.\n\n[Following Sentences:]\nSupermassive black holes that live in the center of most, if not all, galaxies consume an unbelievable amount of matter, forming the brightly glowing accretion disks you would have seen in movies like Interstellar.\nNow, while you can't see the actual black hole itself, you can see the event horizon, the point of no return where light is sucked inside the black hole.\nNow, despite how far away they are and how impossibly hard they are to find, scientists were actually able to take pictures of two using a telescope the size of the Earth.\nYou heard that correct.\nWhen you do the math and figure out how big of a telescope you would need to take a picture of one of these guys in any detail at all, you figure out that you need a telescope the size of the entire Earth to have any success at all.",
+            "index": 70
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Supermassive black holes at the center of most galaxies consume a large amount of matter, forming accretion disks.",
+        "original_selected_item": {
+          "processed_sentence": "Supermassive black holes at the center of most galaxies consume a large amount of matter, forming accretion disks.",
+          "original_context_item": {
+            "sentence": "Supermassive black holes that live in the center of most, if not all, galaxies consume an unbelievable amount of matter, forming the brightly glowing accretion disks you would have seen in movies like Interstellar.",
+            "context": "\n[Preceding Sentences:]\nThis is true, though, but don't freak out or anything.\nWe are actually outside of the danger zone, but if we were 450 light-years closer to Betelgeuse, it could all be over.\nBlack holes are maybe the most elusive objects in the entire universe.\nThey are extremely dense, massive objects that have such a strong gravitational attraction that not even light can escape their pull.\nNow, our galaxy alone could contain over 100 million individual black holes, but since they emit no light, they are extremely hard to find unless they are eating.\n\n[Sentence of Interest for current task:]\nSupermassive black holes that live in the center of most, if not all, galaxies consume an unbelievable amount of matter, forming the brightly glowing accretion disks you would have seen in movies like Interstellar.\n\n[Following Sentences:]\nNow, while you can't see the actual black hole itself, you can see the event horizon, the point of no return where light is sucked inside the black hole.\nNow, despite how far away they are and how impossibly hard they are to find, scientists were actually able to take pictures of two using a telescope the size of the Earth.\nYou heard that correct.\nWhen you do the math and figure out how big of a telescope you would need to take a picture of one of these guys in any detail at all, you figure out that you need a telescope the size of the entire Earth to have any success at all.\nNow, obviously we can't go out into space and build a telescope this size.",
+            "index": 71
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "You cannot see a black hole itself, but you can see the event horizon.",
+        "original_selected_item": {
+          "processed_sentence": "You cannot see a black hole itself, but you can see the event horizon.",
+          "original_context_item": {
+            "sentence": "Now, while you can't see the actual black hole itself, you can see the event horizon, the point of no return where light is sucked inside the black hole.",
+            "context": "\n[Preceding Sentences:]\nWe are actually outside of the danger zone, but if we were 450 light-years closer to Betelgeuse, it could all be over.\nBlack holes are maybe the most elusive objects in the entire universe.\nThey are extremely dense, massive objects that have such a strong gravitational attraction that not even light can escape their pull.\nNow, our galaxy alone could contain over 100 million individual black holes, but since they emit no light, they are extremely hard to find unless they are eating.\nSupermassive black holes that live in the center of most, if not all, galaxies consume an unbelievable amount of matter, forming the brightly glowing accretion disks you would have seen in movies like Interstellar.\n\n[Sentence of Interest for current task:]\nNow, while you can't see the actual black hole itself, you can see the event horizon, the point of no return where light is sucked inside the black hole.\n\n[Following Sentences:]\nNow, despite how far away they are and how impossibly hard they are to find, scientists were actually able to take pictures of two using a telescope the size of the Earth.\nYou heard that correct.\nWhen you do the math and figure out how big of a telescope you would need to take a picture of one of these guys in any detail at all, you figure out that you need a telescope the size of the entire Earth to have any success at all.\nNow, obviously we can't go out into space and build a telescope this size.\nThat's just not feasible, so they got creative.",
+            "index": 72
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Scientists took pictures of two black holes using a telescope the size of the Earth.",
+        "original_selected_item": {
+          "processed_sentence": "Scientists took pictures of two black holes using a telescope the size of the Earth.",
+          "original_context_item": {
+            "sentence": "Now, despite how far away they are and how impossibly hard they are to find, scientists were actually able to take pictures of two using a telescope the size of the Earth.",
+            "context": "\n[Preceding Sentences:]\nBlack holes are maybe the most elusive objects in the entire universe.\nThey are extremely dense, massive objects that have such a strong gravitational attraction that not even light can escape their pull.\nNow, our galaxy alone could contain over 100 million individual black holes, but since they emit no light, they are extremely hard to find unless they are eating.\nSupermassive black holes that live in the center of most, if not all, galaxies consume an unbelievable amount of matter, forming the brightly glowing accretion disks you would have seen in movies like Interstellar.\nNow, while you can't see the actual black hole itself, you can see the event horizon, the point of no return where light is sucked inside the black hole.\n\n[Sentence of Interest for current task:]\nNow, despite how far away they are and how impossibly hard they are to find, scientists were actually able to take pictures of two using a telescope the size of the Earth.\n\n[Following Sentences:]\nYou heard that correct.\nWhen you do the math and figure out how big of a telescope you would need to take a picture of one of these guys in any detail at all, you figure out that you need a telescope the size of the entire Earth to have any success at all.\nNow, obviously we can't go out into space and build a telescope this size.\nThat's just not feasible, so they got creative.\nBy using individual telescopes placed all around the globe, you can create an array of telescopes that could theoretically image the black holes.",
+            "index": 73
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "To take a detailed picture of a black hole, you need a telescope the size of the Earth.",
+        "original_selected_item": {
+          "processed_sentence": "To take a detailed picture of a black hole, you need a telescope the size of the Earth.",
+          "original_context_item": {
+            "sentence": "When you do the math and figure out how big of a telescope you would need to take a picture of one of these guys in any detail at all, you figure out that you need a telescope the size of the entire Earth to have any success at all.",
+            "context": "\n[Preceding Sentences:]\nNow, our galaxy alone could contain over 100 million individual black holes, but since they emit no light, they are extremely hard to find unless they are eating.\nSupermassive black holes that live in the center of most, if not all, galaxies consume an unbelievable amount of matter, forming the brightly glowing accretion disks you would have seen in movies like Interstellar.\nNow, while you can't see the actual black hole itself, you can see the event horizon, the point of no return where light is sucked inside the black hole.\nNow, despite how far away they are and how impossibly hard they are to find, scientists were actually able to take pictures of two using a telescope the size of the Earth.\nYou heard that correct.\n\n[Sentence of Interest for current task:]\nWhen you do the math and figure out how big of a telescope you would need to take a picture of one of these guys in any detail at all, you figure out that you need a telescope the size of the entire Earth to have any success at all.\n\n[Following Sentences:]\nNow, obviously we can't go out into space and build a telescope this size.\nThat's just not feasible, so they got creative.\nBy using individual telescopes placed all around the globe, you can create an array of telescopes that could theoretically image the black holes.\nAnd so they set two targets: the closest supermassive black hole to us, Sagittarius A star, and the supermassive black hole in the galaxy M87, one of the most massive black holes we know of.\nSagittarius A star is actually our black hole that lives in the center of the Milky Way galaxy.",
+            "index": 75
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Using telescopes around the globe, you can create an array to image black holes.",
+        "original_selected_item": {
+          "processed_sentence": "Using telescopes around the globe, you can create an array to image black holes.",
+          "original_context_item": {
+            "sentence": "By using individual telescopes placed all around the globe, you can create an array of telescopes that could theoretically image the black holes.",
+            "context": "\n[Preceding Sentences:]\nNow, despite how far away they are and how impossibly hard they are to find, scientists were actually able to take pictures of two using a telescope the size of the Earth.\nYou heard that correct.\nWhen you do the math and figure out how big of a telescope you would need to take a picture of one of these guys in any detail at all, you figure out that you need a telescope the size of the entire Earth to have any success at all.\nNow, obviously we can't go out into space and build a telescope this size.\nThat's just not feasible, so they got creative.\n\n[Sentence of Interest for current task:]\nBy using individual telescopes placed all around the globe, you can create an array of telescopes that could theoretically image the black holes.\n\n[Following Sentences:]\nAnd so they set two targets: the closest supermassive black hole to us, Sagittarius A star, and the supermassive black hole in the galaxy M87, one of the most massive black holes we know of.\nSagittarius A star is actually our black hole that lives in the center of the Milky Way galaxy.\nIt is just 26,000 light-years away from you right now.\nM87, on the other hand, is located 53 million light-years away.\nAnd do you want to know the crazy thing?",
+            "index": 78
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Scientists targeted Sagittarius A* and the supermassive black hole in galaxy M87.",
+        "original_selected_item": {
+          "processed_sentence": "Scientists targeted Sagittarius A* and the supermassive black hole in galaxy M87.",
+          "original_context_item": {
+            "sentence": "And so they set two targets: the closest supermassive black hole to us, Sagittarius A star, and the supermassive black hole in the galaxy M87, one of the most massive black holes we know of.",
+            "context": "\n[Preceding Sentences:]\nYou heard that correct.\nWhen you do the math and figure out how big of a telescope you would need to take a picture of one of these guys in any detail at all, you figure out that you need a telescope the size of the entire Earth to have any success at all.\nNow, obviously we can't go out into space and build a telescope this size.\nThat's just not feasible, so they got creative.\nBy using individual telescopes placed all around the globe, you can create an array of telescopes that could theoretically image the black holes.\n\n[Sentence of Interest for current task:]\nAnd so they set two targets: the closest supermassive black hole to us, Sagittarius A star, and the supermassive black hole in the galaxy M87, one of the most massive black holes we know of.\n\n[Following Sentences:]\nSagittarius A star is actually our black hole that lives in the center of the Milky Way galaxy.\nIt is just 26,000 light-years away from you right now.\nM87, on the other hand, is located 53 million light-years away.\nAnd do you want to know the crazy thing?\nIt worked.",
+            "index": 79
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Sagittarius A star is the black hole at the center of the Milky Way galaxy.",
+        "original_selected_item": {
+          "processed_sentence": "Sagittarius A star is the black hole at the center of the Milky Way galaxy.",
+          "original_context_item": {
+            "sentence": "Sagittarius A star is actually our black hole that lives in the center of the Milky Way galaxy.",
+            "context": "\n[Preceding Sentences:]\nWhen you do the math and figure out how big of a telescope you would need to take a picture of one of these guys in any detail at all, you figure out that you need a telescope the size of the entire Earth to have any success at all.\nNow, obviously we can't go out into space and build a telescope this size.\nThat's just not feasible, so they got creative.\nBy using individual telescopes placed all around the globe, you can create an array of telescopes that could theoretically image the black holes.\nAnd so they set two targets: the closest supermassive black hole to us, Sagittarius A star, and the supermassive black hole in the galaxy M87, one of the most massive black holes we know of.\n\n[Sentence of Interest for current task:]\nSagittarius A star is actually our black hole that lives in the center of the Milky Way galaxy.\n\n[Following Sentences:]\nIt is just 26,000 light-years away from you right now.\nM87, on the other hand, is located 53 million light-years away.\nAnd do you want to know the crazy thing?\nIt worked.\nThese are real images of black holes, not animations or drawings, real photographs.",
+            "index": 80
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "M87, on the other hand, is located 53 million light-years away.",
+        "original_selected_item": {
+          "processed_sentence": "M87, on the other hand, is located 53 million light-years away.",
+          "original_context_item": {
+            "sentence": "M87, on the other hand, is located 53 million light-years away.",
+            "context": "\n[Preceding Sentences:]\nThat's just not feasible, so they got creative.\nBy using individual telescopes placed all around the globe, you can create an array of telescopes that could theoretically image the black holes.\nAnd so they set two targets: the closest supermassive black hole to us, Sagittarius A star, and the supermassive black hole in the galaxy M87, one of the most massive black holes we know of.\nSagittarius A star is actually our black hole that lives in the center of the Milky Way galaxy.\nIt is just 26,000 light-years away from you right now.\n\n[Sentence of Interest for current task:]\nM87, on the other hand, is located 53 million light-years away.\n\n[Following Sentences:]\nAnd do you want to know the crazy thing?\nIt worked.\nThese are real images of black holes, not animations or drawings, real photographs.\nIsn't that just ridiculous?\nNow, back in the year 1990, the Voyager 1 spacecraft was leaving the solar system out past Neptune.",
+            "index": 82
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "These are real images of black holes, not animations or drawings, real photographs.",
+        "original_selected_item": {
+          "processed_sentence": "These are real images of black holes, not animations or drawings, real photographs.",
+          "original_context_item": {
+            "sentence": "These are real images of black holes, not animations or drawings, real photographs.",
+            "context": "\n[Preceding Sentences:]\nSagittarius A star is actually our black hole that lives in the center of the Milky Way galaxy.\nIt is just 26,000 light-years away from you right now.\nM87, on the other hand, is located 53 million light-years away.\nAnd do you want to know the crazy thing?\nIt worked.\n\n[Sentence of Interest for current task:]\nThese are real images of black holes, not animations or drawings, real photographs.\n\n[Following Sentences:]\nIsn't that just ridiculous?\nNow, back in the year 1990, the Voyager 1 spacecraft was leaving the solar system out past Neptune.\nCarl Sagan actually managed to convince NASA to turn her around and take just one last image of Earth.\nSome people said this was just dumb and a waste of fuel, but they did it anyway.\nVoyager 1 was 4 billion miles away from home when it snapped this picture.",
+            "index": 85
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Now, back in the year 1990, the Voyager 1 spacecraft was leaving the solar system out past Neptune.",
+        "original_selected_item": {
+          "processed_sentence": "Now, back in the year 1990, the Voyager 1 spacecraft was leaving the solar system out past Neptune.",
+          "original_context_item": {
+            "sentence": "Now, back in the year 1990, the Voyager 1 spacecraft was leaving the solar system out past Neptune.",
+            "context": "\n[Preceding Sentences:]\nM87, on the other hand, is located 53 million light-years away.\nAnd do you want to know the crazy thing?\nIt worked.\nThese are real images of black holes, not animations or drawings, real photographs.\nIsn't that just ridiculous?\n\n[Sentence of Interest for current task:]\nNow, back in the year 1990, the Voyager 1 spacecraft was leaving the solar system out past Neptune.\n\n[Following Sentences:]\nCarl Sagan actually managed to convince NASA to turn her around and take just one last image of Earth.\nSome people said this was just dumb and a waste of fuel, but they did it anyway.\nVoyager 1 was 4 billion miles away from home when it snapped this picture.\nThat's the Earth caught in a scattered ray of light.\nIn his book, when writing about this image, Sagan wrote, \"The Earth is the only world known so far to harbor life.",
+            "index": 87
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Carl Sagan convinced NASA to have Voyager 1 take one last image of Earth.",
+        "original_selected_item": {
+          "processed_sentence": "Carl Sagan convinced NASA to have Voyager 1 take one last image of Earth.",
+          "original_context_item": {
+            "sentence": "Carl Sagan actually managed to convince NASA to turn her around and take just one last image of Earth.",
+            "context": "\n[Preceding Sentences:]\nAnd do you want to know the crazy thing?\nIt worked.\nThese are real images of black holes, not animations or drawings, real photographs.\nIsn't that just ridiculous?\nNow, back in the year 1990, the Voyager 1 spacecraft was leaving the solar system out past Neptune.\n\n[Sentence of Interest for current task:]\nCarl Sagan actually managed to convince NASA to turn her around and take just one last image of Earth.\n\n[Following Sentences:]\nSome people said this was just dumb and a waste of fuel, but they did it anyway.\nVoyager 1 was 4 billion miles away from home when it snapped this picture.\nThat's the Earth caught in a scattered ray of light.\nIn his book, when writing about this image, Sagan wrote, \"The Earth is the only world known so far to harbor life.\nLook again at that dot.",
+            "index": 88
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Voyager 1 was 4 billion miles away from home when it snapped this picture.",
+        "original_selected_item": {
+          "processed_sentence": "Voyager 1 was 4 billion miles away from home when it snapped this picture.",
+          "original_context_item": {
+            "sentence": "Voyager 1 was 4 billion miles away from home when it snapped this picture.",
+            "context": "\n[Preceding Sentences:]\nThese are real images of black holes, not animations or drawings, real photographs.\nIsn't that just ridiculous?\nNow, back in the year 1990, the Voyager 1 spacecraft was leaving the solar system out past Neptune.\nCarl Sagan actually managed to convince NASA to turn her around and take just one last image of Earth.\nSome people said this was just dumb and a waste of fuel, but they did it anyway.\n\n[Sentence of Interest for current task:]\nVoyager 1 was 4 billion miles away from home when it snapped this picture.\n\n[Following Sentences:]\nThat's the Earth caught in a scattered ray of light.\nIn his book, when writing about this image, Sagan wrote, \"The Earth is the only world known so far to harbor life.\nLook again at that dot.\nThat's here.\nThat's home.",
+            "index": 90
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "That's the Earth caught in a scattered ray of light.",
+        "original_selected_item": {
+          "processed_sentence": "That's the Earth caught in a scattered ray of light.",
+          "original_context_item": {
+            "sentence": "That's the Earth caught in a scattered ray of light.",
+            "context": "\n[Preceding Sentences:]\nIsn't that just ridiculous?\nNow, back in the year 1990, the Voyager 1 spacecraft was leaving the solar system out past Neptune.\nCarl Sagan actually managed to convince NASA to turn her around and take just one last image of Earth.\nSome people said this was just dumb and a waste of fuel, but they did it anyway.\nVoyager 1 was 4 billion miles away from home when it snapped this picture.\n\n[Sentence of Interest for current task:]\nThat's the Earth caught in a scattered ray of light.\n\n[Following Sentences:]\nIn his book, when writing about this image, Sagan wrote, \"The Earth is the only world known so far to harbor life.\nLook again at that dot.\nThat's here.\nThat's home.\nThat's us.\"",
+            "index": 91
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "In his book, Sagan wrote about an image of Earth.",
+        "original_selected_item": {
+          "processed_sentence": "In his book, Sagan wrote about an image of Earth.",
+          "original_context_item": {
+            "sentence": "In his book, when writing about this image, Sagan wrote, \"The Earth is the only world known so far to harbor life.",
+            "context": "\n[Preceding Sentences:]\nNow, back in the year 1990, the Voyager 1 spacecraft was leaving the solar system out past Neptune.\nCarl Sagan actually managed to convince NASA to turn her around and take just one last image of Earth.\nSome people said this was just dumb and a waste of fuel, but they did it anyway.\nVoyager 1 was 4 billion miles away from home when it snapped this picture.\nThat's the Earth caught in a scattered ray of light.\n\n[Sentence of Interest for current task:]\nIn his book, when writing about this image, Sagan wrote, \"The Earth is the only world known so far to harbor life.\n\n[Following Sentences:]\nLook again at that dot.\nThat's here.\nThat's home.\nThat's us.\"\nNow, I want to tell you the incredibly sad story of Laika, the space dog.",
+            "index": 92
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Back in 1957, the Soviet Union was willing to do whatever it would take to win the space race.",
+        "original_selected_item": {
+          "processed_sentence": "Back in 1957, the Soviet Union was willing to do whatever it would take to win the space race.",
+          "original_context_item": {
+            "sentence": "Back in 1957, the Soviet Union was willing to do whatever it would take to win the space race.",
+            "context": "\n[Preceding Sentences:]\nLook again at that dot.\nThat's here.\nThat's home.\nThat's us.\"\nNow, I want to tell you the incredibly sad story of Laika, the space dog.\n\n[Sentence of Interest for current task:]\nBack in 1957, the Soviet Union was willing to do whatever it would take to win the space race.\n\n[Following Sentences:]\nNo one knew if the human body could withstand the lack of gravity, so they turned to dogs for testing.\nLaika was a stray dog from the streets of Moscow, and she was probably so happy thinking she finally found a home.\nAgainst her will, the scientists implanted sensors to measure her breathing and pulse, then strapped her into the rocket, knowing they were sending her to the grave.\nThe cabin was just the size of a washing machine, and as it was launched into space, Laika was scared.\nHer heart rate tripled.",
+            "index": 98
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "In 1957, no one knew if the human body could withstand the lack of gravity, so scientists turned to dogs for testing.",
+        "original_selected_item": {
+          "processed_sentence": "No one knew if the human body could withstand the lack of gravity, so they turned to dogs for testing.",
+          "original_context_item": {
+            "sentence": "No one knew if the human body could withstand the lack of gravity, so they turned to dogs for testing.",
+            "context": "\n[Preceding Sentences:]\nThat's here.\nThat's home.\nThat's us.\"\nNow, I want to tell you the incredibly sad story of Laika, the space dog.\nBack in 1957, the Soviet Union was willing to do whatever it would take to win the space race.\n\n[Sentence of Interest for current task:]\nNo one knew if the human body could withstand the lack of gravity, so they turned to dogs for testing.\n\n[Following Sentences:]\nLaika was a stray dog from the streets of Moscow, and she was probably so happy thinking she finally found a home.\nAgainst her will, the scientists implanted sensors to measure her breathing and pulse, then strapped her into the rocket, knowing they were sending her to the grave.\nThe cabin was just the size of a washing machine, and as it was launched into space, Laika was scared.\nHer heart rate tripled.\nThe temperature inside rose to 40 degrees Celsius, or 105 degrees Fahrenheit.",
+            "index": 99
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Against her will, scientists implanted sensors in Laika to measure her breathing and pulse, then strapped her into the rocket, knowing they were sending her to her death.",
+        "original_selected_item": {
+          "processed_sentence": "Scientists implanted sensors in Laika to measure her breathing and pulse, then strapped her into a rocket.",
+          "original_context_item": {
+            "sentence": "Against her will, the scientists implanted sensors to measure her breathing and pulse, then strapped her into the rocket, knowing they were sending her to the grave.",
+            "context": "\n[Preceding Sentences:]\nThat's us.\"\nNow, I want to tell you the incredibly sad story of Laika, the space dog.\nBack in 1957, the Soviet Union was willing to do whatever it would take to win the space race.\nNo one knew if the human body could withstand the lack of gravity, so they turned to dogs for testing.\nLaika was a stray dog from the streets of Moscow, and she was probably so happy thinking she finally found a home.\n\n[Sentence of Interest for current task:]\nAgainst her will, the scientists implanted sensors to measure her breathing and pulse, then strapped her into the rocket, knowing they were sending her to the grave.\n\n[Following Sentences:]\nThe cabin was just the size of a washing machine, and as it was launched into space, Laika was scared.\nHer heart rate tripled.\nThe temperature inside rose to 40 degrees Celsius, or 105 degrees Fahrenheit.\nAnd after just six hours, Laika's heart stopped.\nDid you know that days on Earth are literally getting longer?",
+            "index": 101
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The cabin Laika was in was the size of a washing machine.",
+        "original_selected_item": {
+          "processed_sentence": "The cabin was the size of a washing machine.",
+          "original_context_item": {
+            "sentence": "The cabin was just the size of a washing machine, and as it was launched into space, Laika was scared.",
+            "context": "\n[Preceding Sentences:]\nNow, I want to tell you the incredibly sad story of Laika, the space dog.\nBack in 1957, the Soviet Union was willing to do whatever it would take to win the space race.\nNo one knew if the human body could withstand the lack of gravity, so they turned to dogs for testing.\nLaika was a stray dog from the streets of Moscow, and she was probably so happy thinking she finally found a home.\nAgainst her will, the scientists implanted sensors to measure her breathing and pulse, then strapped her into the rocket, knowing they were sending her to the grave.\n\n[Sentence of Interest for current task:]\nThe cabin was just the size of a washing machine, and as it was launched into space, Laika was scared.\n\n[Following Sentences:]\nHer heart rate tripled.\nThe temperature inside rose to 40 degrees Celsius, or 105 degrees Fahrenheit.\nAnd after just six hours, Laika's heart stopped.\nDid you know that days on Earth are literally getting longer?\nEach year, the moon moves 15 inches away from us, which is a lot if you ask me.",
+            "index": 102
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Laika's heart rate tripled.",
+        "original_selected_item": {
+          "processed_sentence": "Her heart rate tripled.",
+          "original_context_item": {
+            "sentence": "Her heart rate tripled.",
+            "context": "\n[Preceding Sentences:]\nBack in 1957, the Soviet Union was willing to do whatever it would take to win the space race.\nNo one knew if the human body could withstand the lack of gravity, so they turned to dogs for testing.\nLaika was a stray dog from the streets of Moscow, and she was probably so happy thinking she finally found a home.\nAgainst her will, the scientists implanted sensors to measure her breathing and pulse, then strapped her into the rocket, knowing they were sending her to the grave.\nThe cabin was just the size of a washing machine, and as it was launched into space, Laika was scared.\n\n[Sentence of Interest for current task:]\nHer heart rate tripled.\n\n[Following Sentences:]\nThe temperature inside rose to 40 degrees Celsius, or 105 degrees Fahrenheit.\nAnd after just six hours, Laika's heart stopped.\nDid you know that days on Earth are literally getting longer?\nEach year, the moon moves 15 inches away from us, which is a lot if you ask me.\nAs a result, the Earth rotates slightly slower every single year, making our days longer.",
+            "index": 103
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The temperature inside Laika's cabin rose to 40 degrees Celsius, or 105 degrees Fahrenheit.",
+        "original_selected_item": {
+          "processed_sentence": "The temperature inside rose to 40 degrees Celsius, or 105 degrees Fahrenheit.",
+          "original_context_item": {
+            "sentence": "The temperature inside rose to 40 degrees Celsius, or 105 degrees Fahrenheit.",
+            "context": "\n[Preceding Sentences:]\nNo one knew if the human body could withstand the lack of gravity, so they turned to dogs for testing.\nLaika was a stray dog from the streets of Moscow, and she was probably so happy thinking she finally found a home.\nAgainst her will, the scientists implanted sensors to measure her breathing and pulse, then strapped her into the rocket, knowing they were sending her to the grave.\nThe cabin was just the size of a washing machine, and as it was launched into space, Laika was scared.\nHer heart rate tripled.\n\n[Sentence of Interest for current task:]\nThe temperature inside rose to 40 degrees Celsius, or 105 degrees Fahrenheit.\n\n[Following Sentences:]\nAnd after just six hours, Laika's heart stopped.\nDid you know that days on Earth are literally getting longer?\nEach year, the moon moves 15 inches away from us, which is a lot if you ask me.\nAs a result, the Earth rotates slightly slower every single year, making our days longer.\n14 billion years ago, a day on Earth was just 18 hours long.",
+            "index": 104
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "After just six hours, Laika's heart stopped.",
+        "original_selected_item": {
+          "processed_sentence": "And after just six hours, Laika's heart stopped.",
+          "original_context_item": {
+            "sentence": "And after just six hours, Laika's heart stopped.",
+            "context": "\n[Preceding Sentences:]\nLaika was a stray dog from the streets of Moscow, and she was probably so happy thinking she finally found a home.\nAgainst her will, the scientists implanted sensors to measure her breathing and pulse, then strapped her into the rocket, knowing they were sending her to the grave.\nThe cabin was just the size of a washing machine, and as it was launched into space, Laika was scared.\nHer heart rate tripled.\nThe temperature inside rose to 40 degrees Celsius, or 105 degrees Fahrenheit.\n\n[Sentence of Interest for current task:]\nAnd after just six hours, Laika's heart stopped.\n\n[Following Sentences:]\nDid you know that days on Earth are literally getting longer?\nEach year, the moon moves 15 inches away from us, which is a lot if you ask me.\nAs a result, the Earth rotates slightly slower every single year, making our days longer.\n14 billion years ago, a day on Earth was just 18 hours long.\nAnd in just 1 billion years, a day on Earth will be 28 hours long, meaning you can get a full night's sleep and still have 20 hours for activities.",
+            "index": 105
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Each year, the moon moves 15 inches away from Earth.",
+        "original_selected_item": {
+          "processed_sentence": "Each year, the moon moves 15 inches away from us.",
+          "original_context_item": {
+            "sentence": "Each year, the moon moves 15 inches away from us, which is a lot if you ask me.",
+            "context": "\n[Preceding Sentences:]\nThe cabin was just the size of a washing machine, and as it was launched into space, Laika was scared.\nHer heart rate tripled.\nThe temperature inside rose to 40 degrees Celsius, or 105 degrees Fahrenheit.\nAnd after just six hours, Laika's heart stopped.\nDid you know that days on Earth are literally getting longer?\n\n[Sentence of Interest for current task:]\nEach year, the moon moves 15 inches away from us, which is a lot if you ask me.\n\n[Following Sentences:]\nAs a result, the Earth rotates slightly slower every single year, making our days longer.\n14 billion years ago, a day on Earth was just 18 hours long.\nAnd in just 1 billion years, a day on Earth will be 28 hours long, meaning you can get a full night's sleep and still have 20 hours for activities.\nIn the heart of a galaxy 85 billion light-years away lies the largest black hole ever discovered, and this thing is terrifying: Phoenix A star is the black hole, and it's 100 billion times larger than our sun.\nIn fact, this black hole is so big that it's actually bigger than some entire galaxies.",
+            "index": 107
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "As a result of the moon moving away from Earth, the Earth rotates slightly slower every single year, making our days longer.",
+        "original_selected_item": {
+          "processed_sentence": "The Earth rotates slightly slower every single year, making our days longer.",
+          "original_context_item": {
+            "sentence": "As a result, the Earth rotates slightly slower every single year, making our days longer.",
+            "context": "\n[Preceding Sentences:]\nHer heart rate tripled.\nThe temperature inside rose to 40 degrees Celsius, or 105 degrees Fahrenheit.\nAnd after just six hours, Laika's heart stopped.\nDid you know that days on Earth are literally getting longer?\nEach year, the moon moves 15 inches away from us, which is a lot if you ask me.\n\n[Sentence of Interest for current task:]\nAs a result, the Earth rotates slightly slower every single year, making our days longer.\n\n[Following Sentences:]\n14 billion years ago, a day on Earth was just 18 hours long.\nAnd in just 1 billion years, a day on Earth will be 28 hours long, meaning you can get a full night's sleep and still have 20 hours for activities.\nIn the heart of a galaxy 85 billion light-years away lies the largest black hole ever discovered, and this thing is terrifying: Phoenix A star is the black hole, and it's 100 billion times larger than our sun.\nIn fact, this black hole is so big that it's actually bigger than some entire galaxies.\nThe diameter of the event horizon for this black hole is 100 times the distance between the sun and Pluto.",
+            "index": 108
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "14 billion years ago, a day on Earth was just 18 hours long.",
+        "original_selected_item": {
+          "processed_sentence": "14 billion years ago, a day on Earth was just 18 hours long.",
+          "original_context_item": {
+            "sentence": "14 billion years ago, a day on Earth was just 18 hours long.",
+            "context": "\n[Preceding Sentences:]\nThe temperature inside rose to 40 degrees Celsius, or 105 degrees Fahrenheit.\nAnd after just six hours, Laika's heart stopped.\nDid you know that days on Earth are literally getting longer?\nEach year, the moon moves 15 inches away from us, which is a lot if you ask me.\nAs a result, the Earth rotates slightly slower every single year, making our days longer.\n\n[Sentence of Interest for current task:]\n14 billion years ago, a day on Earth was just 18 hours long.\n\n[Following Sentences:]\nAnd in just 1 billion years, a day on Earth will be 28 hours long, meaning you can get a full night's sleep and still have 20 hours for activities.\nIn the heart of a galaxy 85 billion light-years away lies the largest black hole ever discovered, and this thing is terrifying: Phoenix A star is the black hole, and it's 100 billion times larger than our sun.\nIn fact, this black hole is so big that it's actually bigger than some entire galaxies.\nThe diameter of the event horizon for this black hole is 100 times the distance between the sun and Pluto.\nThat means that if you were traveling in a spaceship at the speed of light, it would still take you 71 days to complete one full loop of the black hole.",
+            "index": 109
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "In 1 billion years, a day on Earth will be 28 hours long.",
+        "original_selected_item": {
+          "processed_sentence": "In 1 billion years, a day on Earth will be 28 hours long.",
+          "original_context_item": {
+            "sentence": "And in just 1 billion years, a day on Earth will be 28 hours long, meaning you can get a full night's sleep and still have 20 hours for activities.",
+            "context": "\n[Preceding Sentences:]\nAnd after just six hours, Laika's heart stopped.\nDid you know that days on Earth are literally getting longer?\nEach year, the moon moves 15 inches away from us, which is a lot if you ask me.\nAs a result, the Earth rotates slightly slower every single year, making our days longer.\n14 billion years ago, a day on Earth was just 18 hours long.\n\n[Sentence of Interest for current task:]\nAnd in just 1 billion years, a day on Earth will be 28 hours long, meaning you can get a full night's sleep and still have 20 hours for activities.\n\n[Following Sentences:]\nIn the heart of a galaxy 85 billion light-years away lies the largest black hole ever discovered, and this thing is terrifying: Phoenix A star is the black hole, and it's 100 billion times larger than our sun.\nIn fact, this black hole is so big that it's actually bigger than some entire galaxies.\nThe diameter of the event horizon for this black hole is 100 times the distance between the sun and Pluto.\nThat means that if you were traveling in a spaceship at the speed of light, it would still take you 71 days to complete one full loop of the black hole.\nAnd the really scary thing: it's still growing.",
+            "index": 110
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "In the heart of a galaxy 85 billion light-years away lies the largest black hole ever discovered, Phoenix A, which is 100 billion times larger than our sun.",
+        "original_selected_item": {
+          "processed_sentence": "In a galaxy 85 billion light-years away lies the largest black hole ever discovered; Phoenix A star is the black hole, and it's 100 billion times larger than our sun.",
+          "original_context_item": {
+            "sentence": "In the heart of a galaxy 85 billion light-years away lies the largest black hole ever discovered, and this thing is terrifying: Phoenix A star is the black hole, and it's 100 billion times larger than our sun.",
+            "context": "\n[Preceding Sentences:]\nDid you know that days on Earth are literally getting longer?\nEach year, the moon moves 15 inches away from us, which is a lot if you ask me.\nAs a result, the Earth rotates slightly slower every single year, making our days longer.\n14 billion years ago, a day on Earth was just 18 hours long.\nAnd in just 1 billion years, a day on Earth will be 28 hours long, meaning you can get a full night's sleep and still have 20 hours for activities.\n\n[Sentence of Interest for current task:]\nIn the heart of a galaxy 85 billion light-years away lies the largest black hole ever discovered, and this thing is terrifying: Phoenix A star is the black hole, and it's 100 billion times larger than our sun.\n\n[Following Sentences:]\nIn fact, this black hole is so big that it's actually bigger than some entire galaxies.\nThe diameter of the event horizon for this black hole is 100 times the distance between the sun and Pluto.\nThat means that if you were traveling in a spaceship at the speed of light, it would still take you 71 days to complete one full loop of the black hole.\nAnd the really scary thing: it's still growing.\nYou know when people say you are a star, they aren't actually lying.",
+            "index": 111
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The diameter of the event horizon for the black hole Phoenix A is 100 times the distance between the sun and Pluto.",
+        "original_selected_item": {
+          "processed_sentence": "The diameter of the event horizon for this black hole is 100 times the distance between the sun and Pluto.",
+          "original_context_item": {
+            "sentence": "The diameter of the event horizon for this black hole is 100 times the distance between the sun and Pluto.",
+            "context": "\n[Preceding Sentences:]\nAs a result, the Earth rotates slightly slower every single year, making our days longer.\n14 billion years ago, a day on Earth was just 18 hours long.\nAnd in just 1 billion years, a day on Earth will be 28 hours long, meaning you can get a full night's sleep and still have 20 hours for activities.\nIn the heart of a galaxy 85 billion light-years away lies the largest black hole ever discovered, and this thing is terrifying: Phoenix A star is the black hole, and it's 100 billion times larger than our sun.\nIn fact, this black hole is so big that it's actually bigger than some entire galaxies.\n\n[Sentence of Interest for current task:]\nThe diameter of the event horizon for this black hole is 100 times the distance between the sun and Pluto.\n\n[Following Sentences:]\nThat means that if you were traveling in a spaceship at the speed of light, it would still take you 71 days to complete one full loop of the black hole.\nAnd the really scary thing: it's still growing.\nYou know when people say you are a star, they aren't actually lying.\nEvery breath of air you take was formed in the heart of a dying star billions of years ago.\nEvery glass of water you drink can be traced straight back to the Big Bang.",
+            "index": 113
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "It would take 71 days to complete one full loop of the black hole Phoenix A while traveling at the speed of light.",
+        "original_selected_item": {
+          "processed_sentence": "It would take 71 days to complete one full loop of the black hole traveling at the speed of light.",
+          "original_context_item": {
+            "sentence": "That means that if you were traveling in a spaceship at the speed of light, it would still take you 71 days to complete one full loop of the black hole.",
+            "context": "\n[Preceding Sentences:]\n14 billion years ago, a day on Earth was just 18 hours long.\nAnd in just 1 billion years, a day on Earth will be 28 hours long, meaning you can get a full night's sleep and still have 20 hours for activities.\nIn the heart of a galaxy 85 billion light-years away lies the largest black hole ever discovered, and this thing is terrifying: Phoenix A star is the black hole, and it's 100 billion times larger than our sun.\nIn fact, this black hole is so big that it's actually bigger than some entire galaxies.\nThe diameter of the event horizon for this black hole is 100 times the distance between the sun and Pluto.\n\n[Sentence of Interest for current task:]\nThat means that if you were traveling in a spaceship at the speed of light, it would still take you 71 days to complete one full loop of the black hole.\n\n[Following Sentences:]\nAnd the really scary thing: it's still growing.\nYou know when people say you are a star, they aren't actually lying.\nEvery breath of air you take was formed in the heart of a dying star billions of years ago.\nEvery glass of water you drink can be traced straight back to the Big Bang.\nThe atoms in your body are deeply connected to the cosmos.",
+            "index": 114
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "Every glass of water you drink can be traced straight back to the Big Bang.",
+        "original_selected_item": {
+          "processed_sentence": "Every glass of water you drink can be traced straight back to the Big Bang.",
+          "original_context_item": {
+            "sentence": "Every glass of water you drink can be traced straight back to the Big Bang.",
+            "context": "\n[Preceding Sentences:]\nThe diameter of the event horizon for this black hole is 100 times the distance between the sun and Pluto.\nThat means that if you were traveling in a spaceship at the speed of light, it would still take you 71 days to complete one full loop of the black hole.\nAnd the really scary thing: it's still growing.\nYou know when people say you are a star, they aren't actually lying.\nEvery breath of air you take was formed in the heart of a dying star billions of years ago.\n\n[Sentence of Interest for current task:]\nEvery glass of water you drink can be traced straight back to the Big Bang.\n\n[Following Sentences:]\nThe atoms in your body are deeply connected to the cosmos.\nAstronomy and physics are simply how the universe gets to observe itself.\nYou are truly made of stardust.",
+            "index": 118
+          }
+        }
+      },
+      {
+        "disambiguated_sentence": "The atoms in your body are deeply connected to the cosmos.",
+        "original_selected_item": {
+          "processed_sentence": "The atoms in your body are deeply connected to the cosmos.",
+          "original_context_item": {
+            "sentence": "The atoms in your body are deeply connected to the cosmos.",
+            "context": "\n[Preceding Sentences:]\nThat means that if you were traveling in a spaceship at the speed of light, it would still take you 71 days to complete one full loop of the black hole.\nAnd the really scary thing: it's still growing.\nYou know when people say you are a star, they aren't actually lying.\nEvery breath of air you take was formed in the heart of a dying star billions of years ago.\nEvery glass of water you drink can be traced straight back to the Big Bang.\n\n[Sentence of Interest for current task:]\nThe atoms in your body are deeply connected to the cosmos.\n\n[Following Sentences:]\nAstronomy and physics are simply how the universe gets to observe itself.\nYou are truly made of stardust.",
+            "index": 119
+          }
+        }
+      }
+    ]
+  },
+  "output_summary": {
+    "type": "dict",
+    "keys": [
+      "disambiguated_contents"
+    ],
+    "disambiguated_contents_count": 75,
+    "sample_disambiguated_sentence": "As the moon approaches Earth, a shift in tides will be the first noticeable effect...."
+  }
+}

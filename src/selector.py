@@ -39,24 +39,25 @@ async def single_selection_attempt(
     ).invoke(prompt_messages)
     if (
         not batch_selection_response 
-        or not batch_selection_response.results
+        or not batch_selection_response.selected_contents
     ):
         return [False], [None]
     
     flags:List[bool] = []
     extracted_sentences:List[Optional[str]] = []
-    for result in batch_selection_response.results:
+    selected_contents = batch_selection_response.selected_contents
+    for i in range(len(selected_contents)):
         if (
-            not result.processed_sentence
-            or result.no_verifiable_claims
+            not selected_contents[i].processed_sentence
+            or selected_contents[i].no_verifiable_claims
         ):
             flags.append(False)
             extracted_sentences.append(None)
         else:
-            if result.remains_unchanged:
-                processed_sentence = result.sentence
+            if selected_contents[i].remains_unchanged:
+                processed_sentence = contextual_sentences[i].sentence
             else:
-                processed_sentence = result.processed_sentence.strip()
+                processed_sentence = selected_contents[i].processed_sentence.strip()
             flags.append(True)
             extracted_sentences.append(processed_sentence)
     return flags, extracted_sentences

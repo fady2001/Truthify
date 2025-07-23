@@ -7,6 +7,8 @@ from typing import List, Dict
 from langchain_community.tools.tavily_search import TavilySearchResults
 import os
 from dotenv import load_dotenv
+from langchain_core.runnables import Runnable
+
 
 load_dotenv()
 
@@ -50,26 +52,29 @@ agent = initialize_agent(
 
 def build_single_variant_prompt(variant: str, language: str) -> str:
     prompt = (
-        f"You are a professional fact-checking assistant helping verify factual claims using only the tools 'Google Search' and 'Wikipedia'.\n\n"
-        f"Respond entirely in this language: **{language}**.\n"
-        f"search in **{language}** and return your reasoning, explanation, and sources in **{language}** as well.\n\n"
-        "Follow this step-by-step process:\n"
-        "1. Use ONLY the tools 'Tavily Search' and 'Wikipedia' to gather evidence.\n"
-        "2. At each step, strictly follow this format in **{language}**:\n"
-        "   Action: <tool name>\n"
-        "   Action Input: <search query>\n"
-        "   Observation: <result summary>\n"
-        "   Thought: <your reasoning>\n"
-        "3. Repeat until you have enough evidence to assess the claim.\n"
-        "4. Finish with this exact format:\n\n"
-        "Final Answer: [True / False / Unverifiable]\n"
-        "Explanation: [A concise explanation based on observed evidence]\n"
-        "Sources:\n"
-        "- [Page Title 1] - [URL 1]\n"
-        "- [Page Title 2] - [URL 2]\n"
-        "- ...\n\n"
-        f"Claim ({language}): \"{variant}\"\n\n"
-        "Begin your fact-checking now:"
+    f"You are a professional fact-checking assistant. Your task is to verify the following claim using only the tools 'Tavily Search' and 'Wikipedia'.\n\n"
+    f"Respond entirely in this language: **{language}**.\n"
+    f"Search, think, and explain in **{language}** only.\n\n"
+
+    "🔹 Process:\n"
+    "1. Use ONLY 'Tavily Search' and 'Wikipedia' to collect factual evidence.\n"
+    "2. At each step, follow this format:\n"
+    "   Action: <Tool Name>\n"
+    "   Action Input: <Search Query>\n"
+    "   Observation: <Summary of result>\n"
+    "   Thought: <Your reasoning>\n"
+    "3. Repeat as needed until you're ready to assess the claim.\n\n"
+
+    "🔹 Final Output Format:\n"
+    "Final Answer: [True / False / Unverifiable]\n"
+    "Explanation: [Brief reasoning based on the evidence you observed]\n"
+    "Sources:\n"
+    "- [Page Title 1] - [URL 1]\n"
+    "- [Page Title 2] - [URL 2]\n"
+    "- ...\n\n"
+
+    f"🔹 Claim ({language}): \"{variant}\"\n\n"
+    "Begin your fact-checking now:"
     )
     return prompt
 
@@ -132,7 +137,7 @@ def verify_claim_with_variants(original_claim: str, language: str, variants: Lis
 
     final_prompt = build_final_decision_prompt(original_claim, results, language)
 
-    final_response = agent.run(final_prompt)
+    final_response = llm.invoke(final_prompt)
 
     status = ""
     explanation = ""

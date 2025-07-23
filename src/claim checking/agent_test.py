@@ -1,9 +1,9 @@
 
-from rephraser import rephrase_claim_v2
 import time
+
 from agent_search import verify_claim_with_variants
-from typing import List, Dict
 from claim_similarity import filter_rephrasings_by_similarity
+from rephraser import rephrase_claim_v2
 
 extracted_claims = [
     {"claim": "لون أشعة الشمس أصفر", "time_stamp": "00:01:12"},

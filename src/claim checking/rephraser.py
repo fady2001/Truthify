@@ -1,6 +1,7 @@
-import cohere
 import os
-from typing import List, Dict
+from typing import List
+
+import cohere
 from dotenv import load_dotenv
 
 load_dotenv()

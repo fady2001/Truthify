@@ -2,7 +2,6 @@ from typing import Dict, List, Optional, Tuple
 
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.language_models.chat_models import BaseChatModel
-
 from prompts import HUMAN_PROMPT, SELECTION_SYSTEM_PROMPT
 from schemas import (
     BatchSelectionOutput,

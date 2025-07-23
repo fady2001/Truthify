@@ -12,12 +12,6 @@ class ContextualSentence(BaseModel):
     sentence: str = Field(description="The sentence to be processed.")
     context: str = Field(description="The context in which the sentence is used.")
     index: int = Field(default=None, description="The index of the sentence in the original text.")
-
-class BatchContextualSentence(BaseModel):
-    """Batch of contextual sentences for processing."""
-    sentences: List[ContextualSentence] = Field(
-        default_factory=list, description="List of contextual sentences to be processed."
-    )
     
 class SelectionOutput(BaseModel):
     """Response schema for selection LLM calls. used for voting operation"""

@@ -12,7 +12,7 @@ from schemas import (
     SelectionOutput,
     State,
 )
-from utils import format_excerpt_sentence_pairs, get_llm, get_ollama, voting
+from utils import batch_voting, format_excerpt_sentence_pairs, get_llm, get_ollama
 
 
 async def single_selection_attempt(
@@ -73,10 +73,8 @@ def create_selected_content(
 def create_batch_selected_content(
     processed_sentences: List[str],
     contextual_sentences: List[ContextualSentence]
-) -> BatchSelectedContent:
-    return BatchSelectedContent(
-        selected_contents = [SelectedContent(i, cs) for i, cs in zip(processed_sentences, contextual_sentences)]
-        )
+) -> List[SelectedContent]:
+    return [SelectedContent(i, cs) for i, cs in zip(processed_sentences, contextual_sentences)]
 
 
 async def selector_node(state: State) -> Dict[str, List[SelectedContent]]:
@@ -89,14 +87,15 @@ async def selector_node(state: State) -> Dict[str, List[SelectedContent]]:
     # llm_instance = get_ollama(1)
 
     # Run the selection process using voting (reduced to single completion for rate limiting)
-    selected_results = await voting(
+    selected_results = await batch_voting(
         items=contextual_sentences,
         single_attempt_function=single_selection_attempt,
         llm_instance=llm_instance,
         num_completions=1,
         min_successes=1,
-        result_factory=create_selected_content,
-        description="Selecting sentences from a text that are verifiable claims.",
+        result_factory=create_batch_selected_content,
+        description="contextual sentence",
+        batch_size=10,
     )
 
     return {"selected_contents": selected_results}

@@ -10,29 +10,32 @@ from loguru import logger
 def format_excerpt_sentence_pairs(excerpts: List[str], sentences: List[str]) -> str:
     """
     Format lists of excerpts and sentences into the structured format expected by prompts.
-    
+
     Args:
         excerpts: List of text excerpts
         sentences: List of sentences corresponding to each excerpt
-        
+
     Returns:
         Formatted string with numbered pairs
-        
+
     Raises:
         ValueError: If excerpts and sentences lists have different lengths
     """
     if len(excerpts) != len(sentences):
-        raise ValueError(f"Excerpts ({len(excerpts)}) and sentences ({len(sentences)}) must have the same length")
-    
+        raise ValueError(
+            f"Excerpts ({len(excerpts)}) and sentences ({len(sentences)}) must have the same length"
+        )
+
     formatted_pairs = []
-    
+
     for i, (excerpt, sentence) in enumerate(zip(excerpts, sentences), 1):
         pair_text = f"""Pair {i}:
 Excerpt: "{excerpt}"
 Sentence: "{sentence}" """
         formatted_pairs.append(pair_text)
-    
+
     return "\n\n".join(formatted_pairs)
+
 
 def get_llm(num_completions: int = 1):
     from dotenv import load_dotenv
@@ -47,6 +50,7 @@ def get_llm(num_completions: int = 1):
     )
     return llm_instance
 
+
 def get_ollama(num_completions: int = 1):
     temperature = 0
     if num_completions > 1:
@@ -58,10 +62,9 @@ def get_ollama(num_completions: int = 1):
     )
     return llm_instance
 
+
 T = TypeVar("T")
 R = TypeVar("R")
-
-
 async def voting(
     items: List[T],
     single_attempt_function: Callable[[T, Any], Tuple[bool, Optional[R]]],
@@ -99,14 +102,14 @@ async def voting(
             try:
                 attempt = await single_attempt_function(item, llm_instance)
                 attempts.append(attempt)
-                
+
                 # Add delay between requests (except for the last one)
                 if i < num_completions - 1:
                     await asyncio.sleep(request_delay)
             except Exception as e:
                 logger.warning(f"Request failed for {description}: {e}")
                 attempts.append((False, None))
-                
+
                 # If we hit a rate limit, wait longer
                 if "429" in str(e) or "quota" in str(e).lower():
                     logger.info("Rate limit hit, waiting 60 seconds...")
@@ -132,8 +135,21 @@ async def voting(
     return results
 
 
-T = TypeVar("T")
-R = TypeVar("R")
+def get_successful_indices(flags, num_of_successes) -> List[int]:
+    """Get indices of columns where the number of True values exceeds num_of_successes."""
+    num_columns = len(flags[0])
+    column_success_count = [0] * num_columns
+
+    # Count True values in each column
+    for row in flags:
+        for i, val in enumerate(row):
+            if val:
+                column_success_count[i] += 1
+
+    # Collect indices with count > num_of_successes
+    successful_indices = [i for i, count in enumerate(column_success_count) if not count < num_of_successes]
+    return successful_indices
+
 async def batch_voting(
     items: List[T],
     single_attempt_function: Callable[[List[T], Any], Tuple[List[bool], List[Optional[R]]]],
@@ -160,18 +176,36 @@ async def batch_voting(
         List of successfully processed results
     """
     # Process items in batches
+    final_items = []
+    final_processed = []
     for batch_start in range(0, len(items), batch_size):
         batch_end = min(batch_start + batch_size, len(items))
         batch_items = items[batch_start:batch_end]
-        
-        logger.info(f"Processing batch {batch_start//batch_size + 1} with {len(batch_items)} {description}s")
-        
+
+        logger.info(
+            f"Processing batch {batch_start // batch_size + 1} with {len(batch_items)} {description}s"
+        )
+
         # Process each item in the batch with multiple attempts
+        all_batch_attempts_flags = []
+        all_batch_attempts_processed = []
         for attempt_num in range(num_completions):
             try:
                 flags, processed_batch = await single_attempt_function(batch_items, llm_instance)
+                all_batch_attempts_flags.append(flags)
+                all_batch_attempts_processed.append(processed_batch)
+
+                # Add delay between requests (except for the last one)
+                if attempt_num < num_completions - 1:
+                    await asyncio.sleep(5)  # 5 second delay between attempts
+                
             except Exception as e:
-                logger.warning(f"Request failed for {description} (attempt {attempt_num + 1}): {e}")                
+                logger.warning(
+                    f"Request failed for {description} (attempt {attempt_num + 1}): {e}"
+                )
+                # Add failed attempt (all False flags, all None results)
+                all_batch_attempts_flags.append([False] * len(batch_items))
+                all_batch_attempts_processed.append([None] * len(batch_items))
                 # If we hit a rate limit, wait longer
                 if "429" in str(e) or "quota" in str(e).lower():
                     logger.info("Rate limit hit, waiting 60 seconds...")
@@ -179,29 +213,16 @@ async def batch_voting(
                 elif "503" in str(e) or "timeout" in str(e).lower():
                     logger.info("Service unavailable or timeout, waiting 30 seconds...")
                     await asyncio.sleep(30)
-            
-            # Evaluate this item's attempts
-            success_count = sum(1 for success, _ in item_attempts if success)
-            
-            if success_count >= min_successes:
-                # Use the first successful result
-                for success, result in item_attempts:
-                    if success and result is not None:
-                        processed_result = result_factory(result, item)
-                        if processed_result:
-                            batch_results.append(processed_result)
-                            break
-            else:
-                logger.info(
-                    f"Not enough successes ({success_count}/{min_successes}) for {description}"
-                )
-        
-        results.extend(batch_results)
-        
-        # Add delay between batches (except for the last one)
-        if batch_end < len(items):
-            logger.info(f"Waiting {batch_delay} seconds before next batch...")
-            await asyncio.sleep(batch_delay)
-    
-    logger.info(f"Completed processing {len(items)} {description}s, got {len(results)} successful results")
-    return results
+        # Determine successful indices based on flags
+        successful_indices = get_successful_indices(all_batch_attempts_flags, min_successes)
+        for index in successful_indices:
+            # Get the processed result for this index
+            final_items.append(batch_items[index])
+            for sublist in all_batch_attempts_processed:
+                processed_result = sublist[index]
+                if processed_result is not None:
+                    final_processed.append(processed_result)
+                    break
+    # Create final results using the result factory
+    final_results = result_factory(final_processed, final_items)
+    return final_results

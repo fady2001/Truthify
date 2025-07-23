@@ -5,8 +5,13 @@ from langchain_core.language_models.chat_models import BaseChatModel
 from loguru import logger
 
 from prompts import DISAMBIGUATION_SYSTEM_PROMPT, HUMAN_PROMPT
-from schemas import BatchDisambiguationOutput, DisambiguatedContent, DisambiguationOutput, SelectedContent, State
-from utils import format_excerpt_sentence_pairs, get_llm, get_ollama, batch_voting
+from schemas import (
+    BatchDisambiguationOutput,
+    DisambiguatedContent,
+    SelectedContent,
+    State,
+)
+from utils import batch_voting, format_excerpt_sentence_pairs, get_llm
 
 
 async def single_disambiguation_attempt(

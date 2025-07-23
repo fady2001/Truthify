@@ -7,7 +7,7 @@ import nltk
 
 from prompts import PUNCTUATION_HUMAN_PROMPT, PUNCTUATION_SYSTEM_PROMPT
 from schemas import ContextualSentence, PunctuadedText, State
-from utils import get_llm, get_ollama
+from utils import get_llm
 
 
 def get_tokenizer():

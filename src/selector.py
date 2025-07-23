@@ -5,14 +5,12 @@ from langchain_core.language_models.chat_models import BaseChatModel
 
 from prompts import HUMAN_PROMPT, SELECTION_SYSTEM_PROMPT
 from schemas import (
-    BatchSelectedContent,
     BatchSelectionOutput,
     ContextualSentence,
     SelectedContent,
-    SelectionOutput,
     State,
 )
-from utils import batch_voting, format_excerpt_sentence_pairs, get_llm, get_ollama
+from utils import batch_voting, format_excerpt_sentence_pairs, get_llm
 
 
 async def single_selection_attempt(

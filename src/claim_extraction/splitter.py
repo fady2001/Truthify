@@ -4,6 +4,7 @@ from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.prompts import ChatPromptTemplate
 from loguru import logger
 import nltk
+
 from .prompts import PUNCTUATION_HUMAN_PROMPT, PUNCTUATION_SYSTEM_PROMPT
 from .schemas import ContextualSentence, PunctuadedText, State
 from .utils import get_llm
@@ -26,9 +27,6 @@ def Punctuation_LLM(transcript: str, llm_instance:BaseChatModel) -> PunctuadedTe
     )
     try:
         response = llm_instance.with_structured_output(PunctuadedText).invoke(prompt_template.invoke({"transcript": transcript}))
-        # Clean triple backticks if present
-        # if raw_output.startswith("") and raw_output.endswith(""):
-        #     raw_output = "\n".join(raw_output.split("\n")[1:-1]).strip()
         return response
 
     except Exception as e:

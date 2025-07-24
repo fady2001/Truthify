@@ -1,0 +1,25 @@
+fact_checking:
+  rephrasing:
+    llm:
+      model: "command-r-plus"
+      temperature: 0.6
+      max_tokens: 300
+    n_variants: 5
+  check_similarity:
+    threshold: 0.8  
+    top_k: 3
+  Search:
+    llm:
+      model: "gemini-2.5-flash"
+      temperature: 0.2
+    wiki_tool:
+      max_results: 4
+    Tavily_Tool:
+      max_results: 3
+    Agent_intialization:
+      agent: "zero-shot-react-description"
+      verbose: True 
+      handle_parsing_errors: True 
+      max_iterations: 2
+    language: "English"
+

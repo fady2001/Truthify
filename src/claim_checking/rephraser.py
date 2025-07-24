@@ -4,6 +4,14 @@ from typing import List
 import cohere
 from dotenv import load_dotenv
 
+import yaml
+
+def load_config(path=".\config.yaml"):
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+config = load_config()
+
 load_dotenv()
 
 COHERE_API_KEY = os.getenv("COHERE_API_KEY")
@@ -32,10 +40,10 @@ def rephrase_claim_v2(claims: List[str], language: str, n_variants: int = 5) -> 
 
 
         response = client.generate(
-            model="command-r-plus",
+            model=config["fact_checking"]["rephrasing"]["llm"]["model"],
             prompt=prompt,
-            temperature=0.6,
-            max_tokens=300,
+            temperature=config["fact_checking"]["rephrasing"]["llm"]["temperature"],
+            max_tokens=config["fact_checking"]["rephrasing"]["llm"]["max_tokens"],
             stop_sequences=["--"]
         )
 

@@ -5,6 +5,14 @@ from agent_search import verify_claim_with_variants
 from claim_similarity import filter_rephrasings_by_similarity
 from rephraser import rephrase_claim_v2
 
+import yaml
+
+def load_config(path=".\config.yaml"):
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+config = load_config()
+
 extracted_claims = [
     {"claim": "لون أشعة الشمس أصفر", "time_stamp": "00:01:12"},
     {"claim": "عمر النظام الشمسي هو 13.8 مليار سنة", "time_stamp": "00:02:45"},
@@ -14,25 +22,25 @@ extracted_claims = [
 claims = [item["claim"] for item in extracted_claims]
 
 
-rephrased_outputs = rephrase_claim_v2(claims, language="Arabic", n_variants=5)
+rephrased_outputs = rephrase_claim_v2(claims, language= config["fact_checking"]["Search"]["language"], n_variants=config["fact_checking"]["rephrasing"]["n_variants"])
 rephrased_lists = [entry["rephrased"] for entry in rephrased_outputs]
 filtered_results = filter_rephrasings_by_similarity(
     claims=[entry["original"] for entry in rephrased_outputs],
     rephrasings=rephrased_lists,
-    threshold=0.8,
-    top_k=2
+    threshold=config["fact_checking"]["check_similarity"]["threshold"],
+    top_k= config["fact_checking"]["check_similarity"]["top_k"]
 )
 
 
 facts = []
 for entry in filtered_results:
     original = entry["original"]
-    variants = entry["selected_variants"]
+    variants_2 = entry["selected_variants"]
     timestamp = next(
         (item["time_stamp"] for item in extracted_claims if item["claim"] == original),
         None
     )
-    final_decision = verify_claim_with_variants(original, "Arabic", variants)
+    final_decision = verify_claim_with_variants(original, language= config["fact_checking"]["Search"]["language"], variants = variants_2)
     facts.append(final_decision) 
     final_decision["time_stamp"] = timestamp
     time.sleep(30) 

@@ -6,7 +6,13 @@ from claim_checking.claim_similarity import filter_rephrasings_by_similarity
 from claim_checking.rephraser import rephrase_claim_v2
 from claim_extraction.langgraph_pipeline import run_truthify_pipeline
 from claim_extraction.schemas import PotentialClaim
+import yaml
 
+def load_config(path=".\config.yaml"):
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+config = load_config()
 
 async def main():
     """Example usage of the LangGraph Truthify pipeline."""
@@ -18,25 +24,26 @@ async def main():
     claims:List[PotentialClaim] = await run_truthify_pipeline(input_text)
     claims = [claim.claim_text for claim in claims]
     print(f"Extracted Claims: {claims}")
-    rephrased_outputs = rephrase_claim_v2(claims, language="English", n_variants=5)
+
+    rephrased_outputs = rephrase_claim_v2(claims, language= config["fact_checking"]["Search"]["language"], n_variants=config["fact_checking"]["rephrasing"]["n_variants"])
     rephrased_lists = [entry["rephrased"] for entry in rephrased_outputs]
     filtered_results = filter_rephrasings_by_similarity(
         claims=[entry["original"] for entry in rephrased_outputs],
         rephrasings=rephrased_lists,
-        threshold=0.8,
-        top_k=2
+        threshold=config["fact_checking"]["check_similarity"]["threshold"],
+        top_k= config["fact_checking"]["check_similarity"]["top_k"]
     )
 
 
     facts = []
     for entry in filtered_results:
         original = entry["original"]
-        variants = entry["selected_variants"]
+        variants_2 = entry["selected_variants"]
         # timestamp = next(
         #     (item["time_stamp"] for item in claims if item["claim"] == original),
         #     None
         # )
-        final_decision = verify_claim_with_variants(original, "English", variants)
+        final_decision = verify_claim_with_variants(original, language= config["fact_checking"]["Search"]["language"], variants = variants_2)
         facts.append(final_decision) 
         # final_decision["time_stamp"] = timestamp
         time.sleep(30) 

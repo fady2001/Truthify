@@ -4,6 +4,7 @@ from typing import Dict, List
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
+
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
 def filter_rephrasings_by_similarity( claims: List[str], rephrasings: List[List[str]], threshold: float = 0.8, top_k: int = 3 ) -> List[Dict]:

@@ -7,6 +7,14 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_community.utilities import GoogleSearchAPIWrapper, WikipediaAPIWrapper
 from langchain_google_genai import ChatGoogleGenerativeAI
 
+import yaml
+
+def load_config(path=".\config.yaml"):
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+config = load_config()
+
 load_dotenv()
 
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
@@ -14,9 +22,9 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
+    model=config["fact_checking"]["Search"]["llm"]["model"],
     google_api_key=GOOGLE_API_KEY,
-    temperature=0.2 
+    temperature=config["fact_checking"]["Search"]["llm"]["temperature"]
 )
 
 google_tool = Tool(
@@ -27,23 +35,23 @@ google_tool = Tool(
 
 wiki_tool = Tool(
     name="Wikipedia",
-    func=WikipediaAPIWrapper(max_results=4).run,
+    func=WikipediaAPIWrapper(max_results= config["fact_checking"]["Search"]["wiki_tool"]["max_results"]).run,
     description="Useful for factual, encyclopedic knowledge"
 )
 
 tavily_tool = Tool(
     name="Tavily Search",   
-    func= TavilySearchResults(max_results=3).run ,
+    func= TavilySearchResults(max_results=config["fact_checking"]["Search"]["Tavily_Tool"]["max_results"]).run ,
     description="Useful for searching the web with Tavily"  
 )
 
 agent = initialize_agent(
     tools=[tavily_tool, wiki_tool],
     llm=llm,
-    agent="zero-shot-react-description",
-    verbose=True ,
-    handle_parsing_errors=True ,
-    max_iterations=2
+    agent=config["fact_checking"]["Search"]["Agent_intialization"]["agent"],
+    verbose=config["fact_checking"]["Search"]["Agent_intialization"]["verbose"],
+    handle_parsing_errors=config["fact_checking"]["Search"]["Agent_intialization"]["handle_parsing_errors"],
+    max_iterations=config["fact_checking"]["Search"]["Agent_intialization"]["max_iterations"]
 )
 
 

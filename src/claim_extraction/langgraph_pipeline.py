@@ -1,15 +1,14 @@
 import asyncio
 import time
 from typing import List
-
-from decomposition import decomposition_node
-from disambiguator import disambiguator_node
+from .decomposition import decomposition_node
+from .disambiguator import disambiguator_node
 from langgraph.graph import END, START, StateGraph
 from langgraph.graph.state import CompiledStateGraph
 from loguru import logger
-from schemas import PotentialClaim, State
-from selector import selector_node
-from splitter import sentence_splitter_node
+from .schemas import PotentialClaim, State
+from .selector import selector_node
+from .splitter import sentence_splitter_node
 
 
 class TruthifyLangGraphPipeline:
@@ -145,27 +144,7 @@ class TruthifyLangGraphPipeline:
             return
 
         # Group claims by original sentence
-        claims_by_sentence = {}
-        for claim in final_state['potential_claims']:
-            original_idx = claim.original_index
-            if original_idx not in claims_by_sentence:
-                claims_by_sentence[original_idx] = {
-                    "original_sentence": claim.original_sentence,
-                    "disambiguated_sentence": claim.disambiguated_sentence,
-                    "claims": [],
-                }
-            claims_by_sentence[original_idx]["claims"].append(claim.claim_text)
-
-        logger.info("\nExtracted Claims by Sentence:")
-        for idx, sentence_data in claims_by_sentence.items():
-            logger.info(f"\nSentence {idx + 1}:")
-            logger.info(f"  Original: {sentence_data['original_sentence']}")
-            if sentence_data["disambiguated_sentence"] != sentence_data["original_sentence"]:
-                logger.info(f"  Disambiguated: {sentence_data['disambiguated_sentence']}")
-            logger.info(f"  Claims ({len(sentence_data['claims'])}):")
-            for i, claim in enumerate(sentence_data["claims"], 1):
-                logger.info(f"    {i}. {claim}")
-
+      
 
 async def run_truthify_pipeline(answer_text: str) -> List[PotentialClaim]:
     """Convenience function to run the LangGraph Truthify pipeline.

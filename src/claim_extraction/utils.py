@@ -3,6 +3,7 @@ import os
 from typing import Any, Callable, List, Optional, Tuple, TypeVar
 
 from langchain_google_genai import ChatGoogleGenerativeAI
+
 #from langchain_ollama import ChatOllama
 from loguru import logger
 

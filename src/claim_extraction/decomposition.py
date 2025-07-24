@@ -1,6 +1,7 @@
 from typing import Dict, List
 
 from langchain.prompts import ChatPromptTemplate
+
 from .prompts import DECOMPOSITION_SYSTEM_PROMPT, HUMAN_PROMPT
 from .schemas import (
     BatchDecompositionOutput,

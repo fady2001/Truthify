@@ -4,9 +4,10 @@ import json
 from pathlib import Path
 from typing import Any, Dict
 
+from loguru import logger
+
 from .decomposition import decomposition_node
 from .disambiguator import disambiguator_node
-from loguru import logger
 from .schemas import State
 from .selector import selector_node
 from .splitter import sentence_splitter_node

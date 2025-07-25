@@ -6,8 +6,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 #from langchain_ollama import ChatOllama
 from loguru import logger
-
 import yaml
+
 
 def load_config(path=".\config.yaml"):
     with open(path, "r", encoding="utf-8") as f:

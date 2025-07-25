@@ -6,11 +6,11 @@ from api_schemas import ClaimResult, FactCheckResponse, TextInput
 from fastapi import FastAPI, HTTPException
 import yaml
 
-from claim_checking.agent_search import verify_claim_with_variants
-from claim_checking.claim_similarity import filter_rephrasings_by_similarity
-from claim_checking.rephraser import rephrase_claim_v2
-from claim_extraction.langgraph_pipeline import run_truthify_pipeline
-from claim_extraction.schemas import PotentialClaim
+from src.claim_checking.agent_search import verify_claim_with_variants
+from src.claim_checking.claim_similarity import filter_rephrasings_by_similarity
+from src.claim_checking.rephraser import rephrase_claim_v2
+from src.claim_extraction.langgraph_pipeline import run_truthify_pipeline
+from src.claim_extraction.schemas import PotentialClaim
 from src.get_text import extract_from_url_withtimestamps
 
 # Configure logging

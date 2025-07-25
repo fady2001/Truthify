@@ -3,8 +3,8 @@ from typing import List
 
 import cohere
 from dotenv import load_dotenv
-
 import yaml
+
 
 def load_config(path=".\config.yaml"):
     with open(path, "r", encoding="utf-8") as f:

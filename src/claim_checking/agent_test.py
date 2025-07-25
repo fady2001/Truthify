@@ -4,8 +4,8 @@ import time
 from agent_search import verify_claim_with_variants
 from claim_similarity import filter_rephrasings_by_similarity
 from rephraser import rephrase_claim_v2
-
 import yaml
+
 
 def load_config(path=".\config.yaml"):
     with open(path, "r", encoding="utf-8") as f:

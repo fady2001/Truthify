@@ -3,11 +3,12 @@ from typing import Dict, List
 
 from dotenv import load_dotenv
 from langchain.agents import Tool, initialize_agent
-from langchain_community.tools.tavily_search import TavilySearchResults
-from langchain_community.utilities import GoogleSearchAPIWrapper, WikipediaAPIWrapper
+from langchain_community.utilities import WikipediaAPIWrapper
+from langchain_google_community import GoogleSearchAPIWrapper
 from langchain_google_genai import ChatGoogleGenerativeAI
-
+from langchain_tavily import TavilySearch
 import yaml
+
 
 def load_config(path=".\config.yaml"):
     with open(path, "r", encoding="utf-8") as f:
@@ -41,7 +42,7 @@ wiki_tool = Tool(
 
 tavily_tool = Tool(
     name="Tavily Search",   
-    func= TavilySearchResults(max_results=config["fact_checking"]["Search"]["Tavily_Tool"]["max_results"]).run ,
+    func= TavilySearch(max_results=config["fact_checking"]["Search"]["Tavily_Tool"]["max_results"]).run ,
     description="Useful for searching the web with Tavily"  
 )
 

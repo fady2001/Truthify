@@ -4,12 +4,6 @@ from typing import Annotated, List, Optional
 from pydantic import BaseModel, Field
 
 
-class PunctuadedText(BaseModel):
-    """Text with punctuation and sentence boundaries."""
-
-    text: str = Field(description="The punctuated text")
-
-
 class SentenceSplittingOutput(BaseModel):
     """Response schema for LLM-based sentence splitting with context preservation."""
 

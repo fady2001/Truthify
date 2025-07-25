@@ -2,7 +2,12 @@ import re
 from typing import Any, Dict, List, Tuple
 from urllib.parse import parse_qs, urlparse
 
-from youtube_transcript_api import NoTranscriptFound, TranscriptsDisabled, YouTubeTranscriptApi
+from youtube_transcript_api import (
+    NoTranscriptFound,
+    TranscriptList,
+    TranscriptsDisabled,
+    YouTubeTranscriptApi,
+)
 
 
 def extract_from_url_withtimestamps(url: str) -> Tuple[List[Dict[str, Any]], str]:
@@ -22,7 +27,6 @@ def extract_from_url_withtimestamps(url: str) -> Tuple[List[Dict[str, Any]], str
         NoTranscriptFound: If no transcript is available.
         Exception: For other unexpected errors.
     """
-
     parsed = urlparse(url)
     if parsed.hostname and 'youtube.com' in parsed.hostname:
         video_id = parse_qs(parsed.query).get('v', [None])[0]
@@ -38,8 +42,7 @@ def extract_from_url_withtimestamps(url: str) -> Tuple[List[Dict[str, Any]], str
     transcript_output = []
 
     try:
-        transcripts = YouTubeTranscriptApi.list_transcripts(video_id)
-
+        transcripts: TranscriptList = YouTubeTranscriptApi().list(video_id=video_id)
         # Prefer manual, fallback to auto
         for lang in ['en', 'ar']:
             try:
@@ -52,7 +55,7 @@ def extract_from_url_withtimestamps(url: str) -> Tuple[List[Dict[str, Any]], str
         if not language:
             for lang in ['en', 'ar']:
                 try:
-                    transcript = transcripts.find_generated_transcript([lang])
+                    transcript = transcripts.find_manually_created_transcript([lang])
                     language = lang
                     break
                 except NoTranscriptFound:

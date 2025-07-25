@@ -10,12 +10,7 @@ from .schemas import (
     PotentialClaim,
     State,
 )
-from .utils import format_excerpt_sentence_pairs, get_llm
-
-
-def load_config(path=".\config.yaml"):
-    with open(path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+from .utils import format_excerpt_sentence_pairs, get_llm, load_config
 
 config = load_config()
 async def decomposition_stage(disambiguated_items: List[DisambiguatedContent]) -> List[PotentialClaim]:

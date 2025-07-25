@@ -4,16 +4,10 @@ from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.prompts import ChatPromptTemplate
 from loguru import logger
 import nltk
-import yaml
 
 from .prompts import PUNCTUATION_HUMAN_PROMPT, PUNCTUATION_SYSTEM_PROMPT
 from .schemas import ContextualSentence, PunctuadedText, State
-from .utils import get_llm
-
-
-def load_config(path=".\config.yaml"):
-    with open(path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+from .utils import get_llm, load_config
 
 config = load_config()
 

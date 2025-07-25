@@ -12,12 +12,7 @@ from .schemas import (
     SelectedContent,
     State,
 )
-from .utils import batch_voting, format_excerpt_sentence_pairs, get_llm
-
-
-def load_config(path=".\config.yaml"):
-    with open(path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+from .utils import batch_voting, format_excerpt_sentence_pairs, get_llm, load_config
 
 config = load_config()
 

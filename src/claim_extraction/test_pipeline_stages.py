@@ -6,12 +6,12 @@ from typing import Any, Dict
 
 from loguru import logger
 
-from .decomposition import decomposition_node
-from .disambiguator import disambiguator_node
-from .schemas import State
-from .selector import selector_node
-from .splitter import sentence_splitter_node
-from .utils import get_llm
+from src.claim_extraction.decomposition import decomposition_node
+from src.claim_extraction.disambiguator import disambiguator_node
+from src.claim_extraction.schemas import State
+from src.claim_extraction.selector import selector_node
+from src.claim_extraction.splitter import sentence_splitter_node
+from src.claim_extraction.utils import get_llm
 
 
 class PipelineStagesTester:

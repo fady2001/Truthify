@@ -1,6 +1,7 @@
 from typing import Dict, List
 
 from langchain.prompts import ChatPromptTemplate
+import yaml
 
 from .prompts import DECOMPOSITION_SYSTEM_PROMPT, HUMAN_PROMPT
 from .schemas import (
@@ -11,7 +12,6 @@ from .schemas import (
 )
 from .utils import format_excerpt_sentence_pairs, get_llm
 
-import yaml
 
 def load_config(path=".\config.yaml"):
     with open(path, "r", encoding="utf-8") as f:

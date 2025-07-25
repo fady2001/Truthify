@@ -2,6 +2,7 @@ from typing import Dict, List, Optional, Tuple
 
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.language_models.chat_models import BaseChatModel
+import yaml
 
 from .prompts import HUMAN_PROMPT, SELECTION_SYSTEM_PROMPT
 from .schemas import (
@@ -12,7 +13,6 @@ from .schemas import (
 )
 from .utils import batch_voting, format_excerpt_sentence_pairs, get_llm
 
-import yaml
 
 def load_config(path=".\config.yaml"):
     with open(path, "r", encoding="utf-8") as f:

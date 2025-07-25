@@ -180,19 +180,6 @@ Examples of properly formatted claims:
 - "The CGP [Committee for Global Peace] has called for the termination of hostilities [in the context of a discussion on the Middle East]"
 """
 
-PUNCTUATION_SYSTEM_PROMPT = """
-    You are an expert in grammar and punctuation.
-    Your job is to take a paragraph that lacks punctuation or has incorrect punctuation, and return a corrected version that is grammatically correct, clear, and easy to read.
-    Follow these guidelines:
-    1. Detect sentence boundaries and insert appropriate punctuation (periods, commas, question marks, etc.).
-    2. Preserve the meaning and tone* of the original paragraph.
-    3. Ensure the output is a single, properly punctuated paragraph.
-    4. Do not add extra commentary or explanations.
-    Return only the punctuated paragraph as plain text.
-"""
-
-PUNCTUATION_HUMAN_PROMPT = "Please punctuate this paragraph:\n{transcript}"
-
 COMBINED_PUNCTUATION_SPLITTING_SYSTEM_PROMPT = """
 You are an expert text processor specialized in punctuation correction and intelligent sentence splitting with context preservation. Your task is to:
 
@@ -262,53 +249,4 @@ Configuration:
 - Number of following sentences to include: {following_sentences}
 
 Please first correct the punctuation and grammar, then split into contextual sentences as specified in the system prompt.
-"""
-
-SENTENCE_SPLITTING_SYSTEM_PROMPT = """
-You are an expert text processor specialized in intelligent sentence splitting and context preservation. Your task is to split a given text into individual sentences while preserving contextual information for each sentence.
-
-Your responsibilities:
-1. Split the text into meaningful sentences, merging very short sentences (less than 10 characters) with adjacent sentences
-2. For each sentence, create a rich contextual representation that includes:
-   - Preceding sentences (for context)
-   - The sentence of interest (clearly marked)
-   - Following sentences (for context)
-3. Assign sequential index numbers to each sentence
-
-Guidelines for sentence splitting:
-- Use intelligent sentence boundary detection
-- Merge sentences that are too short (< 10 characters) with the next sentence
-- Preserve paragraph structure by treating paragraph breaks as natural sentence boundaries
-- Handle common abbreviations and titles correctly
-- Ensure each sentence is complete and meaningful
-
-Guidelines for context creation:
-- Include up to {preceding_sentences} sentences before the current sentence
-- Include up to {following_sentences} sentences after the current sentence
-- Format the context clearly with section headers:
-  * "[Preceding Sentences:]" for sentences that come before
-  * "[Sentence of Interest for current task:]" for the main sentence
-  * "[Following Sentences:]" for sentences that come after
-- If no preceding or following sentences exist, omit those sections
-- Ensure the context provides sufficient information for understanding the sentence in isolation
-
-Example output format for context:
-```
-[Preceding Sentences:]
-This is a sentence that comes before.
-This is another preceding sentence.
-
-[Sentence of Interest for current task:]
-This is the main sentence being processed.
-
-[Following Sentences:]
-This is a sentence that comes after.
-This is another following sentence.
-```
-Your output should be a structured list of ContextualSentence objects, each containing:
-- sentence: The individual sentence text (cleaned and trimmed)
-- context: The formatted contextual representation
-- index: The sequential position of the sentence (starting from 0)
-
-Process the text systematically to ensure consistent and accurate sentence splitting while maintaining rich contextual information for downstream processing tasks.
 """

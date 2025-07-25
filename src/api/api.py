@@ -50,7 +50,9 @@ async def fact_check_youtube(input_data: TextInput):
 
         # Step 1: Extract transcript with timestamps
         transcript_segments, language = extract_from_url_withtimestamps(input_data.text)
-
+        # join transcript_segments into one text
+        transcript = " ".join(segment['text'] for segment in transcript_segments)
+        input_data.text = transcript
         if not transcript_segments:
             return FactCheckResponse(
                 input_text=input_data.text,

@@ -87,13 +87,3 @@ def extract_from_url_withtimestamps(url: str) -> Tuple[List[Dict[str, Any]], str
         raise NoTranscriptFound(f"No transcript available: {str(e)}")
     except Exception as e:
         raise Exception(f"Error fetching transcript: {str(e)}")
-    
-if __name__ == "__main__":
-    # Example usage
-    url = "https://www. youtube.com/watch?v=KhwHR9pkoao"
-    try:
-        transcript, lang = extract_from_url_withtimestamps(url)
-        print(f"Transcript Language: {lang}")
-        print(transcript)
-    except Exception as e:
-        print(f"Error: {str(e)}")

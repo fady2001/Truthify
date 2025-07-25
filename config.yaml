@@ -23,3 +23,19 @@ fact_checking:
       max_iterations: 2
     language: "English"
 
+fact_extraction:
+  llm:
+    model: "gemini-2.5-flash"
+  Splitting:
+    preceding_sentences: 5
+    following_sentences: 5
+  selection:
+    num_completions: 1
+    min_successes: 1
+    batch_size: 100
+  disambiguation:
+    num_completions: 1
+    min_successes: 1
+    batch_size: 100
+  decomposition:
+    batch_size: 100

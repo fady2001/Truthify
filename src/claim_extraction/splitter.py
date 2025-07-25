@@ -8,7 +8,13 @@ import nltk
 from .prompts import PUNCTUATION_HUMAN_PROMPT, PUNCTUATION_SYSTEM_PROMPT
 from .schemas import ContextualSentence, PunctuadedText, State
 from .utils import get_llm
+import yaml
 
+def load_config(path=".\config.yaml"):
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+config = load_config()
 
 def get_tokenizer():
     try:
@@ -120,8 +126,8 @@ async def sentence_splitter_node(state: State) -> Dict[str, List[ContextualSente
     contextual_sentences = await sentence_splitter(
         llm_instance = llm_instance,
         answer_text= answer_text,
-        preceding_sentences=5,
-        following_sentences=5,
+        preceding_sentences=config["fact_extraction"]["Splitting"]["preceding_sentences"],
+        following_sentences= config["fact_extraction"]["Splitting"]["following_sentences"]
     )
 
     return {"contextual_sentences": contextual_sentences}

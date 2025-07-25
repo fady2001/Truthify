@@ -11,7 +11,13 @@ from .schemas import (
 )
 from .utils import format_excerpt_sentence_pairs, get_llm
 
+import yaml
 
+def load_config(path=".\config.yaml"):
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+config = load_config()
 async def decomposition_stage(disambiguated_items: List[DisambiguatedContent]) -> List[PotentialClaim]:
     """Extract atomic claims from a disambiguated sentence.
 
@@ -63,7 +69,7 @@ async def decomposition_stage(disambiguated_items: List[DisambiguatedContent]) -
 async def decomposition_node(state: State) -> Dict[str, List[PotentialClaim]]:
     """Node function to decompose disambiguated content into potential claims."""
     # Get the disambiguated contents from the state
-    batch_size = 100
+    batch_size = config["fact_extraction"]["decomposition"]["batch_size"]
     disambiguated_contents = state.disambiguated_contents
     all_potential_claims = []
     for batch_start in range(0, len(disambiguated_contents), batch_size):

@@ -12,6 +12,13 @@ from .schemas import (
 )
 from .utils import batch_voting, format_excerpt_sentence_pairs, get_llm
 
+import yaml
+
+def load_config(path=".\config.yaml"):
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+config = load_config()
 
 async def single_selection_attempt(
     contextual_sentences: List[ContextualSentence], llm_instance: BaseChatModel
@@ -94,11 +101,11 @@ async def selector_node(state: State) -> Dict[str, List[SelectedContent]]:
         items=contextual_sentences,
         single_attempt_function=single_selection_attempt,
         llm_instance=llm_instance,
-        num_completions=1,
-        min_successes=1,
+        num_completions= config["fact_extraction"]["selection"]["num_completions"],
+        min_successes= config["fact_extraction"]["selection"]["min_successes"],
         result_factory=create_batch_selected_content,
         description="contextual sentence",
-        batch_size=100,
+        batch_size= config["fact_extraction"]["selection"]["batch_size"]
     )
 
     return {"selected_contents": selected_results}

@@ -12,7 +12,13 @@ from .schemas import (
     State,
 )
 from .utils import batch_voting, format_excerpt_sentence_pairs, get_llm
+import yaml
 
+def load_config(path=".\config.yaml"):
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+config = load_config()
 
 async def single_disambiguation_attempt(
     selected_items: List[SelectedContent], llm_instance: BaseChatModel
@@ -125,11 +131,11 @@ async def disambiguator_node(state: State) -> Dict[str, List[DisambiguatedConten
         items=selected_contents,
         single_attempt_function=single_disambiguation_attempt,
         llm_instance=llm_instance,
-        num_completions=1,
-        min_successes=1,
+        num_completions= config["fact_extraction"]["disambiguation"]["num_completions"],
+        min_successes= config["fact_extraction"]["disambiguation"]["min_successes"],
         result_factory=create_batch_disambiguated_content,
         description="Disambiguating selected sentences.",
-        batch_size=100,
+        batch_size= config["fact_extraction"]["disambiguation"]["batch_size"]
     )
 
     return {"disambiguated_contents": disambiguated_results}

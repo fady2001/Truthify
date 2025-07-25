@@ -7,6 +7,13 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 #from langchain_ollama import ChatOllama
 from loguru import logger
 
+import yaml
+
+def load_config(path=".\config.yaml"):
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+config = load_config()
 
 def format_excerpt_sentence_pairs(excerpts: List[str], sentences: List[str]) -> str:
     """
@@ -47,7 +54,7 @@ def get_llm(num_completions: int = 1):
     if num_completions > 1:
         temperature = 0.2
     llm_instance = ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash", temperature=temperature, google_api_key=GEMINI_API_KEY
+        model= config["fact_extraction"]["llm"]["model"] , temperature=temperature, google_api_key=GEMINI_API_KEY
     )
     return llm_instance
 

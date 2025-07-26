@@ -1,3 +1,3 @@
 The radius of the Earth is approximately 6,371 kilometers. This value can vary slightly 
-        depending on where you measure it due to the Earth's equatorial bulge. The Earth rotates 
-        once every 24 hours, causing day and night cycles. in my opinion this is a very important information.
+depending on where you measure it due to the Earth's equatorial bulge. The Earth rotates 
+once every 24 hours, causing day and night cycles. in my opinion this is a very important information.

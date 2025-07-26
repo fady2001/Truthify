@@ -2,10 +2,10 @@ import logging
 import time
 from typing import List
 
-from api_schemas import ClaimResult, FactCheckResponse, TextInput
 from fastapi import FastAPI, HTTPException
 import yaml
 
+from src.api.api_schemas import ClaimResult, FactCheckResponse, TextInput
 from src.claim_checking.agent_search import verify_claim_with_variants
 from src.claim_checking.claim_similarity import filter_rephrasings_by_similarity
 from src.claim_checking.rephraser import rephrase_claim_v2
@@ -51,25 +51,23 @@ async def fact_check_youtube(input_data: TextInput):
         # Step 1: Extract transcript with timestamps
         transcript_segments, language = extract_from_url_withtimestamps(input_data.text)
         # join transcript_segments into one text
-        transcript = " ".join(segment['text'] for segment in transcript_segments)
-        input_data.text = transcript
+        transcript = " ".join(segment["text"] for segment in transcript_segments)
+
         if not transcript_segments:
             return FactCheckResponse(
-                input_text=input_data.text,
+                input_text=transcript,
                 extracted_claims=[],
                 fact_check_results=[],
                 processing_time=time.time() - start_time,
             )
 
         # Step 2: Extract claims from the transcript segments
-        claims: List[PotentialClaim] = await run_truthify_pipeline(
-            " ".join(segment['text'] for segment in transcript_segments)
-        )
+        claims: List[PotentialClaim] = await run_truthify_pipeline(transcript)
         extracted_claims = [claim.claim_text for claim in claims]
 
         if not extracted_claims:
             return FactCheckResponse(
-                input_text=input_data.text,
+                input_text=transcript,
                 extracted_claims=[],
                 fact_check_results=[],
                 processing_time=time.time() - start_time,
@@ -119,7 +117,7 @@ async def fact_check_youtube(input_data: TextInput):
         processing_time = time.time() - start_time
         logger.info(f"Completed fact-checking in {processing_time:.2f}s")
         return FactCheckResponse(
-            input_text=input_data.text,
+            input_text=transcript,
             extracted_claims=extracted_claims,
             fact_check_results=fact_check_results,
             processing_time=processing_time,
@@ -127,6 +125,7 @@ async def fact_check_youtube(input_data: TextInput):
     except Exception as e:
         logger.error(f"Error in fact-checking: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error in fact-checking: {str(e)}")
+
 
 @app.post("/text-fact-check", response_model=FactCheckResponse)
 async def fact_check_text(input_data: TextInput):

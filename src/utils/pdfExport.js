@@ -36,7 +36,7 @@ export const exportResultsToPDF = (results) => {
 
   // Add table of results
   autoTable(doc, {
-    head: [["Claim", "Status", "Explanation", "Confidence", "Sources"]],
+    head: [["Claim", "Status", "Explanation", "Sources"]],
     body: tableData,
     startY: 30,
     styles: {
@@ -57,9 +57,8 @@ export const exportResultsToPDF = (results) => {
     alternateRowStyles: { fillColor: [248, 248, 248] },
     columnStyles: {
       0: { cellWidth: 40 }, // Claim
-      1: { cellWidth: 18, halign: "center" }, // Status
+      1: { cellWidth: 25, halign: "center" }, // Status
       2: { cellWidth: 60 }, // Explanation
-      3: { cellWidth: 15, halign: "center" }, // Confidence
       4: { cellWidth: 45 }, // Sources
     },
     didDrawCell: function (data) {

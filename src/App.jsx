@@ -18,6 +18,7 @@ import VideoPlayer from "./components/VideoPlayer";
 
 import { theme, StyledContainer, MainPaper } from "./theme/theme";
 import { useAppState } from "./hooks/useAppState";
+import { useSnackbar } from "./contexts/snackbar";
 import {
   processYouTube,
   processText,
@@ -26,6 +27,8 @@ import {
 import { exportResultsToPDF } from "./utils/pdfExport";
 
 function App() {
+  const { openSnackbar } = useSnackbar();
+  
   const {
     // State
     tabValue,
@@ -59,13 +62,21 @@ function App() {
     setResults,
   };
 
-  // Processing handlers using the modular services
-  const handleProcessYouTube = () => processYouTube(youtubeUrl, setters);
-  const handleProcessText = () => processText(textInput, setters);
-  const handleProcessFile = () => processFile(selectedFile, setters);
+  // Processing handlers using the modular services with snackbar feedback
+  const handleProcessYouTube = () => processYouTube(youtubeUrl, setters, openSnackbar);
+  const handleProcessText = () => processText(textInput, setters, openSnackbar);
+  const handleProcessFile = () => processFile(selectedFile, setters, openSnackbar);
 
-  // PDF export handler
-  const handleExportToPDF = () => exportResultsToPDF(results);
+  // PDF export handler with feedback
+  const handleExportToPDF = () => {
+    try {
+      exportResultsToPDF(results);
+      openSnackbar("PDF exported successfully!", "success");
+    } catch (error) {
+      console.error("PDF export error:", error);
+      openSnackbar("Failed to export PDF. Please try again.", "error");
+    }
+  };
 
   return (
     <ThemeProvider theme={theme}>

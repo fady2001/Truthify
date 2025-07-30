@@ -11,7 +11,7 @@ import {
 } from "./dummyData.js";
 
 // Processing service for different content types
-export const processYouTube = async (url, setters) => {
+export const processYouTube = async (url, setters, openSnackbar) => {
   const {
     setVideoId,
     setShowVideoPlayer,
@@ -22,7 +22,7 @@ export const processYouTube = async (url, setters) => {
 
   const validation = validateYouTubeInput(url);
   if (!validation.isValid) {
-    alert(validation.message);
+    openSnackbar(validation.message, "error");
     return;
   }
 
@@ -32,50 +32,77 @@ export const processYouTube = async (url, setters) => {
   setShowResults(true);
   setLoading(true);
 
-  // Simulate API delay
-  setTimeout(() => {
-    const dummyResult = generateYouTubeData();
-    setResults(dummyResult);
+  openSnackbar("Processing YouTube video...", "info");
+
+  try {
+    // Simulate API delay
+    setTimeout(() => {
+      const dummyResult = generateYouTubeData();
+      setResults(dummyResult);
+      setLoading(false);
+      openSnackbar("YouTube video processed successfully!", "success");
+    }, 2000);
+  } catch (error) {
+    console.error("YouTube processing error:", error);
     setLoading(false);
-  }, 2000);
+    openSnackbar("Failed to process YouTube video. Please try again.", "error");
+  }
 };
 
-export const processText = async (text, setters) => {
+export const processText = async (text, setters, openSnackbar) => {
   const { setShowResults, setLoading, setResults } = setters;
 
   const validation = validateTextInput(text);
   if (!validation.isValid) {
-    alert(validation.message);
+    openSnackbar(validation.message, "error");
     return;
   }
 
   setShowResults(true);
   setLoading(true);
 
-  // Simulate API delay
-  setTimeout(() => {
-    const dummyResult = generateTextData();
-    setResults(dummyResult);
+  openSnackbar("Analyzing text content...", "info");
+
+  try {
+    // Simulate API delay
+    setTimeout(() => {
+      const dummyResult = generateTextData();
+      setResults(dummyResult);
+      setLoading(false);
+      openSnackbar("Text analysis completed successfully!", "success");
+    }, 1500);
+  } catch (error) {
+    console.error("Text processing error:", error);
     setLoading(false);
-  }, 1500);
+    openSnackbar("Failed to analyze text. Please try again.", "error");
+  }
 };
 
-export const processFile = async (file, setters) => {
+export const processFile = async (file, setters, openSnackbar) => {
   const { setShowResults, setLoading, setResults } = setters;
 
   const validation = validateFileInput(file);
   if (!validation.isValid) {
-    alert(validation.message);
+    openSnackbar(validation.message, "error");
     return;
   }
 
   setShowResults(true);
   setLoading(true);
 
-  // Simulate API delay
-  setTimeout(() => {
-    const dummyResult = generateFileData();
-    setResults(dummyResult);
+  openSnackbar(`Processing file: ${file.name}...`, "info");
+
+  try {
+    // Simulate API delay
+    setTimeout(() => {
+      const dummyResult = generateFileData();
+      setResults(dummyResult);
+      setLoading(false);
+      openSnackbar("File processed successfully!", "success");
+    }, 2500);
+  } catch (error) {
+    console.error("File processing error:", error);
     setLoading(false);
-  }, 2500);
+    openSnackbar("Failed to process file. Please try again.", "error");
+  }
 };

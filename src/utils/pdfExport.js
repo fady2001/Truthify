@@ -1,17 +1,21 @@
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-import font from "../assets/amiri"
+import font from "../assets/amiri";
 
 export const exportResultsToPDF = (results) => {
-  const doc = new jsPDF();
+  const doc = new jsPDF("landscape");
+  const pageHeight = doc.internal.pageSize.height;
+  const pageWidth = doc.internal.pageSize.width;
+  const margin = 14;
+  const bottomMargin = 20;
 
   // Add title
   doc.setFontSize(20);
-  doc.text("Fact-Check Results", 14, 22);
+  doc.text("Fact-Check Results", margin, 22);
   doc.addFileToVFS("Amiri-Regular-normal.ttf", font);
   doc.addFont("Amiri-Regular-normal.ttf", "Amiri-Regular", "normal");
   doc.setFont("Amiri-Regular");
-
+  
   // Prepare table data with properly formatted sources
   const tableData = [];
 
@@ -42,6 +46,8 @@ export const exportResultsToPDF = (results) => {
     head: [["Claim", "Status", "Explanation", "Sources"]],
     body: tableData,
     startY: 30,
+showHead: "everyPage", // Show header on every page
+    margin: { top: 30, right: margin, bottom: bottomMargin, left: margin },
     styles: {
       cellPadding: 4,
       fontSize: 8,
@@ -50,8 +56,8 @@ export const exportResultsToPDF = (results) => {
       valign: "top",
       lineColor: [220, 220, 220],
       lineWidth: 0.5,
-      font: "Amiri-Regular",
-      textColor: "black",
+        font: "Amiri-Regular",
+          textColor: "black",
     },
 
     headStyles: {
@@ -62,10 +68,10 @@ export const exportResultsToPDF = (results) => {
     },
     alternateRowStyles: { fillColor: [248, 248, 248] },
     columnStyles: {
-      0: { cellWidth: 40 }, // Claim
-      1: { cellWidth: 25, halign: "center" }, // Status
-      2: { cellWidth: 60 }, // Explanation
-      4: { cellWidth: 45 }, // Sources
+      0: { cellWidth: 60 }, // Claim - increased width for landscape
+      1: { cellWidth: 30, halign: "center" }, // Status
+      2: { cellWidth: 80 }, // Explanation - increased width
+      3: { cellWidth: 60 }, // Sources - fixed index from 4 to 3
     },
     didDrawCell: function (data) {
       // Add clickable links for sources column
@@ -76,7 +82,7 @@ export const exportResultsToPDF = (results) => {
           fact.sources.forEach((source, sourceIndex) => {
             const sourceUrl = source.url || source;
             if (sourceUrl && sourceUrl.startsWith("http")) {
-              // Calculate position for each source line
+                      // Calculate position for each source line
               const lineHeight = 3;
               const linkY = data.cell.y + yOffset + sourceIndex * lineHeight;
 
@@ -94,27 +100,43 @@ export const exportResultsToPDF = (results) => {
     },
   });
 
-  // Add sources section with clickable links
-  const finalY = doc.lastAutoTable.finalY + 15;
+  // Check if we need a new page for sources section
+  let currentY = doc.lastAutoTable.finalY + 15;
 
+  // Function to check if we need a new page
+  const checkPageBreak = (additionalHeight = 20) => {
+    if (currentY + additionalHeight > pageHeight - bottomMargin) {
+      doc.addPage();
+      currentY = 30; // Reset Y position with top margin
+      return true;
+    }
+    return false;
+  };
+
+  // Add sources section with proper pagination
+  checkPageBreak(20);
   doc.setFontSize(14);
   doc.setTextColor(22, 160, 133);
-  doc.text("Source Links", 14, finalY);
+  doc.text("Source Links", margin, currentY);
+  currentY += 10;
 
-  let currentY = finalY + 10;
   doc.setFontSize(9);
   doc.setTextColor(0, 0, 0);
 
   results.facts.forEach((fact, factIndex) => {
     if (fact.sources && fact.sources.length > 0) {
+// Calculate space needed for this fact section
+      const spaceNeeded = 5 + fact.sources.length * 4 + 3;
+      checkPageBreak(spaceNeeded);
+
       // Add fact claim as header
       doc.setFontSize(10);
       doc.setTextColor(52, 73, 94);
       doc.text(
-        `Fact ${factIndex + 1}: ${fact.claim.substring(0, 60)}${
-          fact.claim.length > 60 ? "..." : ""
+        `Fact ${factIndex + 1}: ${fact.claim.substring(0, 80)}${
+          fact.claim.length > 80 ? "..." : ""
         }`,
-        14,
+        margin,
         currentY
       );
       currentY += 5;
@@ -123,17 +145,23 @@ export const exportResultsToPDF = (results) => {
       doc.setTextColor(0, 100, 200); // Blue for links
 
       fact.sources.forEach((source, sourceIndex) => {
+        checkPageBreak(6);
         const sourceUrl = source.url || source;
         const sourceTitle = source.title || source;
 
         if (sourceUrl && sourceUrl.startsWith("http")) {
-          // Add clickable link
-          const linkText = `${sourceIndex + 1}. ${sourceTitle}`;
-          doc.link(14, currentY - 2, 180, 4, { url: sourceUrl });
-          doc.text(linkText, 14, currentY);
+                    const linkText = `${sourceIndex + 1}. ${sourceTitle}`;
+          doc.link(
+            margin,
+            currentY - 2,
+            pageWidth - margin * 2,
+            4,
+{ url: sourceUrl }
+);
+          doc.text(linkText, margin, currentY);
         } else {
           doc.setTextColor(0, 0, 0);
-          doc.text(`${sourceIndex + 1}. ${sourceTitle}`, 14, currentY);
+          doc.text(`${sourceIndex + 1}. ${sourceTitle}`, margin, currentY);
           doc.setTextColor(0, 100, 200);
         }
         currentY += 4;
@@ -144,11 +172,12 @@ export const exportResultsToPDF = (results) => {
   });
 
   // Add note about clickable links
+checkPageBreak(10);
   doc.setFontSize(8);
   doc.setTextColor(100, 100, 100);
   doc.text(
     "Note: Blue source links are clickable in PDF viewers that support interactive content.",
-    14,
+    margin,
     currentY + 5
   );
 

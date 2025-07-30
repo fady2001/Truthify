@@ -1,14 +1,26 @@
 // Dummy data generators for different content types
 export const generateYouTubeData = () => ({
   facts: [
+    // make one in arabic
+    {
+      timestamp: 0, // 0:00
+      claim: "التغير المناخي ناتج عن الأنشطة البشرية",
+      status: "verified",
+      explanation:
+        "هذا الادعاء مدعوم بأدلة علمية قوية. تؤكد الهيئ الدولية للتغير المناخي والعديد من الدراسات التي تمت مراجعتها من قبل الأقران أن الأنشطة البشرية هي المحرك الرئيسي للتغير المناخي الحديث.",
+      sources: [
+        {
+          title: "تقرير الهيئة الدولية للتغير المناخي السادس",
+          url: "https://www.ipcc.ch/report/ar6/wg1/",
+        },
+      ],
+    },
     {
       timestamp: 30, // 0:30
-      duration: 8,
       claim: "Climate change is caused by human activities",
       status: "verified",
       explanation:
         "This claim is supported by overwhelming scientific evidence. The IPCC and numerous peer-reviewed studies confirm that human activities are the primary driver of recent climate change.",
-      confidence: 95,
       sources: [
         {
           title: "IPCC Sixth Assessment Report",
@@ -18,12 +30,10 @@ export const generateYouTubeData = () => ({
     },
     {
       timestamp: 120, // 2:00
-      duration: 10,
       claim: "Electric vehicles produce zero emissions",
       status: "false",
       explanation:
         "While EVs produce no direct emissions, they may have indirect emissions from electricity generation and battery manufacturing. However, they are still significantly cleaner overall.",
-      confidence: 82,
       sources: [
         {
           title: "EPA Electric Vehicle Analysis",
@@ -33,12 +43,10 @@ export const generateYouTubeData = () => ({
     },
     {
       timestamp: 200, // 3:20
-      duration: 12,
       claim: "Renewable energy costs are decreasing rapidly",
       status: "verified",
       explanation:
         "Multiple studies show that renewable energy costs have decreased significantly over the past decade. Solar and wind are now among the cheapest electricity sources.",
-      confidence: 91,
       sources: [
         {
           title: "IRENA Global Energy Report",
@@ -48,12 +56,10 @@ export const generateYouTubeData = () => ({
     },
     {
       timestamp: 300, // 5:00
-      duration: 15,
       claim: "AI will replace all human jobs",
       status: "unknown",
       explanation:
         "While AI is advancing rapidly, the extent to which it will replace human jobs is debated. Many experts suggest AI will transform rather than completely replace most jobs.",
-      confidence: 45,
       sources: [
         {
           title: "MIT Technology Review: AI and Jobs",
@@ -71,7 +77,6 @@ export const generateTextData = () => ({
       status: "false",
       explanation:
         "This is a common myth. The Great Wall of China is not visible from space with the naked eye. This misconception has been debunked by astronauts and space agencies multiple times.",
-      confidence: 92,
       sources: [
         {
           title: "NASA Space Myths Debunked",
@@ -92,7 +97,6 @@ export const generateTextData = () => ({
       status: "unknown",
       explanation:
         "While staying hydrated is important, the '8 glasses per day' rule lacks strong scientific backing. Water needs vary based on individual factors like activity level, climate, and overall health.",
-      confidence: 65,
       sources: [
         {
           title: "Mayo Clinic: Water Intake Recommendations",
@@ -109,7 +113,6 @@ export const generateTextData = () => ({
       status: "verified",
       explanation:
         "This statement is accurate. AI technology has shown exponential growth in recent years, with significant breakthroughs in machine learning, natural language processing, and computer vision.",
-      confidence: 94,
       sources: [
         {
           title: "MIT Technology Review: AI Progress",
@@ -135,7 +138,6 @@ export const generateFileData = () => ({
       status: "false",
       explanation:
         "While electric vehicles produce no direct emissions, they may have indirect emissions from electricity generation and battery manufacturing. However, they are still significantly cleaner than conventional vehicles overall.",
-      confidence: 78,
       sources: [
         {
           title: "EPA Electric Vehicle Emissions Report",
@@ -156,7 +158,6 @@ export const generateFileData = () => ({
       status: "verified",
       explanation:
         "Numerous scientific studies have demonstrated that regular physical exercise has positive effects on mental health, including reducing symptoms of depression and anxiety while improving mood and cognitive function.",
-      confidence: 91,
       sources: [
         {
           title: "American Psychological Association: Exercise & Mental Health",
@@ -177,7 +178,6 @@ export const generateFileData = () => ({
       status: "unknown",
       explanation:
         "While quantum computers show promise for specific applications, it's unclear if or when they might replace traditional computers entirely. Current quantum computers are specialized tools rather than general-purpose replacements.",
-      confidence: 45,
       sources: [
         {
           title: "IBM Quantum Computing Overview",
@@ -198,7 +198,6 @@ export const generateFileData = () => ({
       status: "verified",
       explanation:
         "Research has shown correlations between excessive social media use and various mental health concerns, including increased rates of anxiety, depression, and body image issues, particularly among adolescents.",
-      confidence: 82,
       sources: [
         {
           title: "American Academy of Pediatrics: Social Media Guidelines",

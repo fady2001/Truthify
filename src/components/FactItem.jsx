@@ -40,11 +40,6 @@ const FactItem = ({ fact, index }) => {
             alignItems: "center",
           }}
         >
-          <Chip
-            label={`Confidence: ${fact.confidence || "N/A"}%`}
-            size="small"
-            variant="outlined"
-          />
           {fact.sources && fact.sources.length > 0 && (
             <>
               <Typography
@@ -99,7 +94,6 @@ FactItem.propTypes = {
     status: PropTypes.string,
     claim: PropTypes.string,
     explanation: PropTypes.string,
-    confidence: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     sources: PropTypes.arrayOf(
       PropTypes.oneOfType([
         PropTypes.string,

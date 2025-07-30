@@ -29,7 +29,6 @@ export const exportResultsToPDF = (results) => {
       fact.claim,
       fact.status.toUpperCase(),
       fact.explanation,
-      `${fact.confidence}%`,
       sourcesText,
     ]);
   });

@@ -1,12 +1,16 @@
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+import font from "../assets/amiri"
 
 export const exportResultsToPDF = (results) => {
   const doc = new jsPDF();
 
   // Add title
-  doc.setFontSize(18);
+  doc.setFontSize(20);
   doc.text("Fact-Check Results", 14, 22);
+  doc.addFileToVFS("Amiri-Regular-normal.ttf", font);
+  doc.addFont("Amiri-Regular-normal.ttf", "Amiri-Regular", "normal");
+  doc.setFont("Amiri-Regular");
 
   // Prepare table data with properly formatted sources
   const tableData = [];
@@ -46,7 +50,10 @@ export const exportResultsToPDF = (results) => {
       valign: "top",
       lineColor: [220, 220, 220],
       lineWidth: 0.5,
+      font: "Amiri-Regular",
+      textColor: "black",
     },
+
     headStyles: {
       fillColor: [22, 160, 133],
       textColor: [255, 255, 255],

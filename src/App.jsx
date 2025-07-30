@@ -28,7 +28,7 @@ import { exportResultsToPDF } from "./utils/pdfExport";
 
 function App() {
   const { openSnackbar } = useSnackbar();
-  
+
   const {
     // State
     tabValue,
@@ -63,9 +63,11 @@ function App() {
   };
 
   // Processing handlers using the modular services with snackbar feedback
-  const handleProcessYouTube = () => processYouTube(youtubeUrl, setters, openSnackbar);
+  const handleProcessYouTube = () =>
+    processYouTube(youtubeUrl, setters, openSnackbar);
   const handleProcessText = () => processText(textInput, setters, openSnackbar);
-  const handleProcessFile = () => processFile(selectedFile, setters, openSnackbar);
+  const handleProcessFile = () =>
+    processFile(selectedFile, setters, openSnackbar);
 
   // PDF export handler with feedback
   const handleExportToPDF = () => {
